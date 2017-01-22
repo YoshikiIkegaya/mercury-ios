@@ -64,6 +64,7 @@
                                 <segue destination="YZM-TN-7Ej" kind="show" id="rSt-BZ-f7h"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="2kx-Im-NAO"/>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="han-Ij-3vi" id="KtX-Oc-kzs"/>
