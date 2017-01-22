@@ -9,7 +9,6 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
-import RxAlamofire
 
 typealias APICompletionHandler = (_ json: JSON?, _ error: NSError?) -> Void
 
@@ -21,21 +20,22 @@ class MercuryAPI: NSObject {
   // : fetch data from API
   func fetchPlanInfoList() {
     Alamofire.request("https://mercury-app.herokuapp.com/api/plans").responseJSON { response in
-      
       defer {
-        
+        print("======= deferred =======")
       }
-      
       guard let object = response.result.value else {
         return
       }
-      
       let json = JSON(object)
       json.forEach { (_, json) in
         let pi = PlanInfo(json: json)
         self.plans.append(pi)
+        print("=========")
+        if let giveStr = pi.give {
+          print(giveStr)
+        }
+        print("=========")
       }
     }
   }
 }
-

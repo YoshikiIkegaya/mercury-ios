@@ -13,18 +13,23 @@ class HomeViewController: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
   
-  let placeholderView = UIIma
-  //imageWithColor(UIColor.whiteColor())
   let collectionViewCellIdentifier = "HomeCollectionViewCell"
-
+  let refreshControl = UIRefreshControl()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    print("----- viewDidLoad -----")
+    refreshControl.addTarget(self, action: #selector(reload(_:)), for: .valueChanged)
+    self.title = "Home"
     setupCollectionView()
     fetchAPI()
-    
-    
-    
+  }
+  
+  func reload(_ sender: Any?) {
+    DispatchQueue.main.async {
+      self.collectionView?.reloadData()
+      self.refreshControl.endRefreshing()
+    }
   }
   
   func fetchAPI() {
@@ -37,8 +42,10 @@ class HomeViewController: UIViewController {
     self.collectionView.register(nib, forCellWithReuseIdentifier: "Cell")
     self.collectionView?.delegate = self
     self.collectionView?.dataSource = self
+    self.collectionView?.refreshControl = refreshControl
+    reload(nil)
   }
-
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
@@ -65,14 +72,13 @@ extension HomeViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? HomeCollectionViewCell
-    cell?.giveLabel.text = MercuryAPI.sharedInstance.plans[indexPath.row].give
+    cell?.giveLabel.text = "Hello"//MercuryAPI.sharedInstance.plans[indexPath.row].give
     cell?.giveLabel.textColor = UIColor.black
-    cell?.takeLabel.text = MercuryAPI.sharedInstance.plans[indexPath.row].take
+    cell?.takeLabel.text = "HogeHoge"//MercuryAPI.sharedInstance.plans[indexPath.row].take
     cell?.takeLabel.textColor = UIColor.black
     cell?.backgroundColor = UIColor.lightGray
-    cell?.imageView?.sd_setImage(with: NSURL(string: MercuryAPI.sharedInstance.plans[indexPath.row].image_url), placeholderImage: <#T##UIImage!#>, options: .lowPriority)
     
     return cell!
   }
-
+  
 }
