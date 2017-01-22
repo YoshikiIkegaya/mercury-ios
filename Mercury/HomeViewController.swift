@@ -30,6 +30,9 @@ class HomeViewController: UIViewController {
   }
   
   @IBAction func tappedCreatePlanButton(_ sender: Any) {
+    if let vc = self.storyboard?.instantiateViewController(withIdentifier: "CreatePlanVC") as? CreatePlanViewController {
+      self.present(vc, animated: true, completion: nil)
+    }
   }
   
   
