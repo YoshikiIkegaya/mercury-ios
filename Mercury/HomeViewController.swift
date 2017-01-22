@@ -12,6 +12,7 @@ import SDWebImage
 class HomeViewController: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
+  @IBOutlet weak var createPlanButton: UIButton!
   
   let collectionViewCellIdentifier = "HomeCollectionViewCell"
   let refreshControl = UIRefreshControl()
@@ -24,7 +25,13 @@ class HomeViewController: UIViewController {
     self.title = "Home"
     setupCollectionView()
     fetchAPI()
+    
+    setupCreatePlanButton()
   }
+  
+  @IBAction func tappedCreatePlanButton(_ sender: Any) {
+  }
+  
   
   func reload(_ sender: Any?) {
     DispatchQueue.main.async {
@@ -45,6 +52,18 @@ class HomeViewController: UIViewController {
     self.collectionView?.dataSource = self
     self.collectionView?.refreshControl = refreshControl
     reload(nil)
+  }
+  
+  func setupCreatePlanButton() {
+    self.createPlanButton?.backgroundColor = Settings.Color.mercuryColor
+    let rect = CGRect(x: self.view.frame.size.width-80, y: self.view.frame.size.height-80, width: 100.0, height: 100.0)
+    self.createPlanButton?.frame = rect
+    self.createPlanButton?.layer.cornerRadius = createPlanButton.frame.size.width/2
+    self.createPlanButton?.clipsToBounds = true
+    
+    self.createPlanButton?.tintColor = UIColor.white
+    self.createPlanButton?.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 20)
+    
   }
   
   override func didReceiveMemoryWarning() {

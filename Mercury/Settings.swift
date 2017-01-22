@@ -17,5 +17,6 @@ enum Settings {
   }
   enum Color {
     static let hogeColor = UIColor.black
+    static let mercuryColor = UIColor(red:0.92, green:0.21, blue:0.18, alpha:1.00)
   }
 }
