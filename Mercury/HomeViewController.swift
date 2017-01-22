@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class HomeViewController: UIViewController {
   
-  
   @IBOutlet weak var collectionView: UICollectionView!
+  
   var plans = ["hoge", "foo", "poo"]
   let collectionViewCellIdentifier = "HomeCollectionViewCell"
 
@@ -19,8 +21,25 @@ class HomeViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
     setupCollectionView()
+    
+    MercuryAPI.sharedInstance.fetchPlanInfoList()
+    
+//    Alamofire.request("https://mercury-app.herokuapp.com/api/plans").responseJSON { response in
+//      print(response.request)  // original URL request
+//      print(response.response) // HTTP URL response
+//      print(response.data)     // server data
+//      print(response.result)   // result of response serialization
+//      
+//      
+//      if let JSON = response.result.value {
+//        print("JSON: \(JSON)")
+//      }
+//    }
   }
   
+    
+  
+  // : UI
   func setupCollectionView() {
     let nib = UINib(nibName: collectionViewCellIdentifier, bundle: nil)
     self.collectionView.register(nib, forCellWithReuseIdentifier: "Cell")
@@ -30,9 +49,7 @@ class HomeViewController: UIViewController {
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
-
 }
 
 /// UICollectionViewDelegateFlowLayout
@@ -53,11 +70,6 @@ extension HomeViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return plans.count
   }
-  
-
-  
-  
-  
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? HomeCollectionViewCell

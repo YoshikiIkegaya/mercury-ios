@@ -6,5 +6,7 @@ target 'Mercury' do
   use_frameworks!
 
   # Pods for Mercury
+pod 'Alamofire'
+pod 'SwiftyJSON'
 pod 'SideMenu'
 end

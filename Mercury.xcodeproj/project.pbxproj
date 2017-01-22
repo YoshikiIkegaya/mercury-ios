@@ -17,6 +17,9 @@
 		DD259DE61E343AA4001F03AC /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DE41E343AA4001F03AC /* HomeCollectionViewCell.swift */; };
 		DD259DE71E343AA4001F03AC /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD259DE51E343AA4001F03AC /* HomeCollectionViewCell.xib */; };
 		DD259DEE1E344888001F03AC /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DED1E344888001F03AC /* Settings.swift */; };
+		DD259DF11E344B56001F03AC /* PlanInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DF01E344B56001F03AC /* PlanInfo.swift */; };
+		DD259DF91E3454DE001F03AC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DF81E3454DE001F03AC /* Router.swift */; };
+		DD259DFB1E3458FB001F03AC /* MercuryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DFA1E3458FB001F03AC /* MercuryAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		DD259DE41E343AA4001F03AC /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD259DE51E343AA4001F03AC /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		DD259DED1E344888001F03AC /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		DD259DF01E344B56001F03AC /* PlanInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanInfo.swift; sourceTree = "<group>"; };
+		DD259DF81E3454DE001F03AC /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		DD259DFA1E3458FB001F03AC /* MercuryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercuryAPI.swift; sourceTree = "<group>"; };
 		E79BFCF3E772DC048BA353A8 /* Pods-Mercury.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mercury.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mercury/Pods-Mercury.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				DD259DCC1E3430FE001F03AC /* Mercury */,
+				DD259DF71E3454C1001F03AC /* Config */,
 				DD259DCB1E3430FE001F03AC /* Products */,
 				B7713BE639852BCBB4586356 /* Pods */,
 				C4D8FF7C35801C859EF86A6F /* Frameworks */,
@@ -87,8 +94,9 @@
 			isa = PBXGroup;
 			children = (
 				DD259DCD1E3430FE001F03AC /* AppDelegate.swift */,
+				DD259DF41E344D3D001F03AC /* Extensions */,
 				DD259DEB1E34486B001F03AC /* Helper */,
-				DD259DE91E344287001F03AC /* Model */,
+				DD259DE91E344287001F03AC /* Models */,
 				DD259DE31E343920001F03AC /* Views */,
 				DD259DE01E34387D001F03AC /* Controllers */,
 				DD259DD11E3430FE001F03AC /* Main.storyboard */,
@@ -117,11 +125,13 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		DD259DE91E344287001F03AC /* Model */ = {
+		DD259DE91E344287001F03AC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DD259DF01E344B56001F03AC /* PlanInfo.swift */,
+				DD259DFA1E3458FB001F03AC /* MercuryAPI.swift */,
 			);
-			name = Model;
+			name = Models;
 			sourceTree = "<group>";
 		};
 		DD259DEA1E3442AE001F03AC /* SideMenu */ = {
@@ -135,9 +145,25 @@
 		DD259DEB1E34486B001F03AC /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				DD259DED1E344888001F03AC /* Settings.swift */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		DD259DF41E344D3D001F03AC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		DD259DF71E3454C1001F03AC /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				DD259DED1E344888001F03AC /* Settings.swift */,
+				DD259DF81E3454DE001F03AC /* Router.swift */,
+			);
+			name = Config;
+			path = Mercury;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,8 +291,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD259DF11E344B56001F03AC /* PlanInfo.swift in Sources */,
 				DD259DD01E3430FE001F03AC /* HomeViewController.swift in Sources */,
 				DD259DE21E343895001F03AC /* SideMenuViewController.swift in Sources */,
+				DD259DF91E3454DE001F03AC /* Router.swift in Sources */,
+				DD259DFB1E3458FB001F03AC /* MercuryAPI.swift in Sources */,
 				DD259DCE1E3430FE001F03AC /* AppDelegate.swift in Sources */,
 				DD259DE61E343AA4001F03AC /* HomeCollectionViewCell.swift in Sources */,
 				DD259DEE1E344888001F03AC /* Settings.swift in Sources */,
