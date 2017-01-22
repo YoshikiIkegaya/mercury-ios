@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A4F625888AA8477DAAC7CBDD /* Pods_Mercury.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE8BBD7470C0D26EB10F4B5 /* Pods_Mercury.framework */; };
+		DD0B43A71E34EA7D003787D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */; };
 		DD259DCE1E3430FE001F03AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DCD1E3430FE001F03AC /* AppDelegate.swift */; };
 		DD259DD01E3430FE001F03AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DCF1E3430FE001F03AC /* HomeViewController.swift */; };
 		DD259DD31E3430FE001F03AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD259DD11E3430FE001F03AC /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		7DCC01DDE70AFE92EF6999B2 /* Pods-Mercury.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mercury.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mercury/Pods-Mercury.debug.xcconfig"; sourceTree = "<group>"; };
 		CAE8BBD7470C0D26EB10F4B5 /* Pods_Mercury.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mercury.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DD259DCA1E3430FE001F03AC /* Mercury.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mercury.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD259DCD1E3430FE001F03AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD259DCF1E3430FE001F03AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		DD259DE01E34387D001F03AC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */,
 				DD259DCF1E3430FE001F03AC /* HomeViewController.swift */,
 				DD259E021E34BEF3001F03AC /* CreatePlanViewController.swift */,
 				DD259DEA1E3442AE001F03AC /* SideMenu */,
@@ -307,6 +310,7 @@
 				DD259DCE1E3430FE001F03AC /* AppDelegate.swift in Sources */,
 				DD259DE61E343AA4001F03AC /* HomeCollectionViewCell.swift in Sources */,
 				DD259DEE1E344888001F03AC /* Settings.swift in Sources */,
+				DD0B43A71E34EA7D003787D7 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
