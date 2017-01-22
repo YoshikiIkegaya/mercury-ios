@@ -62,8 +62,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 extension HomeViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     print("Tapped cell!")
-    /// 詳細画面へ遷移
-    
+    /// 詳細画面へ遷移 
   }
 }
 
@@ -75,14 +74,15 @@ extension HomeViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? HomeCollectionViewCell
     cell?.giveLabel.text = MercuryAPI.sharedInstance.plans[indexPath.row].give
-    cell?.giveLabel.textColor = UIColor.black
     cell?.takeLabel.text = MercuryAPI.sharedInstance.plans[indexPath.row].take
+    cell?.giveLabel.textColor = UIColor.black
     cell?.takeLabel.textColor = UIColor.black
-    
-    let image_url_string = MercuryAPI.sharedInstance.plans[indexPath.row].image_url
-    var image_url: NSURL = NSURL(string: image_url_string!)!
-    cell?.imageView.sd_setImage(with: image_url as URL!, placeholderImage: placeholderView, options: .lowPriority)
-    
+    if let image_url_string = MercuryAPI.sharedInstance.plans[indexPath.row].image_url {
+      let image_url: NSURL = NSURL(string: image_url_string)!
+      cell?.imageView.sd_setImage(with: image_url as URL, placeholderImage: placeholderView, options: .lowPriority)
+      cell?.imageView?.contentMode = .scaleAspectFill
+      cell?.imageView?.layer.masksToBounds = true
+    }
     cell?.backgroundColor = UIColor.lightGray
     return cell!
   }
