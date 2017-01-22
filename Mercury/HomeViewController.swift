@@ -35,7 +35,6 @@ class HomeViewController: UIViewController {
     }
   }
   
-  
   func reload(_ sender: Any?) {
     DispatchQueue.main.async {
       self.collectionView?.reloadData()
