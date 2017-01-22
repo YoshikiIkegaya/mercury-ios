@@ -13,6 +13,7 @@
 		DD259DD31E3430FE001F03AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD259DD11E3430FE001F03AC /* Main.storyboard */; };
 		DD259DD51E3430FE001F03AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD259DD41E3430FE001F03AC /* Assets.xcassets */; };
 		DD259DD81E3430FE001F03AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD259DD61E3430FE001F03AC /* LaunchScreen.storyboard */; };
+		DD259DE21E343895001F03AC /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DE11E343895001F03AC /* SideMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		DD259DD41E3430FE001F03AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD259DD71E3430FE001F03AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD259DD91E3430FE001F03AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD259DE11E343895001F03AC /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		E79BFCF3E772DC048BA353A8 /* Pods-Mercury.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mercury.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mercury/Pods-Mercury.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,13 +81,22 @@
 			isa = PBXGroup;
 			children = (
 				DD259DCD1E3430FE001F03AC /* AppDelegate.swift */,
-				DD259DCF1E3430FE001F03AC /* ViewController.swift */,
+				DD259DE01E34387D001F03AC /* Controllers */,
 				DD259DD11E3430FE001F03AC /* Main.storyboard */,
 				DD259DD41E3430FE001F03AC /* Assets.xcassets */,
 				DD259DD61E3430FE001F03AC /* LaunchScreen.storyboard */,
 				DD259DD91E3430FE001F03AC /* Info.plist */,
 			);
 			path = Mercury;
+			sourceTree = "<group>";
+		};
+		DD259DE01E34387D001F03AC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DD259DCF1E3430FE001F03AC /* ViewController.swift */,
+				DD259DE11E343895001F03AC /* SideMenuViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD259DD01E3430FE001F03AC /* ViewController.swift in Sources */,
+				DD259DE21E343895001F03AC /* SideMenuViewController.swift in Sources */,
 				DD259DCE1E3430FE001F03AC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
