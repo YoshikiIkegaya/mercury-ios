@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4F625888AA8477DAAC7CBDD /* Pods_Mercury.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE8BBD7470C0D26EB10F4B5 /* Pods_Mercury.framework */; };
 		DD259DCE1E3430FE001F03AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DCD1E3430FE001F03AC /* AppDelegate.swift */; };
 		DD259DD01E3430FE001F03AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DCF1E3430FE001F03AC /* ViewController.swift */; };
 		DD259DD31E3430FE001F03AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD259DD11E3430FE001F03AC /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7DCC01DDE70AFE92EF6999B2 /* Pods-Mercury.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mercury.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mercury/Pods-Mercury.debug.xcconfig"; sourceTree = "<group>"; };
+		CAE8BBD7470C0D26EB10F4B5 /* Pods_Mercury.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mercury.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD259DCA1E3430FE001F03AC /* Mercury.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mercury.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD259DCD1E3430FE001F03AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD259DCF1E3430FE001F03AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		DD259DD41E3430FE001F03AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD259DD71E3430FE001F03AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD259DD91E3430FE001F03AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E79BFCF3E772DC048BA353A8 /* Pods-Mercury.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mercury.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mercury/Pods-Mercury.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4F625888AA8477DAAC7CBDD /* Pods_Mercury.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B7713BE639852BCBB4586356 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7DCC01DDE70AFE92EF6999B2 /* Pods-Mercury.debug.xcconfig */,
+				E79BFCF3E772DC048BA353A8 /* Pods-Mercury.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C4D8FF7C35801C859EF86A6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CAE8BBD7470C0D26EB10F4B5 /* Pods_Mercury.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DD259DC11E3430FE001F03AC = {
 			isa = PBXGroup;
 			children = (
 				DD259DCC1E3430FE001F03AC /* Mercury */,
 				DD259DCB1E3430FE001F03AC /* Products */,
+				B7713BE639852BCBB4586356 /* Pods */,
+				C4D8FF7C35801C859EF86A6F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD259DDC1E3430FE001F03AC /* Build configuration list for PBXNativeTarget "Mercury" */;
 			buildPhases = (
+				52A81BE6DBF0AB8E73D9A469 /* [CP] Check Pods Manifest.lock */,
 				DD259DC61E3430FE001F03AC /* Sources */,
 				DD259DC71E3430FE001F03AC /* Frameworks */,
 				DD259DC81E3430FE001F03AC /* Resources */,
+				E8AB6F1CE13CA0849A99C381 /* [CP] Embed Pods Frameworks */,
+				B30FAACCCFE19562CCB3AD0D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		52A81BE6DBF0AB8E73D9A469 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B30FAACCCFE19562CCB3AD0D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mercury/Pods-Mercury-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8AB6F1CE13CA0849A99C381 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mercury/Pods-Mercury-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DD259DC61E3430FE001F03AC /* Sources */ = {
@@ -259,6 +334,7 @@
 		};
 		DD259DDD1E3430FE001F03AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DCC01DDE70AFE92EF6999B2 /* Pods-Mercury.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K7HURQ6RSZ;
@@ -272,6 +348,7 @@
 		};
 		DD259DDE1E3430FE001F03AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E79BFCF3E772DC048BA353A8 /* Pods-Mercury.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K7HURQ6RSZ;
@@ -302,6 +379,7 @@
 				DD259DDE1E3430FE001F03AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
