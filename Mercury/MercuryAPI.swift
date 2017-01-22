@@ -32,14 +32,7 @@ class MercuryAPI: NSObject {
         let pi = PlanInfo(json: json)
         self.plans.append(pi)
       }
-      
-      for e in self.plans {
-        print("===========")
-        print(e.give)
-        print("===========")
-      }
     }
   }
-
 }
 

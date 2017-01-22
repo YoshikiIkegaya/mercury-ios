@@ -7,14 +7,11 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
 
 class HomeViewController: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
   
-  var plans = ["hoge", "foo", "poo"]
   let collectionViewCellIdentifier = "HomeCollectionViewCell"
 
   override func viewDidLoad() {
@@ -24,17 +21,6 @@ class HomeViewController: UIViewController {
     
     MercuryAPI.sharedInstance.fetchPlanInfoList()
     
-//    Alamofire.request("https://mercury-app.herokuapp.com/api/plans").responseJSON { response in
-//      print(response.request)  // original URL request
-//      print(response.response) // HTTP URL response
-//      print(response.data)     // server data
-//      print(response.result)   // result of response serialization
-//      
-//      
-//      if let JSON = response.result.value {
-//        print("JSON: \(JSON)")
-//      }
-//    }
   }
   
     
@@ -68,14 +54,16 @@ extension HomeViewController: UICollectionViewDelegate {
 
 extension HomeViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return plans.count
+    return MercuryAPI.sharedInstance.plans.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? HomeCollectionViewCell
-    cell?.label.text = plans[indexPath.row]
-    cell?.label.textColor = UIColor.black
-    cell?.backgroundColor = UIColor.gray
+    cell?.giveLabel.text = MercuryAPI.sharedInstance.plans[indexPath.row].give
+    cell?.giveLabel.textColor = UIColor.black
+    cell?.takeLabel.text = MercuryAPI.sharedInstance.plans[indexPath.row].take
+    cell?.takeLabel.textColor = UIColor.black
+    cell?.backgroundColor = UIColor.lightGray
     return cell!
   }
 

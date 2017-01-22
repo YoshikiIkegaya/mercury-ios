@@ -14,6 +14,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RxAlamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RxCocoa.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RxSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SideMenu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>165C578CCFFB3E0BCB566C558097AAB4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>87A19A319D8330AB588B0C68665DEE66</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D1C68930C1288ADAB5C976780DEF9023</key>
+		<key>8C12A096EF1B64CF139FD388B1294833</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E6EC77488A92536497E8CDC1D6586EC9</key>
+		<key>9C8AD56DA5E113877C162F055FD2407F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F6289B4FA93EE677E4E6F77963E872F1</key>
+		<key>BA45BB14AB7C9C2EC0C201D2E2F6558A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F6F1A85AD8D5316381407D54DBFD4631</key>
 		<dict>
 			<key>primary</key>
 			<true/>
