@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A4F625888AA8477DAAC7CBDD /* Pods_Mercury.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE8BBD7470C0D26EB10F4B5 /* Pods_Mercury.framework */; };
 		DD0B43A71E34EA7D003787D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */; };
+		DD0B43A91E34F3F5003787D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD0B43A81E34F3F5003787D7 /* GoogleService-Info.plist */; };
 		DD259DCE1E3430FE001F03AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DCD1E3430FE001F03AC /* AppDelegate.swift */; };
 		DD259DD01E3430FE001F03AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DCF1E3430FE001F03AC /* HomeViewController.swift */; };
 		DD259DD31E3430FE001F03AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD259DD11E3430FE001F03AC /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		7DCC01DDE70AFE92EF6999B2 /* Pods-Mercury.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mercury.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mercury/Pods-Mercury.debug.xcconfig"; sourceTree = "<group>"; };
 		CAE8BBD7470C0D26EB10F4B5 /* Pods_Mercury.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mercury.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DD0B43A81E34F3F5003787D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD259DCA1E3430FE001F03AC /* Mercury.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mercury.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD259DCD1E3430FE001F03AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD259DCF1E3430FE001F03AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				DD259DD11E3430FE001F03AC /* Main.storyboard */,
 				DD259DD41E3430FE001F03AC /* Assets.xcassets */,
 				DD259DD61E3430FE001F03AC /* LaunchScreen.storyboard */,
+				DD0B43A81E34F3F5003787D7 /* GoogleService-Info.plist */,
 				DD259DD91E3430FE001F03AC /* Info.plist */,
 			);
 			path = Mercury;
@@ -238,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD0B43A91E34F3F5003787D7 /* GoogleService-Info.plist in Resources */,
 				DD259DD81E3430FE001F03AC /* LaunchScreen.storyboard in Resources */,
 				DD259DD51E3430FE001F03AC /* Assets.xcassets in Resources */,
 				DD259DD31E3430FE001F03AC /* Main.storyboard in Resources */,

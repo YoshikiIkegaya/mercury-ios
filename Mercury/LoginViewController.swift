@@ -46,7 +46,12 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
   }
   
   func getFacebookUserInfo(){
-    
+    if FBSDKAccessToken.current() != nil {
+      FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id, name"]).start {
+        (connection, result, error) in
+        
+      }
+    }
   }
   
   func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
