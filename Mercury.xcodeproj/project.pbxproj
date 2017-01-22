@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A4F625888AA8477DAAC7CBDD /* Pods_Mercury.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE8BBD7470C0D26EB10F4B5 /* Pods_Mercury.framework */; };
+		DD0B43A71E34EA7D003787D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */; };
 		DD259DCE1E3430FE001F03AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DCD1E3430FE001F03AC /* AppDelegate.swift */; };
 		DD259DD01E3430FE001F03AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DCF1E3430FE001F03AC /* HomeViewController.swift */; };
 		DD259DD31E3430FE001F03AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD259DD11E3430FE001F03AC /* Main.storyboard */; };
@@ -21,11 +22,13 @@
 		DD259DF91E3454DE001F03AC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DF81E3454DE001F03AC /* Router.swift */; };
 		DD259DFB1E3458FB001F03AC /* MercuryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DFA1E3458FB001F03AC /* MercuryAPI.swift */; };
 		DD259DFF1E348254001F03AC /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DFE1E348254001F03AC /* UIImage+Extension.swift */; };
+		DD259E031E34BEF3001F03AC /* CreatePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259E021E34BEF3001F03AC /* CreatePlanViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7DCC01DDE70AFE92EF6999B2 /* Pods-Mercury.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mercury.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mercury/Pods-Mercury.debug.xcconfig"; sourceTree = "<group>"; };
 		CAE8BBD7470C0D26EB10F4B5 /* Pods_Mercury.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mercury.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DD259DCA1E3430FE001F03AC /* Mercury.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mercury.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD259DCD1E3430FE001F03AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD259DCF1E3430FE001F03AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +44,7 @@
 		DD259DF81E3454DE001F03AC /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		DD259DFA1E3458FB001F03AC /* MercuryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercuryAPI.swift; sourceTree = "<group>"; };
 		DD259DFE1E348254001F03AC /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		DD259E021E34BEF3001F03AC /* CreatePlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePlanViewController.swift; sourceTree = "<group>"; };
 		E79BFCF3E772DC048BA353A8 /* Pods-Mercury.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mercury.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mercury/Pods-Mercury.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,7 +116,9 @@
 		DD259DE01E34387D001F03AC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */,
 				DD259DCF1E3430FE001F03AC /* HomeViewController.swift */,
+				DD259E021E34BEF3001F03AC /* CreatePlanViewController.swift */,
 				DD259DEA1E3442AE001F03AC /* SideMenu */,
 			);
 			name = Controllers;
@@ -297,12 +303,14 @@
 				DD259DF11E344B56001F03AC /* PlanInfo.swift in Sources */,
 				DD259DD01E3430FE001F03AC /* HomeViewController.swift in Sources */,
 				DD259DE21E343895001F03AC /* SideMenuViewController.swift in Sources */,
+				DD259E031E34BEF3001F03AC /* CreatePlanViewController.swift in Sources */,
 				DD259DFF1E348254001F03AC /* UIImage+Extension.swift in Sources */,
 				DD259DF91E3454DE001F03AC /* Router.swift in Sources */,
 				DD259DFB1E3458FB001F03AC /* MercuryAPI.swift in Sources */,
 				DD259DCE1E3430FE001F03AC /* AppDelegate.swift in Sources */,
 				DD259DE61E343AA4001F03AC /* HomeCollectionViewCell.swift in Sources */,
 				DD259DEE1E344888001F03AC /* Settings.swift in Sources */,
+				DD0B43A71E34EA7D003787D7 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
