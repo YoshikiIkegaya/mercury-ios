@@ -7,23 +7,29 @@
 //
 
 import UIKit
+import SDWebImage
 
 class HomeViewController: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
   
+  let placeholderView = UIIma
+  //imageWithColor(UIColor.whiteColor())
   let collectionViewCellIdentifier = "HomeCollectionViewCell"
 
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
     setupCollectionView()
+    fetchAPI()
     
-    MercuryAPI.sharedInstance.fetchPlanInfoList()
+    
     
   }
   
-    
+  func fetchAPI() {
+    MercuryAPI.sharedInstance.fetchPlanInfoList()
+  }
   
   // : UI
   func setupCollectionView() {
@@ -64,6 +70,8 @@ extension HomeViewController: UICollectionViewDataSource {
     cell?.takeLabel.text = MercuryAPI.sharedInstance.plans[indexPath.row].take
     cell?.takeLabel.textColor = UIColor.black
     cell?.backgroundColor = UIColor.lightGray
+    cell?.imageView?.sd_setImage(with: NSURL(string: MercuryAPI.sharedInstance.plans[indexPath.row].image_url), placeholderImage: <#T##UIImage!#>, options: .lowPriority)
+    
     return cell!
   }
 

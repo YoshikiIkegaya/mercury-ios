@@ -20,3 +20,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     }
 
 }
+
+extension HomeCollectionViewCell {
+  
+}

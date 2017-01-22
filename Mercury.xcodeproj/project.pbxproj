@@ -20,6 +20,7 @@
 		DD259DF11E344B56001F03AC /* PlanInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DF01E344B56001F03AC /* PlanInfo.swift */; };
 		DD259DF91E3454DE001F03AC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DF81E3454DE001F03AC /* Router.swift */; };
 		DD259DFB1E3458FB001F03AC /* MercuryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DFA1E3458FB001F03AC /* MercuryAPI.swift */; };
+		DD259DFF1E348254001F03AC /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DFE1E348254001F03AC /* UIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		DD259DF01E344B56001F03AC /* PlanInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanInfo.swift; sourceTree = "<group>"; };
 		DD259DF81E3454DE001F03AC /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		DD259DFA1E3458FB001F03AC /* MercuryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercuryAPI.swift; sourceTree = "<group>"; };
+		DD259DFE1E348254001F03AC /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		E79BFCF3E772DC048BA353A8 /* Pods-Mercury.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mercury.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mercury/Pods-Mercury.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +154,7 @@
 		DD259DF41E344D3D001F03AC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DD259DFE1E348254001F03AC /* UIImage+Extension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				DD259DF11E344B56001F03AC /* PlanInfo.swift in Sources */,
 				DD259DD01E3430FE001F03AC /* HomeViewController.swift in Sources */,
 				DD259DE21E343895001F03AC /* SideMenuViewController.swift in Sources */,
+				DD259DFF1E348254001F03AC /* UIImage+Extension.swift in Sources */,
 				DD259DF91E3454DE001F03AC /* Router.swift in Sources */,
 				DD259DFB1E3458FB001F03AC /* MercuryAPI.swift in Sources */,
 				DD259DCE1E3430FE001F03AC /* AppDelegate.swift in Sources */,

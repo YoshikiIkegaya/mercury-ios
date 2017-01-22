@@ -9,6 +9,9 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import RxAlamofire
+
+typealias APICompletionHandler = (_ json: JSON?, _ error: NSError?) -> Void
 
 class MercuryAPI: NSObject {
   

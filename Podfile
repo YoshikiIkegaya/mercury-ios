@@ -12,4 +12,5 @@ pod 'SideMenu'
 pod 'RxSwift',    '~> 3.0'
 pod 'RxCocoa',    '~> 3.0'
 pod 'RxAlamofire'
+pod 'SDWebImage'
 end
