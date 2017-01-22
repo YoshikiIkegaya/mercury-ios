@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
   
   let collectionViewCellIdentifier = "HomeCollectionViewCell"
   let refreshControl = UIRefreshControl()
+  let placeholderView = UIImage.imageWithColor(color: UIColor.white)
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -61,8 +62,9 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 extension HomeViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     print("Tapped cell!")
+    /// 詳細画面へ遷移
+    
   }
-  
 }
 
 extension HomeViewController: UICollectionViewDataSource {
@@ -72,12 +74,16 @@ extension HomeViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? HomeCollectionViewCell
-    cell?.giveLabel.text = "Hello"//MercuryAPI.sharedInstance.plans[indexPath.row].give
+    cell?.giveLabel.text = MercuryAPI.sharedInstance.plans[indexPath.row].give
     cell?.giveLabel.textColor = UIColor.black
-    cell?.takeLabel.text = "HogeHoge"//MercuryAPI.sharedInstance.plans[indexPath.row].take
+    cell?.takeLabel.text = MercuryAPI.sharedInstance.plans[indexPath.row].take
     cell?.takeLabel.textColor = UIColor.black
-    cell?.backgroundColor = UIColor.lightGray
     
+    let image_url_string = MercuryAPI.sharedInstance.plans[indexPath.row].image_url
+    var image_url: NSURL = NSURL(string: image_url_string!)!
+    cell?.imageView.sd_setImage(with: image_url as URL!, placeholderImage: placeholderView, options: .lowPriority)
+    
+    cell?.backgroundColor = UIColor.lightGray
     return cell!
   }
   

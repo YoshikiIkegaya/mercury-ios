@@ -14,8 +14,6 @@ class HomeCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var giveLabel: UILabel!
   @IBOutlet weak var takeLabel: UILabel!
   
-  let placeholderView = UIImage.imageWithColor(color: UIColor.white)
-  
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
