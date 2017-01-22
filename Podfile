@@ -10,4 +10,7 @@ pod 'Alamofire'
 pod 'SwiftyJSON'
 pod 'SideMenu'
 pod 'SDWebImage'
+pod 'FBSDKCoreKit'
+pod 'FBSDKShareKit'
+pod 'FBSDKLoginKit'
 end
