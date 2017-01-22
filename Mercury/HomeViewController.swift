@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
   var plans = ["hoge", "foo", "poo"]
+  let collectionViewCellIdentifier = "HomeCollectionViewCell"
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -21,7 +22,7 @@ class HomeViewController: UIViewController {
   }
   
   func setupCollectionView() {
-    let nib = UINib(nibName: "HomeCollectionViewCell", bundle: nil)
+    let nib = UINib(nibName: collectionViewCellIdentifier, bundle: nil)
     self.collectionView.register(nib, forCellWithReuseIdentifier: "Cell")
     self.collectionView?.delegate = self
     self.collectionView?.dataSource = self
