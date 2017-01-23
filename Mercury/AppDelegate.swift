@@ -18,15 +18,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     setupThirdPartyLibraries(application, launchOptions: launchOptions)
     
-    //ログイン画面に遷移する
-    if Defaults.AccessToken.getString() == "AccessToken" {
+    checkUserIsLoggedin()
+    return true
+  }
+  
+  func checkUserIsLoggedin() {
+    // 期限切れしていないか調べる
+    // 保留あとから期限と日付を比較する
+    if Defaults.ExpirationDate.getString() == nil { //2017-03-24 03:05:36 +0000
       let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
       if let vc = mainStoryboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController {
-        window?.rootViewController = vc
+        window?.rootViewController? = vc
         window?.makeKeyAndVisible()
       }
     }
-    return true
   }
   
   func setupThirdPartyLibraries(_ application: UIApplication,  launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {

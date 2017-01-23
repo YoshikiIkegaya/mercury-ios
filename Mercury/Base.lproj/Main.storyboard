@@ -199,7 +199,7 @@
         <!--Login View Controller-->
         <scene sceneID="3nL-w9-Ed0">
             <objects>
-                <viewController id="eKh-E5-z8Q" customClass="LoginViewController" customModule="Mercury" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="eKh-E5-z8Q" customClass="LoginViewController" customModule="Mercury" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7ad-2k-He0"/>
                         <viewControllerLayoutGuide type="bottom" id="8w9-mc-36K"/>

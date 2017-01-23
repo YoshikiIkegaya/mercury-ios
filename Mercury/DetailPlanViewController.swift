@@ -58,7 +58,8 @@ class DetailPlanViewController: UIViewController {
   
   func setupParticipateButtonUI() {
     self.joinButton?.backgroundColor = Settings.Color.mercuryColor
-    self.joinButton?.titleLabel?.text = "このプランに参加する"
+    self.joinButton?.setTitle("このプランに参加する", for: .normal)
+    self.joinButton?.tintColor = UIColor.white
     self.joinButton?.titleLabel?.font = UIFont(name: "Helvetiva-Bold", size: 14)
   }
   

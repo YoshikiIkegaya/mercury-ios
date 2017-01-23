@@ -12,6 +12,8 @@ enum Defaults: String {
   case AccessToken = "AccessToken"
   case UserName = "UserName"
   case ProfileImage = "ProfileImage"
+  case IsConnectedToDB = "IsConnectedToDB"
+  case ExpirationDate = "ExpirationDate"
   
   func set(value: AnyObject?) {
     UserDefaults.standard.set(value, forKey: self.rawValue)
@@ -20,5 +22,9 @@ enum Defaults: String {
   
   func getString() -> String? {
     return UserDefaults.standard.string(forKey: self.rawValue)
+  }
+  
+  func getBool() -> Bool? {
+    return UserDefaults.standard.bool(forKey: self.rawValue)
   }
 }

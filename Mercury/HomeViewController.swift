@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import SVProgressHUD
 
 class HomeViewController: UIViewController {
   
@@ -21,6 +22,7 @@ class HomeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     print("----- viewDidLoad -----")
+    SVProgressHUD.dismiss()
     refreshControl.addTarget(self, action: #selector(reload(_:)), for: .valueChanged)
     self.title = "Home"
     setupCollectionView()
