@@ -9,11 +9,13 @@
 import Foundation
 
 enum Defaults: String {
-  case AccessToken = "AccessToken"
-  case UserName = "UserName"
-  case ProfileImage = "ProfileImage"
-  case IsConnectedToDB = "IsConnectedToDB"
-  case ExpirationDate = "ExpirationDate"
+  case AccessToken      = "AccessToken"
+  case UserName         = "UserName"
+  case ProfileImage     = "ProfileImage"
+  case IsConnectedToDB  = "IsConnectedToDB"
+  case ExpirationDate   = "ExpirationDate"
+  case CurrentUserEmail = "CurrentUserEmail"
+  case FacebookID       = "FacebookID"
   
   func set(value: AnyObject?) {
     UserDefaults.standard.set(value, forKey: self.rawValue)
