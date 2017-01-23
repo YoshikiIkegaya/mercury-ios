@@ -17,10 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-    FIRApp.configure()
+    setupThirdPartyLibraries(application, launchOptions: launchOptions)
+    
+//    if Defaults.AccessToken.getString() != nil {
+//      //ログイン
+//    }
     return true
   }
+  
+  func setupThirdPartyLibraries(_ application: UIApplication,  launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+    FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    FIRApp.configure()
+  }
+  
   
   func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
     let handle = FBSDKApplicationDelegate.sharedInstance().application(app, open: url,
