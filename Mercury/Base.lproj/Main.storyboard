@@ -64,16 +64,55 @@
                                 <segue destination="YZM-TN-7Ej" kind="show" id="rSt-BZ-f7h"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="2kx-Im-NAO"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="2kx-Im-NAO">
+                            <connections>
+                                <action selector="tappedRightBarButton:" destination="BYZ-38-t0r" id="PCF-2O-hQX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="han-Ij-3vi" id="KtX-Oc-kzs"/>
                         <outlet property="createPlanButton" destination="WtR-2w-fZ7" id="NDn-vG-sXR"/>
+                        <segue destination="cq5-hH-1hk" kind="push" id="WwI-lC-gEv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1396" y="790.25487256371821"/>
+        </scene>
+        <!--Room View Controller-->
+        <scene sceneID="jhR-p3-QaA">
+            <objects>
+                <viewController storyboardIdentifier="RoomVC" id="cq5-hH-1hk" customClass="RoomViewController" customModule="Mercury" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mVP-gX-lJE"/>
+                        <viewControllerLayoutGuide type="bottom" id="MfR-pj-Ear"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VhN-VT-rNR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ax4-Wy-WjZ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ax4-Wy-WjZ" firstAttribute="top" secondItem="mVP-gX-lJE" secondAttribute="bottom" id="bqZ-M3-plW"/>
+                            <constraint firstItem="MfR-pj-Ear" firstAttribute="top" secondItem="Ax4-Wy-WjZ" secondAttribute="bottom" id="fUR-vA-5Mp"/>
+                            <constraint firstItem="Ax4-Wy-WjZ" firstAttribute="leading" secondItem="VhN-VT-rNR" secondAttribute="leading" id="jyo-sH-lmg"/>
+                            <constraint firstAttribute="trailing" secondItem="Ax4-Wy-WjZ" secondAttribute="trailing" id="s99-Sn-DZt"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="dwb-zw-1mK"/>
+                    <connections>
+                        <outlet property="tableView" destination="Ax4-Wy-WjZ" id="eKf-jT-mlV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uph-Hk-RH3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1396" y="90.404797601199405"/>
         </scene>
         <!--Create Plan View Controller-->
         <scene sceneID="qeP-qD-sn4">

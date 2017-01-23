@@ -14,6 +14,7 @@ enum Settings {
   
   enum Size {
     static let collectionCellSize = CGSize(width: 150.0, height: 200.0)
+    static let roomTableViewCellSize: CGFloat = 80.0
   }
   enum Color {
     static let hogeColor = UIColor.black
