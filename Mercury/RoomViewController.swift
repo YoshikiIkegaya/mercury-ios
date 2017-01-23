@@ -12,8 +12,6 @@ class RoomViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  var roomIconImages = 
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupTableViewUI()
