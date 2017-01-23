@@ -89,30 +89,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DD0B293A1E35FBEB00BC8958 /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-				DD0B293B1E35FC5900BC8958 /* RoomViewController.swift */,
-			);
-			name = Chat;
-			sourceTree = "<group>";
-		};
-		DD0B43AA1E35ABEB003787D7 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */,
-			);
-			name = Login;
-			sourceTree = "<group>";
-		};
-		DD0B43AF1E35C368003787D7 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				DD259DCF1E3430FE001F03AC /* HomeViewController.swift */,
-			);
-			name = Home;
-			sourceTree = "<group>";
-		};
 		DD259DC11E3430FE001F03AC = {
 			isa = PBXGroup;
 			children = (
@@ -153,10 +129,10 @@
 		DD259DE01E34387D001F03AC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DD259DEA1E3442AE001F03AC /* SideMenu */,
-				DD0B293A1E35FBEB00BC8958 /* Chat */,
-				DD0B43AA1E35ABEB003787D7 /* Login */,
-				DD0B43AF1E35C368003787D7 /* Home */,
+				DD259DE11E343895001F03AC /* SideMenuViewController.swift */,
+				DD0B293B1E35FC5900BC8958 /* RoomViewController.swift */,
+				DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */,
+				DD259DCF1E3430FE001F03AC /* HomeViewController.swift */,
 				DD259E021E34BEF3001F03AC /* CreatePlanViewController.swift */,
 			);
 			name = Controllers;
@@ -180,14 +156,6 @@
 				DD259DFA1E3458FB001F03AC /* MercuryAPI.swift */,
 			);
 			name = Models;
-			sourceTree = "<group>";
-		};
-		DD259DEA1E3442AE001F03AC /* SideMenu */ = {
-			isa = PBXGroup;
-			children = (
-				DD259DE11E343895001F03AC /* SideMenuViewController.swift */,
-			);
-			name = SideMenu;
 			sourceTree = "<group>";
 		};
 		DD259DEB1E34486B001F03AC /* Helper */ = {

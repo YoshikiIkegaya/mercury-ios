@@ -111,7 +111,7 @@ extension HomeViewController: UICollectionViewDataSource {
       let image_url: NSURL = NSURL(string: image_url_string)!
       cell.planImageView?.sd_setImage(with: image_url as URL, placeholderImage: placeholderView, options: .lowPriority
       , completed: {
-        [weak self] image, error, cacheType, imageUrl in
+        image, error, cacheType, imageUrl in
         if error != nil {
           return
         }
