@@ -9,7 +9,7 @@
 import Foundation
 
 enum Defaults: String {
-  case AccessToken = ""
+  case AccessToken = "AccessToken"
   case UserName = "UserName"
   case ProfileImage = "ProfileImage"
   
