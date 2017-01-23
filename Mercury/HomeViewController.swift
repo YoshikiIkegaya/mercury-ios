@@ -34,6 +34,12 @@ class HomeViewController: UIViewController {
     }
   }
   
+  @IBAction func tappedRightBarButton(_ sender: Any) {
+    if let vc = self.storyboard?.instantiateViewController(withIdentifier: "RoomVC") as? RoomViewController {
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+  }
+  
   func reload(_ sender: Any?) {
     DispatchQueue.main.async {
       self.collectionView?.reloadData()

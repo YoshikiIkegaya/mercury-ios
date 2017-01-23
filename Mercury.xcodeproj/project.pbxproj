@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A4F625888AA8477DAAC7CBDD /* Pods_Mercury.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE8BBD7470C0D26EB10F4B5 /* Pods_Mercury.framework */; };
+		DD0B293C1E35FC5900BC8958 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B293B1E35FC5900BC8958 /* RoomViewController.swift */; };
+		DD0B29411E35FDE500BC8958 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B293F1E35FDE500BC8958 /* RoomTableViewCell.swift */; };
+		DD0B29421E35FDE500BC8958 /* RoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD0B29401E35FDE500BC8958 /* RoomTableViewCell.xib */; };
 		DD0B43A71E34EA7D003787D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */; };
 		DD0B43A91E34F3F5003787D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD0B43A81E34F3F5003787D7 /* GoogleService-Info.plist */; };
 		DD0B43AE1E35C0F0003787D7 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B43AD1E35C0F0003787D7 /* UIView+Extension.swift */; };
@@ -31,6 +34,9 @@
 /* Begin PBXFileReference section */
 		7DCC01DDE70AFE92EF6999B2 /* Pods-Mercury.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mercury.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mercury/Pods-Mercury.debug.xcconfig"; sourceTree = "<group>"; };
 		CAE8BBD7470C0D26EB10F4B5 /* Pods_Mercury.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mercury.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0B293B1E35FC5900BC8958 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		DD0B293F1E35FDE500BC8958 /* RoomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
+		DD0B29401E35FDE500BC8958 /* RoomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomTableViewCell.xib; sourceTree = "<group>"; };
 		DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DD0B43A81E34F3F5003787D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD0B43AD1E35C0F0003787D7 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -81,6 +87,14 @@
 				CAE8BBD7470C0D26EB10F4B5 /* Pods_Mercury.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD0B293A1E35FBEB00BC8958 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B293B1E35FC5900BC8958 /* RoomViewController.swift */,
+			);
+			name = Chat;
 			sourceTree = "<group>";
 		};
 		DD0B43AA1E35ABEB003787D7 /* Login */ = {
@@ -139,10 +153,11 @@
 		DD259DE01E34387D001F03AC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DD259DEA1E3442AE001F03AC /* SideMenu */,
+				DD0B293A1E35FBEB00BC8958 /* Chat */,
 				DD0B43AA1E35ABEB003787D7 /* Login */,
 				DD0B43AF1E35C368003787D7 /* Home */,
 				DD259E021E34BEF3001F03AC /* CreatePlanViewController.swift */,
-				DD259DEA1E3442AE001F03AC /* SideMenu */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -152,6 +167,8 @@
 			children = (
 				DD259DE41E343AA4001F03AC /* HomeCollectionViewCell.swift */,
 				DD259DE51E343AA4001F03AC /* HomeCollectionViewCell.xib */,
+				DD0B293F1E35FDE500BC8958 /* RoomTableViewCell.swift */,
+				DD0B29401E35FDE500BC8958 /* RoomTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -263,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD0B29421E35FDE500BC8958 /* RoomTableViewCell.xib in Resources */,
 				DD0B43A91E34F3F5003787D7 /* GoogleService-Info.plist in Resources */,
 				DD259DD81E3430FE001F03AC /* LaunchScreen.storyboard in Resources */,
 				DD259DD51E3430FE001F03AC /* Assets.xcassets in Resources */,
@@ -332,9 +350,11 @@
 				DD259DE21E343895001F03AC /* SideMenuViewController.swift in Sources */,
 				DD259E031E34BEF3001F03AC /* CreatePlanViewController.swift in Sources */,
 				DD259DFF1E348254001F03AC /* UIImage+Extension.swift in Sources */,
+				DD0B29411E35FDE500BC8958 /* RoomTableViewCell.swift in Sources */,
 				DD259DF91E3454DE001F03AC /* Router.swift in Sources */,
 				DD0B43AE1E35C0F0003787D7 /* UIView+Extension.swift in Sources */,
 				DD259DFB1E3458FB001F03AC /* MercuryAPI.swift in Sources */,
+				DD0B293C1E35FC5900BC8958 /* RoomViewController.swift in Sources */,
 				DD259DCE1E3430FE001F03AC /* AppDelegate.swift in Sources */,
 				DD259DE61E343AA4001F03AC /* HomeCollectionViewCell.swift in Sources */,
 				DD259DEE1E344888001F03AC /* Settings.swift in Sources */,
