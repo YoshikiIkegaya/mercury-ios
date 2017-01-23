@@ -35,11 +35,11 @@ class LoginViewController: UIViewController {
   
   func setupFBLoginButtonUI() {
     let fbsdkLoginButton = FBSDKLoginButton()
-    let rect = CGRect(x: 0, y: 0, width: self.view.frame.size.width-100, height: 50.0)
+    let rect = CGRect(x: 0, y: self.view.frame.maxY - 80, width: self.view.frame.size.width-100, height: 50.0)
     fbsdkLoginButton.frame = rect
+    fbsdkLoginButton.center.x = self.view.center.x
     fbsdkLoginButton.layer.cornerRadius = 25
     fbsdkLoginButton.layer.masksToBounds = true
-    fbsdkLoginButton.center = self.view.center
     fbsdkLoginButton.delegate = self
     self.view.addSubview(fbsdkLoginButton)
   }
