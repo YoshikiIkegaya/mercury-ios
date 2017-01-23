@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import SVProgressHUD
 
 class HomeViewController: UIViewController {
   
@@ -21,6 +22,7 @@ class HomeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     print("----- viewDidLoad -----")
+    SVProgressHUD.dismiss()
     refreshControl.addTarget(self, action: #selector(reload(_:)), for: .valueChanged)
     self.title = "Home"
     setupCollectionView()
@@ -49,9 +51,6 @@ class HomeViewController: UIViewController {
   
   func fetchAPI() {
     MercuryAPI.sharedInstance.fetchPlanInfoList(completionHandler: {
-      print("==========")
-      print("コレクションビューを読み込みます")
-      print("==========")
       self.collectionView?.reloadData()
       self.refreshControl.endRefreshing()
     })
@@ -93,6 +92,12 @@ extension HomeViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     print("Tapped cell!")
     /// 詳細画面へ遷移
+    if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailPlanVC") as? DetailPlanViewController {
+      vc.giveStr = MercuryAPI.sharedInstance.plans[indexPath.row].give
+      vc.takeStr = MercuryAPI.sharedInstance.plans[indexPath.row].take
+      vc.planImageURL = MercuryAPI.sharedInstance.plans[indexPath.row].image_url
+      self.navigationController?.pushViewController(vc, animated: true)
+    }
   }
 }
 

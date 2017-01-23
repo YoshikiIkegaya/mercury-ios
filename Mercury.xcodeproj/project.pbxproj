@@ -11,6 +11,8 @@
 		DD0B293C1E35FC5900BC8958 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B293B1E35FC5900BC8958 /* RoomViewController.swift */; };
 		DD0B29411E35FDE500BC8958 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B293F1E35FDE500BC8958 /* RoomTableViewCell.swift */; };
 		DD0B29421E35FDE500BC8958 /* RoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD0B29401E35FDE500BC8958 /* RoomTableViewCell.xib */; };
+		DD0B29451E36230600BC8958 /* DetailPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B29441E36230600BC8958 /* DetailPlanViewController.swift */; };
+		DD0B294A1E364B6900BC8958 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B29491E364B6900BC8958 /* Date+Extension.swift */; };
 		DD0B43A71E34EA7D003787D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */; };
 		DD0B43A91E34F3F5003787D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD0B43A81E34F3F5003787D7 /* GoogleService-Info.plist */; };
 		DD0B43AE1E35C0F0003787D7 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B43AD1E35C0F0003787D7 /* UIView+Extension.swift */; };
@@ -37,6 +39,8 @@
 		DD0B293B1E35FC5900BC8958 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		DD0B293F1E35FDE500BC8958 /* RoomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
 		DD0B29401E35FDE500BC8958 /* RoomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomTableViewCell.xib; sourceTree = "<group>"; };
+		DD0B29441E36230600BC8958 /* DetailPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPlanViewController.swift; sourceTree = "<group>"; };
+		DD0B29491E364B6900BC8958 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DD0B43A81E34F3F5003787D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD0B43AD1E35C0F0003787D7 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				DD259DE11E343895001F03AC /* SideMenuViewController.swift */,
+				DD0B29441E36230600BC8958 /* DetailPlanViewController.swift */,
 				DD0B293B1E35FC5900BC8958 /* RoomViewController.swift */,
 				DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */,
 				DD259DCF1E3430FE001F03AC /* HomeViewController.swift */,
@@ -170,6 +175,7 @@
 			children = (
 				DD259DFE1E348254001F03AC /* UIImage+Extension.swift */,
 				DD0B43AD1E35C0F0003787D7 /* UIView+Extension.swift */,
+				DD0B29491E364B6900BC8958 /* Date+Extension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -318,8 +324,10 @@
 				DD259DE21E343895001F03AC /* SideMenuViewController.swift in Sources */,
 				DD259E031E34BEF3001F03AC /* CreatePlanViewController.swift in Sources */,
 				DD259DFF1E348254001F03AC /* UIImage+Extension.swift in Sources */,
+				DD0B29451E36230600BC8958 /* DetailPlanViewController.swift in Sources */,
 				DD0B29411E35FDE500BC8958 /* RoomTableViewCell.swift in Sources */,
 				DD259DF91E3454DE001F03AC /* Router.swift in Sources */,
+				DD0B294A1E364B6900BC8958 /* Date+Extension.swift in Sources */,
 				DD0B43AE1E35C0F0003787D7 /* UIView+Extension.swift in Sources */,
 				DD259DFB1E3458FB001F03AC /* MercuryAPI.swift in Sources */,
 				DD0B293C1E35FC5900BC8958 /* RoomViewController.swift in Sources */,

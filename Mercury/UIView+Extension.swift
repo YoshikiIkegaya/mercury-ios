@@ -5,6 +5,7 @@
 //  Created by toco on 23/01/17.
 //  Copyright © 2017 tocozakura. All rights reserved.
 //
+
 import UIKit
 
 enum FadeType: TimeInterval {

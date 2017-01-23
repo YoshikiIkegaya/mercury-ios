@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 import Firebase
+import SVProgressHUD
 
 class LoginViewController: UIViewController {
   
@@ -18,7 +19,7 @@ class LoginViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    if UserDefaults.standard.object(forKey: "OK") != nil {
+    if FBSDKAccessToken.current() != nil {//Defaults.isConnectedToDB.getBool() == true
       print("一度ログインしているので、次の画面へ遷移します。")
       gotoNextScreen()
     }
@@ -34,11 +35,11 @@ class LoginViewController: UIViewController {
   
   func setupFBLoginButtonUI() {
     let fbsdkLoginButton = FBSDKLoginButton()
-    let rect = CGRect(x: 0, y: 0, width: self.view.frame.size.width-100, height: 50.0)
+    let rect = CGRect(x: 0, y: self.view.frame.maxY - 80, width: self.view.frame.size.width-100, height: 50.0)
     fbsdkLoginButton.frame = rect
+    fbsdkLoginButton.center.x = self.view.center.x
     fbsdkLoginButton.layer.cornerRadius = 25
     fbsdkLoginButton.layer.masksToBounds = true
-    fbsdkLoginButton.center = self.view.center
     fbsdkLoginButton.delegate = self
     self.view.addSubview(fbsdkLoginButton)
   }
@@ -64,6 +65,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
   
   func getFacebookUserInfo(){
     if FBSDKAccessToken.current() != nil {
+      SVProgressHUD.show()
       FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id, name"]).start {
         (connection, result, error) in
         
@@ -79,11 +81,13 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
         //アプリ内に保存する
         Defaults.UserName.set(value: self.base64String as AnyObject?)
         Defaults.ProfileImage.set(value: self.base64String as AnyObject?)
+        Defaults.AccessToken.set(value: FBSDKAccessToken.current().tokenString as AnyObject)
+        Defaults.ExpirationDate.set(value: FBSDKAccessToken.current().expirationDate.toString() as AnyObject)
         
         let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
         FIRAuth.auth()?.signIn(with: credential) {
           (user, error) in
-          if UserDefaults.standard.object(forKey: "OK") != nil {
+          if Defaults.IsConnectedToDB.getBool() != nil {
             //１度ログインしているので飛ばします
             
           } else {
@@ -102,7 +106,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
     //サーバに飛ばす箱
     let user: NSDictionary = ["username": self.name, "profileImage": self.base64String, "uuid": self.uuid]
     firebaseDB.child("users").childByAutoId().setValue(user)
-    UserDefaults.standard.set("OK", forKey: "OK")
+    Defaults.IsConnectedToDB.set(value: true as AnyObject?)
   }
   
   func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
