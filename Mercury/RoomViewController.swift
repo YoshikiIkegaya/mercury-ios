@@ -12,6 +12,8 @@ class RoomViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
+  var roomIconImages = 
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupTableViewUI()
@@ -30,7 +32,11 @@ class RoomViewController: UIViewController {
   }
 }
 
-extension RoomViewController: UITableViewDelegate {}
+extension RoomViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return Settings.Size.roomTableViewCellSize
+  }
+}
 
 extension RoomViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
