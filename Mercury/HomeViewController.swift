@@ -25,7 +25,6 @@ class HomeViewController: UIViewController {
     self.title = "Home"
     setupCollectionView()
     fetchAPI()
-    
     setupCreatePlanButton()
   }
   
@@ -43,7 +42,10 @@ class HomeViewController: UIViewController {
   }
   
   func fetchAPI() {
-    MercuryAPI.sharedInstance.fetchPlanInfoList()
+    MercuryAPI.sharedInstance.fetchPlanInfoList(completionHandler: {
+      print("コレクションビューをリロードします")
+      self.collectionView?.reloadData()
+    })
   }
   
   // : UI

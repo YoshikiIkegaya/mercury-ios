@@ -61,6 +61,7 @@ PODS:
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
   - SideMenu (2.1.5)
+  - SVProgressHUD (2.1.2)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
@@ -74,6 +75,7 @@ DEPENDENCIES:
   - JSQMessagesViewController
   - SDWebImage
   - SideMenu
+  - SVProgressHUD
   - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -96,8 +98,9 @@ SPEC CHECKSUMS:
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   SideMenu: bcd2d7b7d4395af088e213cebd11c3ac7d958f5a
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 0f3906282b59e24a1a58ba163c22c1556bb30e22
+PODFILE CHECKSUM: 9a47b8174503c15834409c91ce27b3e516087b93
 
 COCOAPODS: 1.1.1

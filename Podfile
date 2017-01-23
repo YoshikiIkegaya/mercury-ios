@@ -17,4 +17,5 @@ target 'Mercury' do
   pod 'SideMenu'
   pod 'SDWebImage'
   pod 'JSQMessagesViewController'
+  pod 'SVProgressHUD'
 end

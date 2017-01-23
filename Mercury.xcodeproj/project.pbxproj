@@ -79,6 +79,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DD0B43AA1E35ABEB003787D7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		DD259DC11E3430FE001F03AC = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +127,7 @@
 		DD259DE01E34387D001F03AC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */,
+				DD0B43AA1E35ABEB003787D7 /* Login */,
 				DD259DCF1E3430FE001F03AC /* HomeViewController.swift */,
 				DD259E021E34BEF3001F03AC /* CreatePlanViewController.swift */,
 				DD259DEA1E3442AE001F03AC /* SideMenu */,
