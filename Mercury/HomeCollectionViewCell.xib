@@ -23,25 +23,30 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQJ-PG-C6n">
-                        <rect key="frame" x="8" y="131" width="138" height="21"/>
+                        <rect key="frame" x="8" y="165" width="138" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAe-AH-Qbd">
-                        <rect key="frame" x="8" y="169" width="138" height="21"/>
+                        <rect key="frame" x="8" y="213" width="138" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GxW-ci-yNO">
+                        <rect key="frame" x="86" y="98" width="60" height="60"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
                 </subviews>
             </view>
             <size key="customSize" width="154" height="242"/>
             <connections>
                 <outlet property="giveLabel" destination="RQJ-PG-C6n" id="2mM-ca-mNM"/>
-                <outlet property="imageView" destination="fMB-kb-JIA" id="Ib8-am-HmL"/>
+                <outlet property="iconImageView" destination="GxW-ci-yNO" id="RNs-KT-wAG"/>
+                <outlet property="planImageView" destination="fMB-kb-JIA" id="BPs-OW-0Hz"/>
                 <outlet property="takeLabel" destination="JAe-AH-Qbd" id="ZgN-cG-g7I"/>
             </connections>
             <point key="canvasLocation" x="86" y="64"/>

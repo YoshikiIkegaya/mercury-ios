@@ -18,12 +18,11 @@ class LoginViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupFBLoginButtonUI()
-    
     if UserDefaults.standard.object(forKey: "OK") != nil {
       print("一度ログインしているので、次の画面へ遷移します。")
       gotoNextScreen()
     }
+    setupFBLoginButtonUI()
   }
   
   func gotoNextScreen() {
@@ -78,8 +77,8 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
         self.base64String = dataURL.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters) as String
         
         //アプリ内に保存する
-        UserDefaults.standard.set(self.base64String, forKey: Settings.Cache.UserName)
-        UserDefaults.standard.set(self.base64String, forKey: Settings.Cache.ProfileImage)
+        Defaults.UserName.set(value: self.base64String as AnyObject?)
+        Defaults.ProfileImage.set(value: self.base64String as AnyObject?)
         
         let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
         FIRAuth.auth()?.signIn(with: credential) {
