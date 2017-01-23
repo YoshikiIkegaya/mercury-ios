@@ -9,13 +9,22 @@
 import UIKit
 
 class HomeCollectionViewCell: UICollectionViewCell {
-
-  @IBOutlet weak var imageView: UIImageView!
-  @IBOutlet weak var label: UILabel!
   
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+  @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet weak var giveLabel: UILabel!
+  @IBOutlet weak var takeLabel: UILabel!
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    // Initialization code
+  }
+  
+}
 
+extension HomeCollectionViewCell {
+//  func configureForSummary(plan: PlanInfo){
+//    if let imgeUrl = plan.image_url {
+//      self.imageView?.sd_setImage(with: NSURL(string: imgeUrl) as URL!, placeholderImage: placeholderView, options: .lowPriority)
+//    }
+//  }
 }

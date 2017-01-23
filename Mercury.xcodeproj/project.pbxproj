@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A4F625888AA8477DAAC7CBDD /* Pods_Mercury.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE8BBD7470C0D26EB10F4B5 /* Pods_Mercury.framework */; };
+		DD0B43A71E34EA7D003787D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */; };
+		DD0B43A91E34F3F5003787D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD0B43A81E34F3F5003787D7 /* GoogleService-Info.plist */; };
 		DD259DCE1E3430FE001F03AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DCD1E3430FE001F03AC /* AppDelegate.swift */; };
 		DD259DD01E3430FE001F03AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DCF1E3430FE001F03AC /* HomeViewController.swift */; };
 		DD259DD31E3430FE001F03AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD259DD11E3430FE001F03AC /* Main.storyboard */; };
@@ -16,11 +18,19 @@
 		DD259DE21E343895001F03AC /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DE11E343895001F03AC /* SideMenuViewController.swift */; };
 		DD259DE61E343AA4001F03AC /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DE41E343AA4001F03AC /* HomeCollectionViewCell.swift */; };
 		DD259DE71E343AA4001F03AC /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD259DE51E343AA4001F03AC /* HomeCollectionViewCell.xib */; };
+		DD259DEE1E344888001F03AC /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DED1E344888001F03AC /* Settings.swift */; };
+		DD259DF11E344B56001F03AC /* PlanInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DF01E344B56001F03AC /* PlanInfo.swift */; };
+		DD259DF91E3454DE001F03AC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DF81E3454DE001F03AC /* Router.swift */; };
+		DD259DFB1E3458FB001F03AC /* MercuryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DFA1E3458FB001F03AC /* MercuryAPI.swift */; };
+		DD259DFF1E348254001F03AC /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DFE1E348254001F03AC /* UIImage+Extension.swift */; };
+		DD259E031E34BEF3001F03AC /* CreatePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259E021E34BEF3001F03AC /* CreatePlanViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7DCC01DDE70AFE92EF6999B2 /* Pods-Mercury.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mercury.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mercury/Pods-Mercury.debug.xcconfig"; sourceTree = "<group>"; };
 		CAE8BBD7470C0D26EB10F4B5 /* Pods_Mercury.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mercury.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DD0B43A81E34F3F5003787D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD259DCA1E3430FE001F03AC /* Mercury.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mercury.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD259DCD1E3430FE001F03AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD259DCF1E3430FE001F03AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -31,6 +41,12 @@
 		DD259DE11E343895001F03AC /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		DD259DE41E343AA4001F03AC /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD259DE51E343AA4001F03AC /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		DD259DED1E344888001F03AC /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		DD259DF01E344B56001F03AC /* PlanInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanInfo.swift; sourceTree = "<group>"; };
+		DD259DF81E3454DE001F03AC /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		DD259DFA1E3458FB001F03AC /* MercuryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercuryAPI.swift; sourceTree = "<group>"; };
+		DD259DFE1E348254001F03AC /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		DD259E021E34BEF3001F03AC /* CreatePlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePlanViewController.swift; sourceTree = "<group>"; };
 		E79BFCF3E772DC048BA353A8 /* Pods-Mercury.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mercury.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mercury/Pods-Mercury.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,10 +79,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DD0B43AA1E35ABEB003787D7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		DD259DC11E3430FE001F03AC = {
 			isa = PBXGroup;
 			children = (
 				DD259DCC1E3430FE001F03AC /* Mercury */,
+				DD259DF71E3454C1001F03AC /* Config */,
 				DD259DCB1E3430FE001F03AC /* Products */,
 				B7713BE639852BCBB4586356 /* Pods */,
 				C4D8FF7C35801C859EF86A6F /* Frameworks */,
@@ -85,12 +110,15 @@
 			isa = PBXGroup;
 			children = (
 				DD259DCD1E3430FE001F03AC /* AppDelegate.swift */,
-				DD259DE91E344287001F03AC /* Model */,
-				DD259DE31E343920001F03AC /* Views */,
+				DD259DF41E344D3D001F03AC /* Extensions */,
+				DD259DEB1E34486B001F03AC /* Helper */,
+				DD259DE91E344287001F03AC /* Models */,
 				DD259DE01E34387D001F03AC /* Controllers */,
+				DD259DE31E343920001F03AC /* Views */,
 				DD259DD11E3430FE001F03AC /* Main.storyboard */,
 				DD259DD41E3430FE001F03AC /* Assets.xcassets */,
 				DD259DD61E3430FE001F03AC /* LaunchScreen.storyboard */,
+				DD0B43A81E34F3F5003787D7 /* GoogleService-Info.plist */,
 				DD259DD91E3430FE001F03AC /* Info.plist */,
 			);
 			path = Mercury;
@@ -99,7 +127,9 @@
 		DD259DE01E34387D001F03AC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DD0B43AA1E35ABEB003787D7 /* Login */,
 				DD259DCF1E3430FE001F03AC /* HomeViewController.swift */,
+				DD259E021E34BEF3001F03AC /* CreatePlanViewController.swift */,
 				DD259DEA1E3442AE001F03AC /* SideMenu */,
 			);
 			name = Controllers;
@@ -114,11 +144,13 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		DD259DE91E344287001F03AC /* Model */ = {
+		DD259DE91E344287001F03AC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DD259DF01E344B56001F03AC /* PlanInfo.swift */,
+				DD259DFA1E3458FB001F03AC /* MercuryAPI.swift */,
 			);
-			name = Model;
+			name = Models;
 			sourceTree = "<group>";
 		};
 		DD259DEA1E3442AE001F03AC /* SideMenu */ = {
@@ -127,6 +159,31 @@
 				DD259DE11E343895001F03AC /* SideMenuViewController.swift */,
 			);
 			name = SideMenu;
+			sourceTree = "<group>";
+		};
+		DD259DEB1E34486B001F03AC /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		DD259DF41E344D3D001F03AC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD259DFE1E348254001F03AC /* UIImage+Extension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		DD259DF71E3454C1001F03AC /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				DD259DED1E344888001F03AC /* Settings.swift */,
+				DD259DF81E3454DE001F03AC /* Router.swift */,
+			);
+			name = Config;
+			path = Mercury;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD0B43A91E34F3F5003787D7 /* GoogleService-Info.plist in Resources */,
 				DD259DD81E3430FE001F03AC /* LaunchScreen.storyboard in Resources */,
 				DD259DD51E3430FE001F03AC /* Assets.xcassets in Resources */,
 				DD259DD31E3430FE001F03AC /* Main.storyboard in Resources */,
@@ -254,10 +312,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD259DF11E344B56001F03AC /* PlanInfo.swift in Sources */,
 				DD259DD01E3430FE001F03AC /* HomeViewController.swift in Sources */,
 				DD259DE21E343895001F03AC /* SideMenuViewController.swift in Sources */,
+				DD259E031E34BEF3001F03AC /* CreatePlanViewController.swift in Sources */,
+				DD259DFF1E348254001F03AC /* UIImage+Extension.swift in Sources */,
+				DD259DF91E3454DE001F03AC /* Router.swift in Sources */,
+				DD259DFB1E3458FB001F03AC /* MercuryAPI.swift in Sources */,
 				DD259DCE1E3430FE001F03AC /* AppDelegate.swift in Sources */,
 				DD259DE61E343AA4001F03AC /* HomeCollectionViewCell.swift in Sources */,
+				DD259DEE1E344888001F03AC /* Settings.swift in Sources */,
+				DD0B43A71E34EA7D003787D7 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
