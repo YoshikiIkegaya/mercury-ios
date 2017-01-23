@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     setupThirdPartyLibraries(application, launchOptions: launchOptions)
     
     //ログイン画面に遷移する
-    if Defaults.AccessToken.getString() == nil {
+    if Defaults.AccessToken.getString() == "AccessToken" {
       let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
       if let vc = mainStoryboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController {
         window?.rootViewController = vc
