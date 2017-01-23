@@ -79,6 +79,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
         //アプリ内に保存する
         Defaults.UserName.set(value: self.base64String as AnyObject?)
         Defaults.ProfileImage.set(value: self.base64String as AnyObject?)
+        Defaults.AccessToken.set(value: FBSDKAccessToken.current().tokenString as AnyObject)
         
         let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
         FIRAuth.auth()?.signIn(with: credential) {
