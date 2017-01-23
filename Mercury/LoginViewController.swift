@@ -8,19 +8,37 @@
 
 import UIKit
 import FBSDKLoginKit
+import Firebase
 
 class LoginViewController: UIViewController {
+  
+  var name: String?
+  var base64String: String?
+  var uuid: String?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setupFBLoginButtonUI()
     
+    if UserDefaults.standard.object(forKey: "OK") != nil {
+      print("一度ログインしているので、次の画面へ遷移します。")
+      gotoNextScreen()
+    }
+  }
+  
+  func gotoNextScreen() {
+    //画面遷移
+    if let nc = self.storyboard?.instantiateViewController(withIdentifier: "BaseNC") as? UINavigationController {
+      self.present(nc, animated: true, completion: nil)
+    }
   }
   
   func setupFBLoginButtonUI() {
     let fbsdkLoginButton = FBSDKLoginButton()
     let rect = CGRect(x: 0, y: 0, width: self.view.frame.size.width-100, height: 50.0)
     fbsdkLoginButton.frame = rect
+    fbsdkLoginButton.layer.cornerRadius = 25
+    fbsdkLoginButton.layer.masksToBounds = true
     fbsdkLoginButton.center = self.view.center
     fbsdkLoginButton.delegate = self
     self.view.addSubview(fbsdkLoginButton)
@@ -50,8 +68,42 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
       FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id, name"]).start {
         (connection, result, error) in
         
+        guard let nameValue = (result as AnyObject).value(forKey: "name") as? String else { return }
+        self.name = nameValue
+        let id = (result as AnyObject).value(forKey: "id")
+        guard let url = URL(string: "https://graph.facebook.com/\(id!)/picture?type=large&return_ssl_resorces=1") else { return }
+        guard let dataURL = NSData(contentsOf: url) else { return }
+        
+        //Data型のものをString型に変換する
+        self.base64String = dataURL.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters) as String
+        
+        //アプリ内に保存する
+        UserDefaults.standard.set(self.base64String, forKey: Settings.Cache.UserName)
+        UserDefaults.standard.set(self.base64String, forKey: Settings.Cache.ProfileImage)
+        
+        let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+        FIRAuth.auth()?.signIn(with: credential) {
+          (user, error) in
+          if UserDefaults.standard.object(forKey: "OK") != nil {
+            //１度ログインしているので飛ばします
+            
+          } else {
+            self.uuid = user?.uid
+            self.createNewUserDB()
+          }
+        }
+        self.gotoNextScreen()
       }
     }
+  }
+  
+  /// Send user info to server
+  func createNewUserDB() {
+    let firebaseDB = FIRDatabase.database().reference(fromURL: "https://mercury-9aad8.firebaseio.com/")
+    //サーバに飛ばす箱
+    let user: NSDictionary = ["username": self.name, "profileImage": self.base64String, "uuid": self.uuid]
+    firebaseDB.child("users").childByAutoId().setValue(user)
+    UserDefaults.standard.set("OK", forKey: "OK")
   }
   
   func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {

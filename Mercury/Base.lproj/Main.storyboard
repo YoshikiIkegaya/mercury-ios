@@ -154,10 +154,10 @@
             </objects>
             <point key="canvasLocation" x="1396" y="2201"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="3nL-w9-Ed0">
             <objects>
-                <viewController id="eKh-E5-z8Q" sceneMemberID="viewController">
+                <viewController id="eKh-E5-z8Q" customClass="LoginViewController" customModule="Mercury" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7ad-2k-He0"/>
                         <viewControllerLayoutGuide type="bottom" id="8w9-mc-36K"/>
@@ -170,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GkB-nL-cll" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-106" y="789"/>
+            <point key="canvasLocation" x="-106.40000000000001" y="788.45577211394311"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="o6v-2K-5yy">
