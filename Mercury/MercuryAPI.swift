@@ -35,8 +35,9 @@ class MercuryAPI: NSObject {
           print(giveStr)
         }
         print("=========")
+//        completionHandler()
       }
+      completionHandler()
     }
-    completionHandler()
   }
 }

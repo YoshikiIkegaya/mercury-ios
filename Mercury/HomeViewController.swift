@@ -42,8 +42,10 @@ class HomeViewController: UIViewController {
   }
   
   func fetchAPI() {
-    MercuryAPI.sharedInstance.fetchPlanInfoList(completionHandler: { () -> Void in
-      print("コレクションビューをリロードします")
+    MercuryAPI.sharedInstance.fetchPlanInfoList(completionHandler: {
+      print("==========")
+      print("コレクションビューを読み込みます")
+      print("==========")
       self.collectionView?.reloadData()
       self.refreshControl.endRefreshing()
     })
@@ -65,10 +67,8 @@ class HomeViewController: UIViewController {
     self.createPlanButton?.frame = rect
     self.createPlanButton?.layer.cornerRadius = createPlanButton.frame.size.width/2
     self.createPlanButton?.clipsToBounds = true
-    
     self.createPlanButton?.tintColor = UIColor.white
     self.createPlanButton?.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 20)
-    
   }
   
   override func didReceiveMemoryWarning() {
@@ -103,16 +103,16 @@ extension HomeViewController: UICollectionViewDataSource {
     cell.takeLabel.textColor = UIColor.black
     if let image_url_string = MercuryAPI.sharedInstance.plans[indexPath.row].image_url {
       let image_url: NSURL = NSURL(string: image_url_string)!
-      cell.planImageView?.sd_setImage(with: image_url as URL, placeholderImage: placeholderView, options: .lowPriority)
-//      , completed: {
-//        [weak self] image, error, cacheType, imageUrl in
-//        if error != nil {
-//          return
-//        }
-//        if image != nil && cacheType == .none {
-//          cell.planImageView?.fadeIn(duration: FadeType.Slow.rawValue)
-//        }
-//      })
+      cell.planImageView?.sd_setImage(with: image_url as URL, placeholderImage: placeholderView, options: .lowPriority
+      , completed: {
+        [weak self] image, error, cacheType, imageUrl in
+        if error != nil {
+          return
+        }
+        if image != nil && cacheType == .none {
+          cell.planImageView?.fadeIn(duration: FadeType.Slow.rawValue)
+        }
+      })
       
       cell.planImageView?.contentMode = .scaleAspectFill
       cell.planImageView?.layer.masksToBounds = true
