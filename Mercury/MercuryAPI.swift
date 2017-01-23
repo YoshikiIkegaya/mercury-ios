@@ -18,7 +18,7 @@ class MercuryAPI: NSObject {
   var plans = [PlanInfo]()
   
   // : fetch data from API
-  func fetchPlanInfoList() {
+  func fetchPlanInfoList(completionHandler: @escaping () -> Void) {
     Alamofire.request("https://mercury-app.herokuapp.com/api/plans").responseJSON { response in
       defer {
         print("======= deferred =======")
@@ -35,7 +35,9 @@ class MercuryAPI: NSObject {
           print(giveStr)
         }
         print("=========")
+//        completionHandler()
       }
+      completionHandler()
     }
   }
 }
