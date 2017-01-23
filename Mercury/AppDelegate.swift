@@ -15,13 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     setupThirdPartyLibraries(application, launchOptions: launchOptions)
     
-//    if Defaults.AccessToken.getString() != nil {
-//      //ログイン
-//    }
+    //ログイン画面に遷移する
+    if Defaults.AccessToken.getString() == nil {
+      let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+      if let vc = mainStoryboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController {
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
+      }
+    }
     return true
   }
   

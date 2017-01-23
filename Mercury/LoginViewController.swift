@@ -25,8 +25,8 @@ class LoginViewController: UIViewController {
     setupFBLoginButtonUI()
   }
   
+  //画面遷移
   func gotoNextScreen() {
-    //画面遷移
     if let nc = self.storyboard?.instantiateViewController(withIdentifier: "BaseNC") as? UINavigationController {
       self.present(nc, animated: true, completion: nil)
     }

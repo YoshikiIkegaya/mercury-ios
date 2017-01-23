@@ -43,9 +43,6 @@ class HomeViewController: UIViewController {
   
   func fetchAPI() {
     MercuryAPI.sharedInstance.fetchPlanInfoList(completionHandler: {
-      print("==========")
-      print("コレクションビューを読み込みます")
-      print("==========")
       self.collectionView?.reloadData()
       self.refreshControl.endRefreshing()
     })
