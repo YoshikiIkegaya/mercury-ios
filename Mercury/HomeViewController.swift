@@ -113,16 +113,12 @@ extension HomeViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HomeCollectionViewCell
-    cell.giveLabel.text = MercuryAPI.sharedInstance.plans[indexPath.row].give!
-    cell.takeLabel.text = MercuryAPI.sharedInstance.plans[indexPath.row].take!
-    cell.giveLabel.textColor = UIColor.black
-    cell.takeLabel.textColor = UIColor.black
+    cell.giveLabel?.text = MercuryAPI.sharedInstance.plans[indexPath.row].give
+    cell.takeLabel?.text = MercuryAPI.sharedInstance.plans[indexPath.row].take
+    cell.giveLabel?.textColor = UIColor.black
+    cell.takeLabel?.textColor = UIColor.black
     
     if let image_url_string: String = MercuryAPI.sharedInstance.plans[indexPath.row].image_url {
-      print("============= TEST =============")
-      print(image_url_string)
-      print("================================")
-      
       guard let image_url: NSURL = NSURL(string: image_url_string) else {return cell}
       cell.planImageView?.sd_setImage(with: image_url as URL, placeholderImage: placeholderView, options: .lowPriority
         , completed: {
