@@ -126,11 +126,6 @@ class MercuryAPI: NSObject {
         let json = JSON(object)
         json.forEach { (_, json) in
           let pi = PlanInfo(json: json)
-          print("======= PRINT JSON RESPONSE =======")
-          print(pi.give)
-          print(pi.take)
-          print(pi.image_url)
-          print("===================================")
           self.plans.append(pi)
         }
         completionHandler()
