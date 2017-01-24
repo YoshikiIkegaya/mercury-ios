@@ -43,7 +43,7 @@ class HomeViewController: UIViewController {
   
   @IBAction func tappedRightBarButton(_ sender: Any) {
     if let vc = self.storyboard?.instantiateViewController(withIdentifier: "RoomVC") as? RoomViewController {
-        self.navigationController?.pushViewController(vc, animated: true)
+      self.navigationController?.pushViewController(vc, animated: true)
     }
   }
   
@@ -118,20 +118,22 @@ extension HomeViewController: UICollectionViewDataSource {
     cell.giveLabel.textColor = UIColor.black
     cell.takeLabel.textColor = UIColor.black
     if let image_url_string = MercuryAPI.sharedInstance.plans[indexPath.row].image_url {
-      let image_url: NSURL = NSURL(string: image_url_string)!
-      cell.planImageView?.sd_setImage(with: image_url as URL, placeholderImage: placeholderView, options: .lowPriority
-      , completed: {
-        image, error, cacheType, imageUrl in
-        if error != nil {
-          return
-        }
-        if image != nil && cacheType == .none {
-          cell.planImageView?.fadeIn(duration: FadeType.Slow.rawValue)
-        }
-      })
-      
-      cell.planImageView?.contentMode = .scaleAspectFill
-      cell.planImageView?.layer.masksToBounds = true
+      if let nsurl = NSURL(string: image_url_string) {
+        let image_url: NSURL = nsurl//NSURL(string: image_url_string)
+        cell.planImageView?.sd_setImage(with: image_url as URL, placeholderImage: placeholderView, options: .lowPriority
+          , completed: {
+            image, error, cacheType, imageUrl in
+            if error != nil {
+              return
+            }
+            if image != nil && cacheType == .none {
+              cell.planImageView?.fadeIn(duration: FadeType.Slow.rawValue)
+            }
+        })
+        
+        cell.planImageView?.contentMode = .scaleAspectFill
+        cell.planImageView?.layer.masksToBounds = true
+      }
     }
     cell.backgroundColor = UIColor.lightGray
     return cell

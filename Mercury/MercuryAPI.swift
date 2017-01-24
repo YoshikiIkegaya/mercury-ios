@@ -70,23 +70,28 @@ class MercuryAPI: NSObject {
       "scope"         : ""
     ]
     
-    Alamofire.request("https://mercury-app.herokuapp.com/oauth/token", method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+    Alamofire.request(Path.Login.path, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
       defer {
-        print("======= deferred =======")
+        print("======= Path.Login.path deferred =======")
       }
       guard let object = response.result.value else {
         return
       }
       
-      print("=======[object]=======")
+      print("======= [object] =======")
       print(object)
       print("==============")
       
       let json = JSON(object)
       print("**********************")
-      print(json["access_token"])
+      print(json["access_token"].string)
       print("**********************")
-      Defaults.AccessToken.set(value: json["access_token"] as AnyObject)
+      let hoge = json["access_token"].string
+      Defaults.AccessToken.set(value: hoge as AnyObject)
+      
+      print("&&&&&&&&&&&&&&&&&&&&&&")
+      print(Defaults.AccessToken.getString())
+      print("&&&&&&&&&&&&&&&&&&&&&&")
       json.forEach { (_, json) in
         print("==============")
         print(json)
@@ -139,9 +144,13 @@ class MercuryAPI: NSObject {
       "Authorization" : "Bearer \(accessToken)"
     ]
     
+    print("========= Access Token ===========")
+    print(accessToken)
+    print("====================")
+    
     Alamofire.request(Path.Plans.path, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).responseJSON { response in
       defer {
-        print("======= deferred =======")
+        print("======= Path.Plans.path deferred =======")
       }
       guard let object = response.result.value else {
         return
