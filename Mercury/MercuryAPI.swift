@@ -52,8 +52,8 @@ class MercuryAPI: NSObject {
     guard let password = Defaults.FacebookID.getString() else { return }
     
     let params = [
-      "client_id"     : "72",
-      "client_secret" : "EWEq7l2RtOIZNJMCo1mEnKJCwmLG8U7baTsuD0iS",
+      "client_id"     : client_id,
+      "client_secret" : client_secret,
       "grant_type"    : "password",
       "username"      : email,
       "password"      : password,
@@ -93,9 +93,11 @@ class MercuryAPI: NSObject {
       "password" : password
     ]
     
-    Alamofire.request(Path.Auth.path, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+    print(Path.Auth.path)
+    
+    Alamofire.request("https://mercury-app.herokuapp.com/api/auth/register", method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
       defer {
-        print("======= deferred =======")
+        print("======= resisterUserAPI deferred =======")
       }
       guard let object = response.result.value else {
         return

@@ -84,7 +84,6 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
         guard let dataURL = NSData(contentsOf: url) else { return }
         if let email = (result as AnyObject).value(forKey: "email") as? String {
           self.currentUserEmail = email
-          print(self.currentUserEmail)
           Defaults.CurrentUserEmail.set(value: email as AnyObject?)
         }
         
