@@ -93,7 +93,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
         //アプリ内に保存する
         Defaults.UserName.set(value: self.name as AnyObject?)
         Defaults.ProfileImage.set(value: self.base64String as AnyObject?)
-        Defaults.AccessToken.set(value: FBSDKAccessToken.current().tokenString as AnyObject)
+        Defaults.FBSDKAccessToken.set(value: FBSDKAccessToken.current().tokenString as AnyObject)
         Defaults.ExpirationDate.set(value: FBSDKAccessToken.current().expirationDate.toString() as AnyObject)
         Defaults.FacebookID.set(value: id as AnyObject)
         

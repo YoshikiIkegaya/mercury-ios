@@ -61,6 +61,18 @@
             ReferencedContainer = "container:Mercury.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "client_id"
+            value = "12"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "client_secret"
+            value = "wWeF5OXwscDKFzFw7JRgjWIKSQ9pNRUOVhPUSJld"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

@@ -9,6 +9,7 @@
 import Foundation
 
 enum Defaults: String {
+  case FBSDKAccessToken = "FBSDKAccessToken"
   case AccessToken      = "AccessToken"
   case UserName         = "UserName"
   case ProfileImage     = "ProfileImage"

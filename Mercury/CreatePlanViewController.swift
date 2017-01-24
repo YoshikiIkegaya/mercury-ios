@@ -22,7 +22,9 @@ class CreatePlanViewController: UIViewController {
   
   @IBAction func tappedPostNewPlanButton(_ sender: Any) {
     print("====== 新しいプランを作成します ======")
-    
+    MercuryAPI.sharedInstance.postNewPlan(give: "トマトの栽培の仕方を教えるので", take: "革細工のスキルを教えてください", place: "奥多摩", image_url: "http://blogs.c.yimg.jp/res/blog-6c-4e/everythings44125036/folder/789836/26/38074726/img_1", completionHandler: {
+      self.dismiss(animated: true, completion: nil)
+    })
   }
   
   override func didReceiveMemoryWarning() {

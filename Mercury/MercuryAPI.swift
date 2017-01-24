@@ -26,6 +26,7 @@ class MercuryAPI: NSObject {
     case Auth
     case Login
     case Plans
+    case PostPlan
     
     var relativePath: String {
       switch self {
@@ -34,6 +35,8 @@ class MercuryAPI: NSObject {
       case .Login:
         return "oauth/token"
       case .Plans:
+        return "plans"
+      case .PostPlan:
         return "plans"
       }
     }
@@ -48,6 +51,8 @@ class MercuryAPI: NSObject {
     }
   }
   
+  
+  /// user login
   func userLogin() {
     
     let env = ProcessInfo.processInfo.environment
@@ -73,11 +78,15 @@ class MercuryAPI: NSObject {
         return
       }
       
-      print("==============")
+      print("=======[object]=======")
       print(object)
       print("==============")
       
       let json = JSON(object)
+      print("**********************")
+      print(json["access_token"])
+      print("**********************")
+      Defaults.AccessToken.set(value: json["access_token"] as AnyObject)
       json.forEach { (_, json) in
         print("==============")
         print(json)
@@ -123,7 +132,14 @@ class MercuryAPI: NSObject {
   
   /// fetch plans data
   func fetchPlanInfoList(completionHandler: @escaping () -> Void) {
-    Alamofire.request(Path.Plans.path).responseJSON { response in
+    
+    guard let accessToken: String = Defaults.AccessToken.getString() else { return }
+    let headers = [
+      "Accept" : "application/json",
+      "Authorization" : "Bearer \(accessToken)"
+    ]
+    
+    Alamofire.request(Path.Plans.path, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).responseJSON { response in
       defer {
         print("======= deferred =======")
       }
@@ -136,6 +152,43 @@ class MercuryAPI: NSObject {
         self.plans.append(pi)
       }
       completionHandler()
+    }
+  }
+  
+  
+  /// Post new plan
+  func postNewPlan(give: String, take: String, place: String, image_url: String?, completionHandler: () -> Void) {
+    let params = [
+      "give"      : give,
+      "take"      : take,
+      "place"     : place,
+      "image_url" : image_url
+      ]
+    
+    guard let accessToken: String = Defaults.AccessToken.getString() else { return }
+    let headers = [
+      "Accept" : "application/json",
+      "Authorization" : "Bearer \(accessToken)"
+    ]
+    
+    Alamofire.request(Path.Plans.path, method: .post, parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+      defer {
+        print("======= deferred =======")
+      }
+      guard let object = response.result.value else {
+        return
+      }
+      
+      print("==============")
+      print(object)
+      print("==============")
+      
+      let json = JSON(object)
+      json.forEach { (_, json) in
+        print("==============")
+        print(json)
+        print("==============")
+      }
     }
   }
 }
