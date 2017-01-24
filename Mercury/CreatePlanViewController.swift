@@ -60,16 +60,15 @@ class CreatePlanViewController: UIViewController {
       .bindTo(postNewPlanButton.rx.isEnabled)
       .addDisposableTo(disposeBag)
     
-    
     /// Tapped postNewPlanButton
     postNewPlanButton.rx.tap
       .subscribe(onNext: { [weak self] in
         print("====== 新しいプランを作成します ======")
-        guard let giveText = self?.giveTextField.text else { return }
-        guard let takeText = self?.takeTextField.text else { return }
-        guard let placeText = self?.placeTextField.text else { return }
+        guard let giveText = self?.giveTextField?.text else { return }
+        guard let takeText = self?.takeTextField?.text else { return }
+        guard let placeText = self?.placeTextField?.text else { return }
         
-        MercuryAPI.sharedInstance.postNewPlan(give: giveText, take: takeText, place: placeText, image_url: self!.tmp_image_url, completionHandler: {
+        MercuryAPI.sharedInstance.postNewPlan(give: giveText, take: takeText, place: placeText, image_url: self?.tmp_image_url, completionHandler: {
           self?.dismiss(animated: true, completion: nil)
         })
       })
