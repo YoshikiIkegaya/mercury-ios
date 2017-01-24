@@ -71,27 +71,16 @@ class MercuryAPI: NSObject {
     ]
     
     Alamofire.request(Path.Login.path, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
-      defer {
-        print("======= Path.Login.path deferred =======")
-      }
-      guard let object = response.result.value else {
-        return
-      }
+      defer { print("======= Path.Login.path deferred =======") }
+      guard let object = response.result.value else { return }
       
       print("======= [object] =======")
       print(object)
       print("==============")
       
       let json = JSON(object)
-      print("**********************")
-      print(json["access_token"].string)
-      print("**********************")
-      let hoge = json["access_token"].string
-      Defaults.AccessToken.set(value: hoge as AnyObject)
-      
-      print("&&&&&&&&&&&&&&&&&&&&&&")
-      print(Defaults.AccessToken.getString())
-      print("&&&&&&&&&&&&&&&&&&&&&&")
+      let access_token = json["access_token"].string
+      Defaults.AccessToken.set(value: access_token as AnyObject)
       json.forEach { (_, json) in
         print("==============")
         print(json)
@@ -152,9 +141,7 @@ class MercuryAPI: NSObject {
       defer {
         print("======= Path.Plans.path deferred =======")
       }
-      guard let object = response.result.value else {
-        return
-      }
+      guard let object = response.result.value else { return }
       let json = JSON(object)
       json.forEach { (_, json) in
         let pi = PlanInfo(json: json)
@@ -166,7 +153,7 @@ class MercuryAPI: NSObject {
   
   
   /// Post new plan
-  func postNewPlan(give: String, take: String, place: String, image_url: String?, completionHandler: () -> Void) {
+  func postNewPlan(give: String, take: String, place: String, image_url: String?, completionHandler: @escaping () -> Void) {
     let params = [
       "give"      : give,
       "take"      : take,
@@ -198,6 +185,7 @@ class MercuryAPI: NSObject {
         print(json)
         print("==============")
       }
+      completionHandler()
     }
   }
 }
