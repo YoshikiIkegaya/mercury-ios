@@ -25,14 +25,12 @@ class MercuryAPI: NSObject {
       case Auth
       case Plans
       
-      
       var relativePath: String {
         switch self {
         case .Auth:
           return "auth/register"
         case .Plans:
           return "plans"
-        
         }
       }
       
@@ -40,7 +38,6 @@ class MercuryAPI: NSObject {
         return (NSURL(string: Constants.MercuryAPIURL)?.appendingPathComponent(relativePath)?.absoluteString) ?? ""
       }
   }
-  
   
   func resisterUserAPI() {
     guard let name = Defaults.UserName.getString() else { return }
@@ -73,7 +70,6 @@ class MercuryAPI: NSObject {
         print("==============")
       }
     }
-    
   }
   
   // : fetch plans data
@@ -89,11 +85,6 @@ class MercuryAPI: NSObject {
       json.forEach { (_, json) in
         let pi = PlanInfo(json: json)
         self.plans.append(pi)
-//        print("=========")
-//        if let giveStr = pi.give {
-//          print(giveStr)
-//        }
-//        print("=========")
       }
       completionHandler()
     }
