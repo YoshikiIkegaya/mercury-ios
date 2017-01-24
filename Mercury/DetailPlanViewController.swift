@@ -11,6 +11,7 @@ import UIKit
 class DetailPlanViewController: UIViewController {
   
   @IBOutlet weak var planImageView: UIImageView!
+  @IBOutlet weak var planerIconImageButton: UIButton!
   @IBOutlet weak var giveLabel: UILabel!
   @IBOutlet weak var takeLabel: UILabel!
   @IBOutlet weak var joinButton: UIButton!
@@ -28,6 +29,11 @@ class DetailPlanViewController: UIViewController {
   
   @IBAction func tappedJoinButton(_ sender: Any) {
     print("===== Tapped Join Button =====")
+  }
+  
+  @IBAction func tappedPlanerIconButton(_ sender: Any) {
+    print("===== Tapped Planer Icon Button =====")
+    /// プラン作成者のプロフィール画面に遷移する
   }
   
   ///: Set Up UI
