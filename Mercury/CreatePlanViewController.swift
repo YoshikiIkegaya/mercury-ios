@@ -22,6 +22,7 @@ class CreatePlanViewController: UIViewController {
   
   @IBAction func tappedPostNewPlanButton(_ sender: Any) {
     print("====== 新しいプランを作成します ======")
+    
   }
   
   override func didReceiveMemoryWarning() {
