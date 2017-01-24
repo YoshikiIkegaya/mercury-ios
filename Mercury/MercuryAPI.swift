@@ -121,22 +121,21 @@ class MercuryAPI: NSObject {
   func fetchPlanInfoList(completionHandler: @escaping () -> Void) {
     Alamofire.request(Path.Plans.path, method: .get, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
       .responseJSON { response in
-        defer { print("======= Path.Plans.path deferred =======") }
+        defer { print("======= fetchPlanInfoList deferred =======") }
         guard let object = response.result.value else { return }
         let json = JSON(object)
         json.forEach { (_, json) in
           let pi = PlanInfo(json: json)
           print("======= PRINT JSON RESPONSE =======")
-          print(pi.give!)
-          print(pi.take!)
-          print(pi.image_url!)
+          print(pi.give)
+          print(pi.take)
+          print(pi.image_url)
           print("===================================")
           self.plans.append(pi)
         }
         completionHandler()
     }
   }
-  
   
   /// Post new plan
   func postNewPlan(give: String!, take: String!, place: String, image_url: String? = nil, completionHandler: @escaping () -> Void) {
@@ -146,9 +145,10 @@ class MercuryAPI: NSObject {
       "place"     : place,
       "image_url" : image_url
     ]
-    Alamofire.request(Path.Plans.path, method: .post, parameters: params, encoding: URLEncoding.default , headers: buildHeaders())
+    
+    Alamofire.request(Path.Plans.path, method: .post, parameters: params, encoding: JSONEncoding.default, headers: buildHeaders())
       .responseJSON { response in
-        defer { print("======= deferred =======") }
+        defer { print("======= postNewPlan deferred =======") }
         guard let object = response.result.value else { return }
         
         let json = JSON(object)
