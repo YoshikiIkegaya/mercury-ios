@@ -16,6 +16,7 @@ class CreatePlanViewController: UIViewController {
   @IBOutlet weak var takeTextField: UITextField!
   @IBOutlet weak var placeTextField: UITextField!
   @IBOutlet weak var postNewPlanButton: UIButton!
+  @IBOutlet weak var newPlanImageButton: UIButton!
   
   private let disposeBag = DisposeBag()
   private let throttleInterval = 0.1
@@ -31,15 +32,19 @@ class CreatePlanViewController: UIViewController {
     bindViewAndModel()
   }
   
+  @IBAction func launchCamera(_ sender: Any) {
+    
+  }
+  
   @IBAction func tappedCloseButton(_ sender: Any) {
     self.dismiss(animated: true, completion: nil)
   }
   
   func bindViewAndModel() {
     
-    giveTextField.text = "give has to be at least \(minLength) characters"
-    takeTextField.text = "take has to be at least \(minLength) characters"
-    placeTextField.text = "place has to be at least \(minLength) characters"
+    giveTextField.placeholder = "give has to be at least \(minLength) characters"
+    takeTextField.placeholder = "take has to be at least \(minLength) characters"
+    placeTextField.placeholder = "place has to be at least \(minLength) characters"
     
     let giveTextFieldValid = giveTextField.rx.text.orEmpty
       .map { $0.characters.count >= self.minLength }
@@ -64,10 +69,10 @@ class CreatePlanViewController: UIViewController {
     postNewPlanButton.rx.tap
       .subscribe(onNext: { [weak self] in
         print("====== 新しいプランを作成します ======")
+        self?.postNewPlanButton?.isEnabled = false
         guard let giveText = self?.giveTextField?.text else { return }
         guard let takeText = self?.takeTextField?.text else { return }
         guard let placeText = self?.placeTextField?.text else { return }
-        
         MercuryAPI.sharedInstance.postNewPlan(give: giveText, take: takeText, place: placeText, image_url: self?.tmp_image_url, completionHandler: {
           self?.dismiss(animated: true, completion: nil)
         })
