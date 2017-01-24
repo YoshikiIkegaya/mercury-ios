@@ -81,7 +81,8 @@ class CreatePlanViewController: UIViewController {
   
   func setupPostNewPlanButtonUI() {
     self.postNewPlanButton?.backgroundColor = Settings.Color.mercuryColor
-    self.postNewPlanButton?.titleLabel?.text = "プランを作成する"
-    self.postNewPlanButton?.titleLabel?.font = UIFont(name: "Helvetiva-Bold", size: 14)
+    self.postNewPlanButton?.setTitle("プランを作成する", for: .normal)
+    self.postNewPlanButton?.tintColor = UIColor.white
+    self.postNewPlanButton?.titleLabel?.font = UIFont(name: "Helvetiva-Bold", size: 20)
   }
 }
