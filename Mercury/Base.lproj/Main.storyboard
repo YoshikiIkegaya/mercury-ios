@@ -164,9 +164,6 @@
                                     <constraint firstAttribute="height" constant="80" id="Ho9-Pk-iTf"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="tappedPostNewPlanButton:" destination="NtN-aP-Npc" eventType="touchUpInside" id="WTz-Uf-13d"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="give" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFl-i3-Js1">
                                 <rect key="frame" x="172" y="310" width="32" height="21"/>
