@@ -22,7 +22,6 @@ class HomeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     print("----- viewDidLoad -----")
-    SVProgressHUD.dismiss()
     refreshControl.addTarget(self, action: #selector(reload(_:)), for: .valueChanged)
     self.title = "Home"
     setupCollectionView()
@@ -33,6 +32,11 @@ class HomeViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.reload(nil)
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    SVProgressHUD.dismiss()
   }
   
   @IBAction func tappedCreatePlanButton(_ sender: Any) {

@@ -159,7 +159,7 @@
                                 <state key="normal" title="Button"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="give" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFl-i3-Js1">
-                                <rect key="frame" x="172" y="310" width="32" height="21"/>
+                                <rect key="frame" x="61" y="310" width="32" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="8ho-Se-jGy"/>
                                     <constraint firstAttribute="height" constant="21" id="yCd-aJ-t22"/>
@@ -169,7 +169,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="take" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7h-BI-Ia2">
-                                <rect key="frame" x="171" y="381" width="33" height="21"/>
+                                <rect key="frame" x="60" y="381" width="33" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="ABT-m0-7uB"/>
                                     <constraint firstAttribute="height" constant="21" id="TTn-Ph-6Bm"/>
@@ -189,7 +189,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nJ-Rt-08m">
-                                <rect key="frame" x="166" y="452" width="42" height="21"/>
+                                <rect key="frame" x="55" y="452" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="RB1-zh-IR0"/>
                                     <constraint firstAttribute="width" constant="42" id="aWY-Wr-IWa"/>
@@ -215,6 +215,27 @@
                                     <constraint firstAttribute="height" constant="64" id="KKw-fX-ot4"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXy-Q6-clM">
+                                <rect key="frame" x="132" y="312" width="227" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0F4-BY-GXP">
+                                <rect key="frame" x="132" y="383" width="226" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGw-V4-f0W">
+                                <rect key="frame" x="132" y="452" width="226" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITz-EV-TML">
                                 <rect key="frame" x="16" y="64" width="343" height="160"/>
                                 <constraints>
@@ -231,12 +252,12 @@
                             <constraint firstItem="ITz-EV-TML" firstAttribute="centerX" secondItem="fCO-DK-TGR" secondAttribute="centerX" id="9bN-PY-IVL"/>
                             <constraint firstItem="n7h-BI-Ia2" firstAttribute="top" secondItem="mYn-O3-h0h" secondAttribute="bottom" constant="10" id="Acd-Yo-4S8"/>
                             <constraint firstItem="ITz-EV-TML" firstAttribute="top" secondItem="0gi-4T-oeX" secondAttribute="bottom" id="HvW-gO-o4n"/>
-                            <constraint firstItem="5nJ-Rt-08m" firstAttribute="centerX" secondItem="fCO-DK-TGR" secondAttribute="centerX" id="I2x-r6-Jp2"/>
+                            <constraint firstItem="5nJ-Rt-08m" firstAttribute="centerX" secondItem="fCO-DK-TGR" secondAttribute="centerX" constant="-111.5" id="I2x-r6-Jp2"/>
                             <constraint firstItem="OFl-i3-Js1" firstAttribute="top" secondItem="ITz-EV-TML" secondAttribute="bottom" constant="86" id="I59-f8-VX8"/>
                             <constraint firstItem="Hat-PJ-Wi5" firstAttribute="top" secondItem="q34-WQ-YgE" secondAttribute="bottom" constant="20" id="L7i-3B-wFr"/>
                             <constraint firstItem="0gi-4T-oeX" firstAttribute="leading" secondItem="fCO-DK-TGR" secondAttribute="leading" id="LOD-Pl-z9i"/>
                             <constraint firstItem="ITz-EV-TML" firstAttribute="top" secondItem="0gi-4T-oeX" secondAttribute="bottom" id="M9d-IS-10v"/>
-                            <constraint firstItem="n7h-BI-Ia2" firstAttribute="centerX" secondItem="fCO-DK-TGR" secondAttribute="centerX" id="N2j-JC-Nmx"/>
+                            <constraint firstItem="n7h-BI-Ia2" firstAttribute="centerX" secondItem="fCO-DK-TGR" secondAttribute="centerX" constant="-111" id="N2j-JC-Nmx"/>
                             <constraint firstItem="ITz-EV-TML" firstAttribute="top" secondItem="0gi-4T-oeX" secondAttribute="bottom" id="Nyd-IS-CYP"/>
                             <constraint firstItem="mYn-O3-h0h" firstAttribute="centerX" secondItem="fCO-DK-TGR" secondAttribute="centerX" id="Nzq-yL-ZEg"/>
                             <constraint firstAttribute="trailing" secondItem="0gi-4T-oeX" secondAttribute="trailing" id="PBo-1X-BZp"/>
@@ -248,17 +269,20 @@
                             <constraint firstItem="ITz-EV-TML" firstAttribute="centerX" secondItem="fCO-DK-TGR" secondAttribute="centerX" id="hNt-ad-4n3"/>
                             <constraint firstItem="5nJ-Rt-08m" firstAttribute="top" secondItem="2XW-RZ-8Fr" secondAttribute="bottom" constant="10" id="hdu-4X-AIw"/>
                             <constraint firstItem="ITz-EV-TML" firstAttribute="leading" secondItem="fCO-DK-TGR" secondAttribute="leadingMargin" id="ix7-yB-WAP"/>
-                            <constraint firstItem="OFl-i3-Js1" firstAttribute="centerX" secondItem="fCO-DK-TGR" secondAttribute="centerX" id="m47-DB-fUZ"/>
+                            <constraint firstItem="OFl-i3-Js1" firstAttribute="centerX" secondItem="fCO-DK-TGR" secondAttribute="centerX" constant="-110.5" id="m47-DB-fUZ"/>
                             <constraint firstItem="2XW-RZ-8Fr" firstAttribute="centerX" secondItem="fCO-DK-TGR" secondAttribute="centerX" id="nTZ-Ib-ohU"/>
                             <constraint firstItem="0gi-4T-oeX" firstAttribute="top" secondItem="fCO-DK-TGR" secondAttribute="top" id="tfn-vm-hPb"/>
                             <constraint firstItem="fZ8-qq-3y9" firstAttribute="top" secondItem="5nJ-Rt-08m" secondAttribute="bottom" constant="10" id="y8r-Bj-g1x"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="giveAlertLabel" destination="aXy-Q6-clM" id="moo-RF-3eG"/>
                         <outlet property="giveTextField" destination="mYn-O3-h0h" id="HUn-sI-3dH"/>
                         <outlet property="newPlanImageButton" destination="ITz-EV-TML" id="83J-M3-dPL"/>
+                        <outlet property="placeAlertLabel" destination="mGw-V4-f0W" id="6tJ-2c-2lJ"/>
                         <outlet property="placeTextField" destination="fZ8-qq-3y9" id="zbZ-s0-3w8"/>
                         <outlet property="postNewPlanButton" destination="q34-WQ-YgE" id="eAI-4k-5a6"/>
+                        <outlet property="takeAlertLabel" destination="0F4-BY-GXP" id="Sz1-sA-i0x"/>
                         <outlet property="takeTextField" destination="2XW-RZ-8Fr" id="Cf8-gI-W5p"/>
                     </connections>
                 </viewController>
