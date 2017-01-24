@@ -70,22 +70,18 @@ class MercuryAPI: NSObject {
       "scope"         : ""
     ]
     
-    Alamofire.request(Path.Login.path, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
-      defer { print("======= Path.Login.path deferred =======") }
-      guard let object = response.result.value else { return }
-      
-      print("======= [object] =======")
-      print(object)
-      print("==============")
-      
-      let json = JSON(object)
-      let access_token = json["access_token"].string
-      Defaults.AccessToken.set(value: access_token as AnyObject)
-      json.forEach { (_, json) in
-        print("==============")
-        print(json)
-        print("==============")
-      }
+    Alamofire.request(Path.Login.path, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil)
+      .responseJSON { response in
+        defer { print("======= Path.Login.path deferred =======") }
+        guard let object = response.result.value else { return }
+        let json = JSON(object)
+        let access_token = json["access_token"].string
+        Defaults.AccessToken.set(value: access_token as AnyObject)
+        json.forEach { (_, json) in
+          print("==============")
+          print(json)
+          print("==============")
+        }
     }
   }
   
@@ -127,20 +123,13 @@ class MercuryAPI: NSObject {
   /// fetch plans data
   func fetchPlanInfoList(completionHandler: @escaping () -> Void) {
     
-    guard let accessToken: String = Defaults.AccessToken.getString() else { return }
     let headers = [
       "Accept" : "application/json",
-      "Authorization" : "Bearer \(accessToken)"
+      "Authorization" : "Bearer \(Defaults.AccessToken.getString() ?? "")"
     ]
     
-    print("========= Access Token ===========")
-    print(accessToken)
-    print("====================")
-    
     Alamofire.request(Path.Plans.path, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).responseJSON { response in
-      defer {
-        print("======= Path.Plans.path deferred =======")
-      }
+      defer { print("======= Path.Plans.path deferred =======") }
       guard let object = response.result.value else { return }
       let json = JSON(object)
       json.forEach { (_, json) in
@@ -159,12 +148,11 @@ class MercuryAPI: NSObject {
       "take"      : take,
       "place"     : place,
       "image_url" : image_url
-      ]
+    ]
     
-    guard let accessToken: String = Defaults.AccessToken.getString() else { return }
     let headers = [
       "Accept" : "application/json",
-      "Authorization" : "Bearer \(accessToken)"
+      "Authorization" : "Bearer \(Defaults.AccessToken.getString() ?? "")"
     ]
     
     Alamofire.request(Path.Plans.path, method: .post, parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON { response in
