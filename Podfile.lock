@@ -57,6 +57,11 @@ PODS:
   - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
+  - RxBlocking (3.1.0):
+    - RxSwift (~> 3.1)
+  - RxCocoa (3.1.0):
+    - RxSwift (~> 3.1)
+  - RxSwift (3.1.0)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -73,6 +78,9 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Database
   - JSQMessagesViewController
+  - RxBlocking
+  - RxCocoa
+  - RxSwift
   - SDWebImage
   - SideMenu
   - SVProgressHUD
@@ -96,11 +104,14 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  RxBlocking: cd73ef6a5f8c39cede9488178c46aa0c3c3ed17f
+  RxCocoa: 50d7564866da9299161e86a263ce12a0873904d8
+  RxSwift: 83ff553e7593fdfdcb2562933a64c0284dffdadc
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   SideMenu: bcd2d7b7d4395af088e213cebd11c3ac7d958f5a
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 9a47b8174503c15834409c91ce27b3e516087b93
+PODFILE CHECKSUM: 573836fc0d30cfa812f8e41fc7c1b1f9416d37a9
 
 COCOAPODS: 1.1.1

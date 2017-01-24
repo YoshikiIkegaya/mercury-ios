@@ -11,6 +11,7 @@ import UIKit
 class DetailPlanViewController: UIViewController {
   
   @IBOutlet weak var planImageView: UIImageView!
+  @IBOutlet weak var planerIconImageButton: UIButton!
   @IBOutlet weak var giveLabel: UILabel!
   @IBOutlet weak var takeLabel: UILabel!
   @IBOutlet weak var joinButton: UIButton!
@@ -30,6 +31,11 @@ class DetailPlanViewController: UIViewController {
     print("===== Tapped Join Button =====")
   }
   
+  @IBAction func tappedPlanerIconButton(_ sender: Any) {
+    print("===== Tapped Planer Icon Button =====")
+    /// プラン作成者のプロフィール画面に遷移する
+  }
+  
   ///: Set Up UI
   func setupUI() {
     self.giveLabel?.text = giveStr
@@ -40,19 +46,20 @@ class DetailPlanViewController: UIViewController {
   
   func setupPlanImageView() {
     if let image_url_string = planImageURL {
-      let image_url: NSURL = NSURL(string: image_url_string)!
-      self.planImageView?.sd_setImage(with: image_url as URL, placeholderImage: placeholderView, options: .lowPriority
-        , completed: {
-          [weak self] image, error, cacheType, imageUrl in
-          if error != nil {
-            return
-          }
-          if image != nil && cacheType == .none {
-            self?.planImageView?.fadeIn(duration: FadeType.Slow.rawValue)
-          }
-      })
-      self.planImageView?.contentMode = .scaleAspectFill
-      self.planImageView?.layer.masksToBounds = true
+      if let image_url: NSURL = NSURL(string: image_url_string) {
+        self.planImageView?.sd_setImage(with: image_url as URL, placeholderImage: placeholderView, options: .lowPriority
+          , completed: {
+            [weak self] image, error, cacheType, imageUrl in
+            if error != nil {
+              return
+            }
+            if image != nil && cacheType == .none {
+              self?.planImageView?.fadeIn(duration: FadeType.Slow.rawValue)
+            }
+        })
+        self.planImageView?.contentMode = .scaleAspectFill
+        self.planImageView?.layer.masksToBounds = true
+      }
     }
   }
   

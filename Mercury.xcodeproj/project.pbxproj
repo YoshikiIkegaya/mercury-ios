@@ -13,6 +13,7 @@
 		DD0B29421E35FDE500BC8958 /* RoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD0B29401E35FDE500BC8958 /* RoomTableViewCell.xib */; };
 		DD0B29451E36230600BC8958 /* DetailPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B29441E36230600BC8958 /* DetailPlanViewController.swift */; };
 		DD0B294A1E364B6900BC8958 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B29491E364B6900BC8958 /* Date+Extension.swift */; };
+		DD0B295C1E3702A500BC8958 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD0B295B1E3702A500BC8958 /* Images.xcassets */; };
 		DD0B43A71E34EA7D003787D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */; };
 		DD0B43A91E34F3F5003787D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD0B43A81E34F3F5003787D7 /* GoogleService-Info.plist */; };
 		DD0B43AE1E35C0F0003787D7 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B43AD1E35C0F0003787D7 /* UIView+Extension.swift */; };
@@ -41,6 +42,7 @@
 		DD0B29401E35FDE500BC8958 /* RoomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomTableViewCell.xib; sourceTree = "<group>"; };
 		DD0B29441E36230600BC8958 /* DetailPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPlanViewController.swift; sourceTree = "<group>"; };
 		DD0B29491E364B6900BC8958 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		DD0B295B1E3702A500BC8958 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DD0B43A81E34F3F5003787D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD0B43AD1E35C0F0003787D7 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				DD259DE31E343920001F03AC /* Views */,
 				DD259DD11E3430FE001F03AC /* Main.storyboard */,
 				DD259DD41E3430FE001F03AC /* Assets.xcassets */,
+				DD0B295B1E3702A500BC8958 /* Images.xcassets */,
 				DD259DD61E3430FE001F03AC /* LaunchScreen.storyboard */,
 				DD0B43A81E34F3F5003787D7 /* GoogleService-Info.plist */,
 				DD259DD91E3430FE001F03AC /* Info.plist */,
@@ -254,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD0B295C1E3702A500BC8958 /* Images.xcassets in Resources */,
 				DD0B29421E35FDE500BC8958 /* RoomTableViewCell.xib in Resources */,
 				DD0B43A91E34F3F5003787D7 /* GoogleService-Info.plist in Resources */,
 				DD259DD81E3430FE001F03AC /* LaunchScreen.storyboard in Resources */,
