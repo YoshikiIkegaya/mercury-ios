@@ -92,7 +92,7 @@ class MercuryAPI: NSObject {
     }
   }
   
-  /// resister user data
+  /// Resister user data
   func resisterUserAPI() {
     guard let name = Defaults.UserName.getString() else { return }
     guard let email = Defaults.CurrentUserEmail.getString() else { return }
@@ -106,7 +106,7 @@ class MercuryAPI: NSObject {
     
     Alamofire.request(Path.Auth.path, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil)
       .responseJSON { response in
-        defer { print("======= resisterUserAPI deferred =======") }
+        defer { print("======= Resister user data deferred =======") }
         guard let object = response.result.value else { return }
         let json = JSON(object)
         json.forEach { (_, json) in
@@ -117,11 +117,11 @@ class MercuryAPI: NSObject {
     }
   }
   
-  /// fetch plans data
+  /// Fetch plans data
   func fetchPlanInfoList(completionHandler: @escaping () -> Void) {
     Alamofire.request(Path.Plans.path, method: .get, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
       .responseJSON { response in
-        defer { print("======= fetchPlanInfoList deferred =======") }
+        defer { print("======= Fetch plans data deferred =======") }
         guard let object = response.result.value else { return }
         let json = JSON(object)
         json.forEach { (_, json) in
@@ -148,11 +148,12 @@ class MercuryAPI: NSObject {
     
     Alamofire.request(Path.Plans.path, method: .post, parameters: params, encoding: JSONEncoding.default, headers: buildHeaders())
       .responseJSON { response in
-        defer { print("======= postNewPlan deferred =======") }
+        defer { print("=======  Post new plan deferred =======") }
         guard let object = response.result.value else { return }
         
         let json = JSON(object)
         json.forEach { (_, json) in
+          print("====== 新しいプランを作成しました ======")
           print("==============")
           print(json)
           print("==============")
