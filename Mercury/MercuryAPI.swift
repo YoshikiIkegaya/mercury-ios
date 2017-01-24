@@ -92,7 +92,7 @@ class MercuryAPI: NSObject {
     }
   }
   
-  /// resister user data
+  /// Resister user data
   func resisterUserAPI() {
     guard let name = Defaults.UserName.getString() else { return }
     guard let email = Defaults.CurrentUserEmail.getString() else { return }
@@ -106,7 +106,7 @@ class MercuryAPI: NSObject {
     
     Alamofire.request(Path.Auth.path, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil)
       .responseJSON { response in
-        defer { print("======= resisterUserAPI deferred =======") }
+        defer { print("======= Resister user data deferred =======") }
         guard let object = response.result.value else { return }
         let json = JSON(object)
         json.forEach { (_, json) in
@@ -117,12 +117,11 @@ class MercuryAPI: NSObject {
     }
   }
   
-  /// fetch plans data
+  /// Fetch plans data
   func fetchPlanInfoList(completionHandler: @escaping () -> Void) {
-    
     Alamofire.request(Path.Plans.path, method: .get, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
       .responseJSON { response in
-        defer { print("======= Path.Plans.path deferred =======") }
+        defer { print("======= Fetch plans data deferred =======") }
         guard let object = response.result.value else { return }
         let json = JSON(object)
         json.forEach { (_, json) in
@@ -133,9 +132,8 @@ class MercuryAPI: NSObject {
     }
   }
   
-  
   /// Post new plan
-  func postNewPlan(give: String, take: String, place: String, image_url: String?, completionHandler: @escaping () -> Void) {
+  func postNewPlan(give: String!, take: String!, place: String, image_url: String? = nil, completionHandler: @escaping () -> Void) {
     let params = [
       "give"      : give,
       "take"      : take,
@@ -143,13 +141,14 @@ class MercuryAPI: NSObject {
       "image_url" : image_url
     ]
     
-    Alamofire.request(Path.Plans.path, method: .post, parameters: params, encoding: URLEncoding.default, headers: buildHeaders())
+    Alamofire.request(Path.Plans.path, method: .post, parameters: params, encoding: JSONEncoding.default, headers: buildHeaders())
       .responseJSON { response in
-        defer { print("======= deferred =======") }
+        defer { print("=======  Post new plan deferred =======") }
         guard let object = response.result.value else { return }
         
         let json = JSON(object)
         json.forEach { (_, json) in
+          print("====== 新しいプランを作成しました ======")
           print("==============")
           print(json)
           print("==============")

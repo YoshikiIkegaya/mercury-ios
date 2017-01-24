@@ -113,29 +113,28 @@ extension HomeViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HomeCollectionViewCell
-    cell.giveLabel.text = MercuryAPI.sharedInstance.plans[indexPath.row].give
-    cell.takeLabel.text = MercuryAPI.sharedInstance.plans[indexPath.row].take
-    cell.giveLabel.textColor = UIColor.black
-    cell.takeLabel.textColor = UIColor.black
-    if let image_url_string = MercuryAPI.sharedInstance.plans[indexPath.row].image_url {
-      if let nsurl = NSURL(string: image_url_string) {
-        let image_url: NSURL = nsurl//NSURL(string: image_url_string)
-        cell.planImageView?.sd_setImage(with: image_url as URL, placeholderImage: placeholderView, options: .lowPriority
-          , completed: {
-            image, error, cacheType, imageUrl in
-            if error != nil {
-              return
-            }
-            if image != nil && cacheType == .none {
-              cell.planImageView?.fadeIn(duration: FadeType.Slow.rawValue)
-            }
-        })
-        
-        cell.planImageView?.contentMode = .scaleAspectFill
-        cell.planImageView?.layer.masksToBounds = true
-      }
+    cell.giveLabel?.text = MercuryAPI.sharedInstance.plans[indexPath.row].give
+    cell.takeLabel?.text = MercuryAPI.sharedInstance.plans[indexPath.row].take
+    cell.giveLabel?.textColor = UIColor.black
+    cell.takeLabel?.textColor = UIColor.black
+    
+    if let image_url_string: String = MercuryAPI.sharedInstance.plans[indexPath.row].image_url {
+      guard let image_url: NSURL = NSURL(string: image_url_string) else {return cell}
+      cell.planImageView?.sd_setImage(with: image_url as URL, placeholderImage: placeholderView, options: .lowPriority
+        , completed: {
+          image, error, cacheType, imageUrl in
+          if error != nil {
+            return
+          }
+          if image != nil && cacheType == .none {
+            cell.planImageView?.fadeIn(duration: FadeType.Slow.rawValue)
+          }
+      })
     }
-    cell.backgroundColor = UIColor.lightGray
+    
+    cell.planImageView?.contentMode = .scaleAspectFill
+    cell.planImageView?.layer.masksToBounds = true
+    
     return cell
   }
   

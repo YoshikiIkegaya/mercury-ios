@@ -9,54 +9,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mercury/HomeViewController.swift"
-            timestampString = "506923768.711827"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "collectionView(_:numberOfItemsInSection:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Mercury/HomeViewController.swift"
-            timestampString = "506923768.711827"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Mercury/HomeViewController.swift"
-            timestampString = "506923768.711827"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Mercury/LoginViewController.swift"
             timestampString = "506880388.563535"
             startingColumnNumber = "9223372036854775807"
@@ -81,54 +33,6 @@
             endingLineNumber = "24"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Mercury/HomeViewController.swift"
-            timestampString = "506923768.711827"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "tappedRightBarButton(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Mercury.HomeViewController.tappedRightBarButton (Any) -&gt; ()"
-                  moduleName = "Mercury"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/HomeViewController.swift"
-                  timestampString = "506943492.36164"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "19">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Mercury.HomeViewController.tappedRightBarButton (Any) -&gt; ()"
-                  moduleName = "Mercury"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/HomeViewController.swift"
-                  timestampString = "506943492.364391"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "371">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -289,6 +193,38 @@
             endingLineNumber = "82"
             landmarkName = "userLogin()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mercury.MercuryAPI.(userLogin () -&gt; ()).(closure #1)"
+                  moduleName = "Mercury"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
+                  timestampString = "506945946.590145"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "2127">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mercury.MercuryAPI.(userLogin () -&gt; ()).(closure #1).($defer #1) () -&gt; ()"
+                  moduleName = "Mercury"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
+                  timestampString = "506945946.59215"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -305,38 +241,6 @@
             endingLineNumber = "102"
             landmarkName = "resisterUserAPI()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Mercury.MercuryAPI.(userLogin () -&gt; ()).(closure #1)"
-                  moduleName = "Mercury"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "506943492.450811"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99"
-                  offsetFromSymbolStart = "4394">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Mercury.MercuryAPI.(userLogin () -&gt; ()).(closure #1).(closure #1)"
-                  moduleName = "Mercury"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "506943492.459211"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99"
-                  offsetFromSymbolStart = "1090">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -353,6 +257,38 @@
             endingLineNumber = "87"
             landmarkName = "userLogin()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mercury.MercuryAPI.(userLogin () -&gt; ()).(closure #1)"
+                  moduleName = "Mercury"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
+                  timestampString = "506945946.599833"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "1661">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mercury.MercuryAPI.(userLogin () -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Mercury"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
+                  timestampString = "506945946.601841"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "266">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -401,6 +337,38 @@
             endingLineNumber = "116"
             landmarkName = "resisterUserAPI()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mercury.MercuryAPI.(resisterUserAPI () -&gt; ()).(closure #1)"
+                  moduleName = "Mercury"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
+                  timestampString = "506945946.612519"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "902">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mercury.MercuryAPI.(resisterUserAPI () -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Mercury"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
+                  timestampString = "506945946.614508"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "1090">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -465,54 +433,7 @@
             endingLineNumber = "109"
             landmarkName = "resisterUserAPI()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Mercury/MercuryAPI.swift"
-            timestampString = "506944938.068903"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "resisterUserAPI()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Mercury/MercuryAPI.swift"
-            timestampString = "506944938.068903"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "resisterUserAPI()"
-            landmarkType = "7">
             <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Mercury.MercuryAPI.resisterUserAPI () -&gt; ()"
-                  moduleName = "Mercury"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "506943492.598633"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "117"
-                  endingLineNumber = "117"
-                  offsetFromSymbolStart = "1122">
-               </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
@@ -521,12 +442,27 @@
                   moduleName = "Mercury"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "506943492.604345"
+                  timestampString = "506945946.628532"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "121"
-                  endingLineNumber = "121"
-                  offsetFromSymbolStart = "29">
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "1118">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mercury.MercuryAPI.(resisterUserAPI () -&gt; ()).(closure #1).($defer #1) () -&gt; ()"
+                  moduleName = "Mercury"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
+                  timestampString = "506945946.630572"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "15">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -541,8 +477,40 @@
             timestampString = "506944938.068903"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "resisterUserAPI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mercury/MercuryAPI.swift"
+            timestampString = "506944938.068903"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "resisterUserAPI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mercury/MercuryAPI.swift"
+            timestampString = "506962704.40604"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "fetchPlanInfoList(completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -554,12 +522,12 @@
                   moduleName = "Mercury"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "506943492.611092"
+                  timestampString = "506945946.640982"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "151"
-                  endingLineNumber = "151"
-                  offsetFromSymbolStart = "1223">
+                  startingLineNumber = "133"
+                  endingLineNumber = "133"
+                  offsetFromSymbolStart = "429">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -569,12 +537,12 @@
                   moduleName = "Mercury"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "506943492.613538"
+                  timestampString = "506945946.64273"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "155"
-                  endingLineNumber = "155"
-                  offsetFromSymbolStart = "41">
+                  startingLineNumber = "133"
+                  endingLineNumber = "133"
+                  offsetFromSymbolStart = "1220">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -586,11 +554,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mercury/MercuryAPI.swift"
-            timestampString = "506944938.068903"
+            timestampString = "506962704.40604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "MercuryAPI"
             landmarkType = "3">
          </BreakpointContent>
@@ -602,11 +570,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mercury/MercuryAPI.swift"
-            timestampString = "506944938.068903"
+            timestampString = "506962704.40604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "postNewPlan(give:take:place:image_url:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -617,60 +585,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mercury/HomeViewController.swift"
-            timestampString = "506931990.545384"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "fetchAPI()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Mercury.HomeViewController.fetchAPI () -&gt; ()"
-                  moduleName = "Mercury"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/HomeViewController.swift"
-                  timestampString = "506943492.649046"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Mercury.HomeViewController.(fetchAPI () -&gt; ()).(closure #1)"
-                  moduleName = "Mercury"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/HomeViewController.swift"
-                  timestampString = "506943492.658127"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "59"
-                  endingLineNumber = "59"
-                  offsetFromSymbolStart = "19">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Mercury/MercuryAPI.swift"
-            timestampString = "506944938.068903"
+            timestampString = "506962704.40604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "postNewPlan(give:take:place:image_url:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
