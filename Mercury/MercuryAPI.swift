@@ -18,8 +18,8 @@ class MercuryAPI: NSObject {
   var plans = [PlanInfo]()
   
   private struct Constants {
+    static let BaseURL = "https://mercury-app.herokuapp.com/"
     static let MercuryAPIURL = "https://mercury-app.herokuapp.com/api/"
-    static let userLoginURL = "https://mercury-app.herokuapp.com/oauth/token"
   }
   
   private enum Path {
@@ -32,14 +32,19 @@ class MercuryAPI: NSObject {
       case .Auth:
         return "auth/register"
       case .Login:
-        return "https://mercury-app.herokuapp.com/oauth/token"
+        return "oauth/token"
       case .Plans:
         return "plans"
       }
     }
     
     var path: String {
-      return (NSURL(string: Constants.MercuryAPIURL)?.appendingPathComponent(relativePath)?.absoluteString) ?? ""
+      switch self {
+      case.Login:
+        return (NSURL(string: Constants.BaseURL)?.appendingPathComponent(relativePath)?.absoluteString) ?? ""
+      default:
+        return (NSURL(string: Constants.MercuryAPIURL)?.appendingPathComponent(relativePath)?.absoluteString) ?? ""
+      }
     }
   }
   
@@ -95,7 +100,7 @@ class MercuryAPI: NSObject {
     
     print(Path.Auth.path)
     
-    Alamofire.request("https://mercury-app.herokuapp.com/api/auth/register", method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+    Alamofire.request(Path.Auth.path, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
       defer {
         print("======= resisterUserAPI deferred =======")
       }

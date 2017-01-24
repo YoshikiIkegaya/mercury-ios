@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 enum Settings {
-  static let baseURL = "https://mercury-app.herokuapp.com/"
   
   enum Size {
     static let collectionCellSize = CGSize(width: 150.0, height: 200.0)
