@@ -43,6 +43,7 @@ class LoginViewController: UIViewController {
     fbsdkLoginButton.layer.masksToBounds = true
     fbsdkLoginButton.readPermissions = []
     fbsdkLoginButton.delegate = self
+    fbsdkLoginButton.readPermissions = ["email"]
     self.view.addSubview(fbsdkLoginButton)
   }
   
@@ -70,6 +71,11 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
       SVProgressHUD.show()
       FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id, name, email"]).start {
         (connection, result, error) in
+        
+        
+        print("===========")
+        print(result)
+        print("===========")
         
         guard let nameValue = (result as AnyObject).value(forKey: "name") as? String else { return }
         self.name = nameValue
