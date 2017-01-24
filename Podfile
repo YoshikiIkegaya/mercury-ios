@@ -18,4 +18,7 @@ target 'Mercury' do
   pod 'SDWebImage'
   pod 'JSQMessagesViewController'
   pod 'SVProgressHUD'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxBlocking'
 end

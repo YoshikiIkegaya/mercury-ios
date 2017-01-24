@@ -46,19 +46,20 @@ class DetailPlanViewController: UIViewController {
   
   func setupPlanImageView() {
     if let image_url_string = planImageURL {
-      let image_url: NSURL = NSURL(string: image_url_string)!
-      self.planImageView?.sd_setImage(with: image_url as URL, placeholderImage: placeholderView, options: .lowPriority
-        , completed: {
-          [weak self] image, error, cacheType, imageUrl in
-          if error != nil {
-            return
-          }
-          if image != nil && cacheType == .none {
-            self?.planImageView?.fadeIn(duration: FadeType.Slow.rawValue)
-          }
-      })
-      self.planImageView?.contentMode = .scaleAspectFill
-      self.planImageView?.layer.masksToBounds = true
+      if let image_url: NSURL = NSURL(string: image_url_string) {
+        self.planImageView?.sd_setImage(with: image_url as URL, placeholderImage: placeholderView, options: .lowPriority
+          , completed: {
+            [weak self] image, error, cacheType, imageUrl in
+            if error != nil {
+              return
+            }
+            if image != nil && cacheType == .none {
+              self?.planImageView?.fadeIn(duration: FadeType.Slow.rawValue)
+            }
+        })
+        self.planImageView?.contentMode = .scaleAspectFill
+        self.planImageView?.layer.masksToBounds = true
+      }
     }
   }
   
