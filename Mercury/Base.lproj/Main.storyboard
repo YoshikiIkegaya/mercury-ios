@@ -302,11 +302,24 @@
                                     <action selector="tappedJoinButton:" destination="w3C-b3-TRC" eventType="touchUpInside" id="Cs1-7P-bK4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ws2-Ie-UOJ">
+                                <rect key="frame" x="295" y="160" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="9tc-nC-pKw"/>
+                                    <constraint firstAttribute="width" constant="80" id="oa8-l3-4YX"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="tappedPlanerIconButton:" destination="w3C-b3-TRC" eventType="touchUpInside" id="SWW-fM-RO7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uHJ-mT-0Ih" firstAttribute="centerX" secondItem="zyQ-5A-Gk0" secondAttribute="centerX" id="OtR-wT-Ejn"/>
                             <constraint firstAttribute="trailing" secondItem="5XK-kF-jjb" secondAttribute="trailing" id="RSi-mY-yxl"/>
+                            <constraint firstAttribute="trailing" secondItem="ws2-Ie-UOJ" secondAttribute="trailing" id="Tqz-cr-UVz"/>
+                            <constraint firstItem="Bc0-tH-XRe" firstAttribute="top" secondItem="ws2-Ie-UOJ" secondAttribute="bottom" constant="60" id="Wvb-mR-3tc"/>
                             <constraint firstItem="Bc0-tH-XRe" firstAttribute="centerX" secondItem="zyQ-5A-Gk0" secondAttribute="centerX" id="azq-pU-uNk"/>
                             <constraint firstItem="Bc0-tH-XRe" firstAttribute="top" secondItem="5XK-kF-jjb" secondAttribute="bottom" constant="60" id="bGS-dn-K4V"/>
                             <constraint firstItem="K5W-0R-Rcf" firstAttribute="centerX" secondItem="zyQ-5A-Gk0" secondAttribute="centerX" id="fhP-7Z-w7D"/>
@@ -323,6 +336,7 @@
                         <outlet property="giveLabel" destination="Bc0-tH-XRe" id="Ydr-IO-zB6"/>
                         <outlet property="joinButton" destination="K5W-0R-Rcf" id="pFh-B7-STA"/>
                         <outlet property="planImageView" destination="5XK-kF-jjb" id="guG-LV-Bye"/>
+                        <outlet property="planerIconImageButton" destination="ws2-Ie-UOJ" id="Byr-bb-JYh"/>
                         <outlet property="takeLabel" destination="uHJ-mT-0Ih" id="4bO-JA-XeY"/>
                     </connections>
                 </viewController>
