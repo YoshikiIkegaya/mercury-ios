@@ -15,14 +15,15 @@ class CreatePlanViewController: UIViewController {
   @IBOutlet weak var giveTextField: UITextField!
   @IBOutlet weak var takeTextField: UITextField!
   @IBOutlet weak var placeTextField: UITextField!
-  
   @IBOutlet weak var postNewPlanButton: UIButton!
   
   private let disposeBag = DisposeBag()
   private let throttleInterval = 0.1
   
-  let minLength = 5
+  let minLength = 3
   let maxLength = 140
+  
+  let tmp_image_url = "https://i.ytimg.com/vi/Ls88xKQVIeA/maxresdefault.jpg"
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -43,9 +44,9 @@ class CreatePlanViewController: UIViewController {
   
   func bindViewAndModel() {
     
-    giveTextField.text = "Username has to be at least \(minLength) characters"
-    takeTextField.text = "Password has to be at least \(minLength) characters"
-    placeTextField.text = "Password has to be at least \(minLength) characters"
+    giveTextField.text = "give has to be at least \(minLength) characters"
+    takeTextField.text = "take has to be at least \(minLength) characters"
+    placeTextField.text = "place has to be at least \(minLength) characters"
     
     let giveTextFieldValid = giveTextField.rx.text.orEmpty
       .map { $0.characters.count >= self.minLength }
@@ -69,31 +70,22 @@ class CreatePlanViewController: UIViewController {
     postNewPlanButton.rx.tap
       .subscribe(onNext: { [weak self] in
         print("====== 新しいプランを作成します ======")
-        guard let giveText = self?.giveTextField?.text else { return }
-        guard let takeText = self?.takeTextField?.text else { return }
-        guard let placeText = self?.placeTextField?.text else { return }
-        MercuryAPI.sharedInstance.postNewPlan(give: giveText, take: takeText, place: placeText, image_url: "https://i.ytimg.com/vi/Ls88xKQVIeA/maxresdefault.jpg", completionHandler: {
+        guard let giveText = self!.giveTextField.text else { return }
+        guard let takeText = self!.takeTextField.text else { return }
+        guard let placeText = self!.placeTextField.text else { return }
+        
+        
+        print("======= DEBUG =======")
+        print(giveText)
+        print(takeText)
+        print(placeText)
+        print("==============")
+        
+        MercuryAPI.sharedInstance.postNewPlan(give: giveText, take: takeText, place: placeText, image_url: self!.tmp_image_url, completionHandler: {
           self?.dismiss(animated: true, completion: nil)
-          //        MercuryAPI.sharedInstance.postNewPlan(give: "トマトの栽培の仕方を教えるので", take: "革細工のスキルを教えてください", place: "奥多摩", image_url: "https://i.ytimg.com/vi/Ls88xKQVIeA/maxresdefault.jpg", completionHandler: {
-          //          self?.dismiss(animated: true, completion: nil)
         })
       })
       .addDisposableTo(disposeBag)
-    
-    //      .subscribeNext { [weak self] text in
-    //        self?.myLabel.text = text
-    //
-    //        print("===========================")
-    //        print("[myLabel.count:]\(self?.myLabel.text?.characters.count)")
-    //        print("===========================")
-    //
-    //        if self?.myLabel.text?.characters.count < 8 {
-    //          self?.alertLabel?.hidden = false
-    //          self?.alertLabel?.text = "8文字以上で書いてください"
-    //        } else {
-    //          self?.alertLabel?.hidden = true
-    //        }
-    //      }.addDisposableTo(disposeBag)
   }
   
   override func didReceiveMemoryWarning() {
