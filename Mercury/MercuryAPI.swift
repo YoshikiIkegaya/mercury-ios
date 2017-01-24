@@ -17,10 +17,35 @@ class MercuryAPI: NSObject {
   static var sharedInstance = MercuryAPI()
   var plans = [PlanInfo]()
   
+  private struct Constants {
+    static let MercuryAPIURL = "https://mercury-app.herokuapp.com/api/"
+  }
+  
+    private enum Path {
+      case Auth
+      case Plans
+      
+      
+      var relativePath: String {
+        switch self {
+        case .Auth:
+          return "auth/register"
+        case .Plans:
+          return "plans"
+        
+        }
+      }
+      
+      var path: String {
+        return (NSURL(string: Constants.MercuryAPIURL)?.appendingPathComponent(relativePath)?.absoluteString) ?? ""
+      }
+  }
+  
+  
   func resisterUserAPI() {
-    let name = Defaults.UserName.getString()
-    let email = Defaults.CurrentUserEmail.getString()
-    let password = Defaults.FacebookID.getString()
+    guard let name = Defaults.UserName.getString() else { return }
+    guard let email = Defaults.CurrentUserEmail.getString() else { return }
+    guard let password = Defaults.FacebookID.getString() else { return }
     
     let params: Parameters = [
       "name" : name,
@@ -28,7 +53,8 @@ class MercuryAPI: NSObject {
       "password" : password
     ]
     
-    Alamofire.request("https://mercury-app.herokuapp.com/api/auth/register", method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+    // : resister useer data
+    Alamofire.request(Path.Auth.path, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
       defer {
         print("======= deferred =======")
       }
@@ -50,9 +76,9 @@ class MercuryAPI: NSObject {
     
   }
   
-  // : fetch data from API
+  // : fetch plans data
   func fetchPlanInfoList(completionHandler: @escaping () -> Void) {
-    Alamofire.request("https://mercury-app.herokuapp.com/api/plans").responseJSON { response in
+    Alamofire.request(Path.Plans.path).responseJSON { response in
       defer {
         print("======= deferred =======")
       }
