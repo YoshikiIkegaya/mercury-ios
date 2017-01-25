@@ -44,7 +44,6 @@ class MercuryAPI: NSObject {
         return "plans/\(id)/apply"
       case .Applicants(let id):
         return "plans/\(id)/applicants"
-        
       }
     }
     
@@ -64,6 +63,9 @@ class MercuryAPI: NSObject {
       "Accept" : "application/json",
       "Authorization" : "Bearer \(Defaults.AccessToken.getString() ?? "")"
     ]
+    print("======= [Defaults.AccessToken] =======")
+    print(Defaults.AccessToken.getString() ?? "")
+    print("==============")
     return headers
   }
   
@@ -72,25 +74,30 @@ class MercuryAPI: NSObject {
     let env = ProcessInfo.processInfo.environment
     guard let client_id = env["client_id"] else { return }
     guard let client_secret = env["client_secret"] else { return }
-    guard let email = Defaults.CurrentUserEmail.getString() else { return }
-    guard let password = Defaults.FacebookID.getString() else { return }
+    guard let facebookID = Defaults.FacebookID.getString() else { return }
+    guard let fbAccessToken = Defaults.FBSDKAccessToken.getString() else { return }
     
     let params = [
       "client_id"     : client_id,
       "client_secret" : client_secret,
       "grant_type"    : "password",
-      "username"      : email,
-      "password"      : password,
+      "username"      : facebookID,
+      "password"      : fbAccessToken,
       "scope"         : ""
     ]
     
-    Alamofire.request(Path.Login.path, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil)
+    Alamofire.request(Path.Login.path, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil)
       .responseJSON { response in
         defer { print("======= Path.Login.path deferred =======") }
         guard let object = response.result.value else { return }
         let json = JSON(object)
-        let access_token = json["access_token"].string
-        Defaults.AccessToken.set(value: access_token as AnyObject)
+        print("======== [USER LOGIN API] ========")
+        print(json)
+        print("==============================")
+        print("======= [access_token] =======")
+        guard let acccess_token = json["access_token"].string else { return }
+        print("==============")
+        Defaults.AccessToken.set(value: acccess_token as AnyObject)
         json.forEach { (_, json) in
 //          print("==============")
 //          print(json)
@@ -100,20 +107,23 @@ class MercuryAPI: NSObject {
   }
   
   /// Resister user data
-  func resisterUserInfo() {
+  func resisterUserInfo(completionHandler: @escaping () -> Void) {
     guard let name = Defaults.UserName.getString() else { return }
-    guard let email = Defaults.CurrentUserEmail.getString() else { return }
-    guard let password = Defaults.FacebookID.getString() else { return }
+    guard let facebookId = Defaults.FacebookID.getString() else { return }
+    guard let fbAccessToken = Defaults.FBSDKAccessToken.getString() else { return }
     guard let profileImage = Defaults.ProfileImage.getString() else { return }
     
-    print("======== [profileImage url] ========")
-    print(profileImage)
+    print("======== [user info] ========")
+    print("[name] \(name)")
+    print("[facebookId] \(facebookId)")
+    print("[fbAccessToken] \(fbAccessToken)")
+        print("[profileImage] \(profileImage)")
     print("================")
     
     let params: Parameters = [
       "name"     : name,
-      "email"    : email,
-      "password" : password,
+      "email"    : facebookId,
+      "password" : fbAccessToken,
       "image_url": profileImage
     ]
     
@@ -123,10 +133,11 @@ class MercuryAPI: NSObject {
         guard let object = response.result.value else { return }
         let json = JSON(object)
         json.forEach { (_, json) in
-          print("==============")
+          print("====== [RESISTER API] ======")
           print(json)
           print("==============")
         }
+        completionHandler()
     }
   }
   
@@ -139,6 +150,9 @@ class MercuryAPI: NSObject {
         let json = JSON(object)
         json.forEach { (_, json) in
           let pi = PlanInfo(json: json)
+//          print("======= [GET PLANS] =======")
+//          print(json)
+//          print("==============")
           self.plans.append(pi)
         }
         completionHandler()
@@ -154,6 +168,13 @@ class MercuryAPI: NSObject {
       "image_url" : image_url
     ]
     
+    print("============")
+    print("[give] \(give)")
+    print("[take] \(take)")
+    print("[place] \(place)")
+    print("[image_url] \(image_url)")
+    print("============")
+    
     Alamofire.request(Path.PostPlan.path, method: .post, parameters: params, encoding: JSONEncoding.default, headers: buildHeaders())
       .responseJSON { response in
         defer { print("=======  Post new plan deferred =======") }
@@ -165,6 +186,7 @@ class MercuryAPI: NSObject {
           print(json)
           print("==============")
         }
+        print("=============== ここから completionHandler をコールします")
         completionHandler()
     }
   }
@@ -187,7 +209,8 @@ class MercuryAPI: NSObject {
     }
   }
   
-  func fetchApplicants(plan_id: Int) {
+  /// Fetch plan applicants
+  func fetchApplicants(plan_id: Int, completionHandler: @escaping () -> Void) {
     Alamofire.request(Path.Applicants(plan_id).path, method: .get, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
       .responseJSON(completionHandler: { response in
         defer { print("=======  Fetch applicants deferred =======") }

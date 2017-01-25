@@ -27,7 +27,7 @@ class CreatePlanViewController: UIViewController {
   private let throttleInterval = 0.1
   
   let minLength = 3
-  let maxLength = 8
+  let maxLength = 140
   
   let tmp_image_url = "https://i.ytimg.com/vi/Ls88xKQVIeA/maxresdefault.jpg"
   
@@ -56,15 +56,15 @@ class CreatePlanViewController: UIViewController {
     placeTextField.placeholder = "ex.) 新宿駅"
     
     let giveTextFieldValid = giveTextField.rx.text.orEmpty
-      .map { $0.characters.count >= self.minLength && $0.characters.count <= self.maxLength}
+      .map { $0.characters.count >= self.minLength }
       .shareReplay(1)
     
     let takeTextFieldValid = takeTextField.rx.text.orEmpty
-      .map { $0.characters.count >= self.minLength && $0.characters.count <= self.maxLength}
+      .map { $0.characters.count >= self.minLength }
       .shareReplay(1)
     
     let placeTextFieldValid = placeTextField.rx.text.orEmpty
-      .map { $0.characters.count >= self.minLength && $0.characters.count <= self.maxLength}
+      .map { $0.characters.count >= self.minLength }
       .shareReplay(1)
     
     let everythingValid = Observable.combineLatest(giveTextFieldValid, takeTextFieldValid, placeTextFieldValid) { $0 && $1 && $2 }

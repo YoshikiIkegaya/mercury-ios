@@ -14,7 +14,7 @@ class DetailPlanViewController: UIViewController {
   @IBOutlet weak var planerIconImageButton: UIButton!
   @IBOutlet weak var giveLabel: UILabel!
   @IBOutlet weak var takeLabel: UILabel!
-  @IBOutlet weak var applyPlanButton: UIButton!
+  @IBOutlet weak var applyButton: UIButton!
   
   var plan: PlanInfo?
   let placeholderView = UIImage.imageWithColor(color: UIColor.white)
@@ -26,12 +26,15 @@ class DetailPlanViewController: UIViewController {
   
   @IBAction func tmpGetApplicants(_ sender: Any) {
     guard let planId = plan?.id else {return}
-    MercuryAPI.sharedInstance.fetchApplicants(plan_id: planId)
+    MercuryAPI.sharedInstance.fetchApplicants(plan_id: planId,completionHandler: {
+      self.dismiss(animated: true, completion: {
+        print("============ ここで申請完了のモーダルを表示する ============")
+      })
+    })
   }
   
-  @IBAction func tappedApplyPlanButton(_ sender: Any) {
-    
-    self.applyPlanButton?.isEnabled = false
+  @IBAction func tappedApplyButton(_ sender: Any) {
+    self.applyButton?.isEnabled = false
     // 参加申請APIをコールする
     guard let planId = self.plan?.id else { return }
     print("===== プラン\(planId)に参加します =====")
@@ -39,12 +42,12 @@ class DetailPlanViewController: UIViewController {
     print("================")
     MercuryAPI.sharedInstance.applyForParticipate(plan_id: planId, completionHandler: {
       print("========== 参加申請の送信を完了しました ==========")
+      /// ここに参加申請が完了したことを通知するアラートを表示する
     })
   }
   
   @IBAction func tappedPlanerIconButton(_ sender: Any) {
     print("===== Tapped Planer Icon Button =====")
-    
     /// プラン作成者のプロフィール画面に遷移する
   }
   
@@ -76,10 +79,10 @@ class DetailPlanViewController: UIViewController {
   }
   
   func setupApplyButtonUI() {
-    self.applyPlanButton?.backgroundColor = Settings.Color.mercuryColor
-    self.applyPlanButton?.setTitle("このプランに参加する", for: .normal)
-    self.applyPlanButton?.tintColor = UIColor.white
-    self.applyPlanButton?.titleLabel?.font = UIFont(name: "Helvetiva-Bold", size: 14)
+    self.applyButton?.backgroundColor = Settings.Color.mercuryColor
+    self.applyButton?.setTitle("このプランに参加する", for: .normal)
+    self.applyButton?.tintColor = UIColor.white
+    self.applyButton?.titleLabel?.font = UIFont(name: "Helvetiva-Bold", size: 14)
   }
   
   override func didReceiveMemoryWarning() {

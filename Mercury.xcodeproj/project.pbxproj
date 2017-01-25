@@ -33,6 +33,7 @@
 		DD259DFB1E3458FB001F03AC /* MercuryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DFA1E3458FB001F03AC /* MercuryAPI.swift */; };
 		DD259DFF1E348254001F03AC /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DFE1E348254001F03AC /* UIImage+Extension.swift */; };
 		DD259E031E34BEF3001F03AC /* CreatePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259E021E34BEF3001F03AC /* CreatePlanViewController.swift */; };
+		DD330E0E1E38ACFB009DD2BE /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD330E0D1E38ACFB009DD2BE /* UserProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		DD259DFA1E3458FB001F03AC /* MercuryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercuryAPI.swift; sourceTree = "<group>"; };
 		DD259DFE1E348254001F03AC /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		DD259E021E34BEF3001F03AC /* CreatePlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePlanViewController.swift; sourceTree = "<group>"; };
+		DD330E0D1E38ACFB009DD2BE /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		E79BFCF3E772DC048BA353A8 /* Pods-Mercury.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mercury.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mercury/Pods-Mercury.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +146,7 @@
 				DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */,
 				DD259DCF1E3430FE001F03AC /* HomeViewController.swift */,
 				DD259E021E34BEF3001F03AC /* CreatePlanViewController.swift */,
+				DD330E0D1E38ACFB009DD2BE /* UserProfileViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			files = (
 				DD259DF11E344B56001F03AC /* PlanInfo.swift in Sources */,
 				DD0B43B21E35D0C6003787D7 /* Defaults.swift in Sources */,
+				DD330E0E1E38ACFB009DD2BE /* UserProfileViewController.swift in Sources */,
 				DD259DD01E3430FE001F03AC /* HomeViewController.swift in Sources */,
 				DD259DE21E343895001F03AC /* SideMenuViewController.swift in Sources */,
 				DD259E031E34BEF3001F03AC /* CreatePlanViewController.swift in Sources */,
