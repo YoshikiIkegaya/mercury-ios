@@ -26,6 +26,7 @@ class MercuryAPI: NSObject {
     case Auth
     case Login
     case Plans
+    case Plan(Int)
     case PostPlan
     case Apply(Int)
     case Applicants(Int)
@@ -39,6 +40,8 @@ class MercuryAPI: NSObject {
         return "oauth/token"
       case .Plans:
         return "plans"
+      case .Plan(let id):
+        return "plans/\(id)"
       case .PostPlan:
         return "plans"
       case .Apply(let id):
@@ -163,6 +166,22 @@ class MercuryAPI: NSObject {
     }
   }
   
+  /// Get plan with an id
+  func getPlan(plan_id: Int, completionHandler: @escaping () -> Void) {
+    Alamofire.request(Path.Plan(plan_id).path, method: .get, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
+      .responseJSON { response in
+        defer { print("=======  Get plan with an id deferred =======") }
+        guard let object = response.result.value else { return }
+        let json = JSON(object)
+        json.forEach { (_, json) in
+          print("==============")
+          print(json)
+          print("==============")
+        }
+        completionHandler()
+    }
+  }
+  
   /// Post new plan
   func postNewPlan(give: String, take: String, place: String, image_url: String? = nil, completionHandler: @escaping () -> Void) {
     let params = [
@@ -246,6 +265,21 @@ class MercuryAPI: NSObject {
           completionHandler(userinfo)
         }
       })
-    
+  }
+  
+  /// Destroy Plan with id
+  func deletePlan(plan_id: Int, completionHandler: () -> Void) {
+    Alamofire.request(Path.Plan(plan_id).path, method: .delete, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
+      .responseJSON(completionHandler: { response in
+        defer { print("======= Fetch User Info deferred =======") }
+        guard let object = response.result.value else { return }
+        let json = JSON(object)
+        json.forEach { (_, json) in
+          print("==========")
+          print(json)
+          print("==========")
+        }
+      })
+    completionHandler()
   }
 }
