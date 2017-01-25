@@ -26,7 +26,11 @@ class DetailPlanViewController: UIViewController {
   
   @IBAction func tmpGetApplicants(_ sender: Any) {
     guard let planId = plan?.id else {return}
-    MercuryAPI.sharedInstance.fetchApplicants(plan_id: planId)
+    MercuryAPI.sharedInstance.fetchApplicants(plan_id: planId,completionHandler: {
+      self.dismiss(animated: true, completion: {
+        print("============ ここで申請完了のモーダルを表示する ============")
+      })
+    })
   }
   
   @IBAction func tappedApplyPlanButton(_ sender: Any) {
@@ -39,6 +43,7 @@ class DetailPlanViewController: UIViewController {
     print("================")
     MercuryAPI.sharedInstance.applyForParticipate(plan_id: planId, completionHandler: {
       print("========== 参加申請の送信を完了しました ==========")
+      　/// ここに参加申請が完了したことを通知するアラートを表示する
     })
   }
   

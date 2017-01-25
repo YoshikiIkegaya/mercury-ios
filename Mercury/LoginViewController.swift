@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    if FBSDKAccessToken.current() != nil {//Defaults.isConnectedToDB.getBool() == true
+    if FBSDKAccessToken.current() != nil {
       print("一度ログインしているので、次の画面へ遷移します。")
       gotoNextScreen()
     }
@@ -103,7 +103,9 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
           }
         }
         // ここでユーザー登録APIをコールする
-        MercuryAPI.sharedInstance.resisterUserInfo()
+        MercuryAPI.sharedInstance.resisterUserInfo(completionHandler:{
+          MercuryAPI.sharedInstance.userLogin()
+        })
         self.gotoNextScreen()
       }
     }

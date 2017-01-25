@@ -17,20 +17,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     setupThirdPartyLibraries(application, launchOptions: launchOptions)
-    MercuryAPI.sharedInstance.userLogin()
     checkUserIsLoggedin()
     return true
   }
   
   func checkUserIsLoggedin() {
-    // 期限切れしていないか調べる
+    
+    // Facebook認証が期限切れしている場合
+    // Facebook認証ログインする
     // 保留あとから期限と日付を比較する
-    if Defaults.ExpirationDate.getString() == nil { //2017-03-24 03:05:36 +0000
+     //2017-03-24 03:05:36 +0000
+    if Defaults.ExpirationDate.getString() == nil {
       let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
       if let vc = mainStoryboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController {
         window?.rootViewController? = vc
         window?.makeKeyAndVisible()
       }
+    } else {
+      MercuryAPI.sharedInstance.resisterUserInfo(completionHandler:{
+        MercuryAPI.sharedInstance.userLogin()
+      })
     }
     
   }
