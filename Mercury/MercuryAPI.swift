@@ -185,7 +185,6 @@ class MercuryAPI: NSObject {
         guard let object = response.result.value else { return }
         let json = JSON(object)
         json.forEach { (_, json) in
-          print("====== 新しいプランを作成しました ======")
           print("==============")
           print(json)
           print("==============")

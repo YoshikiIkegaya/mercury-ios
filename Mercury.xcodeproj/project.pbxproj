@@ -123,12 +123,12 @@
 		DD259DCC1E3430FE001F03AC /* Mercury */ = {
 			isa = PBXGroup;
 			children = (
-				DD259DCD1E3430FE001F03AC /* AppDelegate.swift */,
 				DD259DF41E344D3D001F03AC /* Extensions */,
 				DD259DEB1E34486B001F03AC /* Helper */,
 				DD259DE91E344287001F03AC /* Models */,
 				DD259DE01E34387D001F03AC /* Controllers */,
 				DD259DE31E343920001F03AC /* Views */,
+				DD259DCD1E3430FE001F03AC /* AppDelegate.swift */,
 				DD259DD11E3430FE001F03AC /* Main.storyboard */,
 				DD259DD41E3430FE001F03AC /* Assets.xcassets */,
 				DD0B295B1E3702A500BC8958 /* Images.xcassets */,

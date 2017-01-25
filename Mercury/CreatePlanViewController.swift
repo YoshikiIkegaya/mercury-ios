@@ -51,9 +51,9 @@ class CreatePlanViewController: UIViewController {
     takeAlertLabel.text = "\(minLength)文字以上で入力して下さい。"
     placeAlertLabel.text = "\(minLength)文字以上で入力して下さい。"
     
-    giveTextField.placeholder  = "ex.) プログラミングを教えます。"
-    takeTextField.placeholder  = "ex.) ケーキの作り方を教えてください。"
-    placeTextField.placeholder = "ex.) 新宿駅"
+    giveTextField.placeholder  = "例) プログラミングを教えます。"
+    takeTextField.placeholder  = "例) ケーキの作り方を教えてください。"
+    placeTextField.placeholder = "例) 新宿駅"
     
     let giveTextFieldValid = giveTextField.rx.text.orEmpty
       .map { $0.characters.count >= self.minLength }
@@ -70,17 +70,17 @@ class CreatePlanViewController: UIViewController {
     let everythingValid = Observable.combineLatest(giveTextFieldValid, takeTextFieldValid, placeTextFieldValid) { $0 && $1 && $2 }
       .shareReplay(1)
     
-//    giveTextFieldValid
-//    .bindTo(giveAlertLabel.rx.isHidden)
-//    .addDisposableTo(disposeBag)
-//    
-//    takeTextFieldValid
-//    .bindTo(takeAlertLabel.rx.isHidden)
-//    .addDisposableTo(disposeBag)
-//    
-//    placeTextFieldValid
-//      .bindTo(placeAlertLabel.rx.isHidden)
-//      .addDisposableTo(disposeBag)
+    giveTextFieldValid
+      .bindTo(giveAlertLabel.rx.isHidden)
+      .addDisposableTo(disposeBag)
+    
+    takeTextFieldValid
+      .bindTo(takeAlertLabel.rx.isHidden)
+      .addDisposableTo(disposeBag)
+    
+    placeTextFieldValid
+      .bindTo(placeAlertLabel.rx.isHidden)
+      .addDisposableTo(disposeBag)
     
     everythingValid
       .bindTo(postNewPlanButton.rx.isEnabled)
@@ -96,7 +96,7 @@ class CreatePlanViewController: UIViewController {
         guard let takeText = self?.takeTextField?.text else { return }
         guard let placeText = self?.placeTextField?.text else { return }
         MercuryAPI.sharedInstance.postNewPlan(give: giveText, take: takeText, place: placeText, image_url: self?.tmp_image_url, completionHandler: {
-//          self?.dismiss(animated: true, completion: nil)
+          print("====== 新しいプランを作成しました ======")
         })
         self?.dismiss(animated: true, completion: nil)
       })

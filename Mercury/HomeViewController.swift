@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     print("----- viewDidLoad -----")
+    SVProgressHUD.show()
     refreshControl.addTarget(self, action: #selector(reload(_:)), for: .valueChanged)
     self.title = "Home"
     setupCollectionView()
@@ -36,7 +37,6 @@ class HomeViewController: UIViewController {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    SVProgressHUD.dismiss()
   }
   
   @IBAction func tappedCreatePlanButton(_ sender: Any) {
@@ -60,6 +60,7 @@ class HomeViewController: UIViewController {
   
   func fetchAPI() {
     MercuryAPI.sharedInstance.fetchPlanInfoList(completionHandler: {
+      SVProgressHUD.dismiss()
       self.collectionView?.reloadData()
       self.refreshControl.endRefreshing()
     })
