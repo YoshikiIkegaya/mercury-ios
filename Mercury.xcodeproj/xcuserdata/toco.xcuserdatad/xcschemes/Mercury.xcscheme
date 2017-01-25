@@ -64,12 +64,12 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "client_id"
-            value = "12"
+            value = "32"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "client_secret"
-            value = "wWeF5OXwscDKFzFw7JRgjWIKSQ9pNRUOVhPUSJld"
+            value = "B7zEqjKXpCz8x10IUyatz7QkSlS9Aeuh1XHjuZgE"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>

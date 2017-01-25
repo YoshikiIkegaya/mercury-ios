@@ -477,13 +477,52 @@
                     <view key="view" contentMode="scaleToFill" id="MHe-zJ-6Lu">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xP-wo-vQr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="242"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="qba-sr-snF"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CEx-v4-Fad">
+                                <rect key="frame" x="123" y="175" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="mT2-GT-MK2"/>
+                                    <constraint firstAttribute="width" constant="128" id="xwZ-pc-joT"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqg-rS-yyE">
+                                <rect key="frame" x="113" y="333" width="150" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="7uC-AR-zT6"/>
+                                    <constraint firstAttribute="width" constant="150" id="maV-hr-Ydq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1xP-wo-vQr" firstAttribute="top" secondItem="8NV-m5-8ww" secondAttribute="bottom" id="2BK-zP-XRC"/>
+                            <constraint firstItem="xqg-rS-yyE" firstAttribute="top" secondItem="CEx-v4-Fad" secondAttribute="bottom" constant="30" id="4sB-hc-k38"/>
+                            <constraint firstItem="1xP-wo-vQr" firstAttribute="leading" secondItem="MHe-zJ-6Lu" secondAttribute="leading" id="CL2-2W-USy"/>
+                            <constraint firstAttribute="trailing" secondItem="1xP-wo-vQr" secondAttribute="trailing" id="CqI-Kw-hH6"/>
+                            <constraint firstItem="CEx-v4-Fad" firstAttribute="top" secondItem="8NV-m5-8ww" secondAttribute="bottom" constant="175" id="Vnf-Bh-pKj"/>
+                            <constraint firstItem="xqg-rS-yyE" firstAttribute="centerX" secondItem="MHe-zJ-6Lu" secondAttribute="centerX" id="lRZ-vN-5ca"/>
+                            <constraint firstItem="CEx-v4-Fad" firstAttribute="centerX" secondItem="MHe-zJ-6Lu" secondAttribute="centerX" id="zcx-Ra-1Jo"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Gd9-jG-967"/>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="1xP-wo-vQr" id="paP-24-PTe"/>
+                        <outlet property="nameLabel" destination="xqg-rS-yyE" id="WSi-HP-Deu"/>
+                        <outlet property="profileImageView" destination="CEx-v4-Fad" id="OWC-We-jTT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vcj-c4-UZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2903" y="1499"/>
+            <point key="canvasLocation" x="2901.5999999999999" y="1498.2008995502249"/>
         </scene>
     </scenes>
     <resources>

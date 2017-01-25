@@ -104,9 +104,10 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
         }
         // ここでユーザー登録APIをコールする
         MercuryAPI.sharedInstance.resisterUserInfo(completionHandler:{
-          MercuryAPI.sharedInstance.userLogin()
+          MercuryAPI.sharedInstance.userLogin(completionHandler:{
+            self.gotoNextScreen()
+          })
         })
-        self.gotoNextScreen()
       }
     }
   }

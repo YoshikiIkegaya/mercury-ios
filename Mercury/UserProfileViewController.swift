@@ -10,6 +10,14 @@ import UIKit
 
 class UserProfileViewController: UIViewController {
   
+  @IBOutlet weak var backgroundImageView: UIImageView!
+  @IBOutlet weak var profileImageView: UIImageView!
+  @IBOutlet weak var nameLabel: UILabel!
+  
+  var name: String?
+  var backgroundImage: UIImage?
+  var profileImage: UIImage?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }

@@ -29,6 +29,7 @@ class MercuryAPI: NSObject {
     case PostPlan
     case Apply(Int)
     case Applicants(Int)
+    case User(Int)
     
     var relativePath: String {
       switch self {
@@ -44,6 +45,8 @@ class MercuryAPI: NSObject {
         return "plans/\(id)/apply"
       case .Applicants(let id):
         return "plans/\(id)/applicants"
+      case .User(let id):
+        return "user/\(id)"
       }
     }
     
@@ -70,7 +73,7 @@ class MercuryAPI: NSObject {
   }
   
   /// user login
-  func userLogin() {
+  func userLogin(completionHandler: @escaping () -> Void) {
     let env = ProcessInfo.processInfo.environment
     guard let client_id = env["client_id"] else { return }
     guard let client_secret = env["client_secret"] else { return }
@@ -99,10 +102,11 @@ class MercuryAPI: NSObject {
         print("==============")
         Defaults.AccessToken.set(value: acccess_token as AnyObject)
         json.forEach { (_, json) in
-//          print("==============")
-//          print(json)
-//          print("==============")
+          //          print("==============")
+          //          print(json)
+          //          print("==============")
         }
+        completionHandler()
     }
   }
   
@@ -117,7 +121,7 @@ class MercuryAPI: NSObject {
     print("[name] \(name)")
     print("[facebookId] \(facebookId)")
     print("[fbAccessToken] \(fbAccessToken)")
-        print("[profileImage] \(profileImage)")
+    print("[profileImage] \(profileImage)")
     print("================")
     
     let params: Parameters = [
@@ -150,9 +154,9 @@ class MercuryAPI: NSObject {
         let json = JSON(object)
         json.forEach { (_, json) in
           let pi = PlanInfo(json: json)
-//          print("======= [GET PLANS] =======")
-//          print(json)
-//          print("==============")
+          //          print("======= [GET PLANS] =======")
+          //          print(json)
+          //          print("==============")
           self.plans.append(pi)
         }
         completionHandler()
@@ -223,6 +227,24 @@ class MercuryAPI: NSObject {
           print("[plan_id] \(ai.plan_id)")
           print("[creator_id] \(ai.creator_id)")
           print("==============")
+        }
+      })
+  }
+  
+  /// Fetch User Info
+  func fetchUserInfo(user_id: Int) {
+    Alamofire.request(Path.User(user_id).path, method: .get, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
+      .responseJSON(completionHandler: { response in
+        defer { print("======= Fetch User Info deferred =======") }
+        guard let object = response.result.value else { return }
+        let json = JSON(object)
+        json.forEach { (_, json) in
+          //          let ai = ApplicantInfo(json: json)
+          //          print("[applicant_id] \(ai.id)")
+          //          print("[applicant_name] \(ai.name)")
+          //          print("[plan_id] \(ai.plan_id)")
+          //          print("[creator_id] \(ai.creator_id)")
+          //          print("==============")
         }
       })
   }
