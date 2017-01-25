@@ -96,15 +96,21 @@ class MercuryAPI: NSObject {
   }
   
   /// Resister user data
-  func resisterUserAPI() {
+  func resisterUserInfo() {
     guard let name = Defaults.UserName.getString() else { return }
     guard let email = Defaults.CurrentUserEmail.getString() else { return }
     guard let password = Defaults.FacebookID.getString() else { return }
+    guard let profileImage = Defaults.ProfileImage.getString() else { return }
+    
+    print("======== [profileImage url] ========")
+    print(profileImage)
+    print("================")
     
     let params: Parameters = [
-      "name" : name,
-      "email" : email,
-      "password" : password
+      "name"     : name,
+      "email"    : email,
+      "password" : password,
+      "image_url": profileImage
     ]
     
     Alamofire.request(Path.Auth.path, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil)
