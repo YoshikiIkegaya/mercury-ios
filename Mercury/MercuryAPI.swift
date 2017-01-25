@@ -144,9 +144,10 @@ class MercuryAPI: NSObject {
         json.forEach { (_, json) in
           print("====== [RESISTER API] ======")
           print(json)
-          let currentUserCreatorID = json["id"].intValue
-          print("[currentUserCreatorID] \(currentUserCreatorID)")
-          Defaults.CurrentUserCreatorID.set(value: currentUserCreatorID as AnyObject)
+          if let currentUserCreatorID: Int = json["id"].intValue {
+            print("[currentUserCreatorID] \(currentUserCreatorID)")
+            Defaults.CurrentUserCreatorID.set(value: currentUserCreatorID as AnyObject)
+          }
           print("==============")
         }
         completionHandler()

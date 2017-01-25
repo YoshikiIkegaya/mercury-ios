@@ -32,6 +32,7 @@ class DetailPlanViewController: UIViewController {
     setupUI()
   }
   
+  /// これはテスト用のボタンです
   @IBAction func tmpGetApplicants(_ sender: Any) {
     /// このプランに対する申請者の一覧を取得する
     guard let planId = plan?.id else { return }
@@ -42,13 +43,17 @@ class DetailPlanViewController: UIViewController {
     })
   }
   
+  /// プランに参加申請をする or 自分が作成したプランを削除する
   @IBAction func tappedApplyButton(_ sender: Any) {
     if isApplyButtonEnabled == false {
       print("========== このプランを削除します ==========")
-      /// ここにプランを削除するコードを書く
+      /// TODO: 本当に削除をするか確認をするアラートを表示する
+      
       guard let planId = self.plan?.id else { return }
       MercuryAPI.sharedInstance.deletePlan(plan_id: planId, completionHandler: {
         print("===== プラン\(planId)を削除しました =====")
+        /// TODO: 削除を完了したことを伝えるモーダルを表示する
+        
         self.navigationController?.popViewController(animated: true)
       })
     } else {
@@ -61,7 +66,7 @@ class DetailPlanViewController: UIViewController {
       print("================")
       MercuryAPI.sharedInstance.applyForParticipate(plan_id: planId, completionHandler: {
         print("========== 参加申請の送信を完了しました ==========")
-        /// ここに参加申請が完了したことを通知するアラートを表示する
+        /// TODO: 参加申請が完了したことを通知するアラートを表示する
       })
     }
   }
