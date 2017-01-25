@@ -22,7 +22,11 @@ class DetailPlanViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    if plan?.creator_id == 12 {
+    let currentUserCreatorID = Defaults.CurrentUserCreatorID.getInt()
+    print("==========")
+    print("[currentUserCreatorID] \(currentUserCreatorID)")
+    print("==========")
+    if plan?.creator_id == currentUserCreatorID {
       isApplyButtonEnabled = false
     }
     setupUI()

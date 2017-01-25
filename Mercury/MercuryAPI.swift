@@ -120,12 +120,14 @@ class MercuryAPI: NSObject {
     guard let fbAccessToken = Defaults.FBSDKAccessToken.getString() else { return }
     guard let profileImage = Defaults.ProfileImage.getString() else { return }
     
+    /*
     print("======== [user info] ========")
     print("[name] \(name)")
     print("[facebookId] \(facebookId)")
     print("[fbAccessToken] \(fbAccessToken)")
     print("[profileImage] \(profileImage)")
     print("================")
+    */
     
     let params: Parameters = [
       "name"     : name,
@@ -142,6 +144,9 @@ class MercuryAPI: NSObject {
         json.forEach { (_, json) in
           print("====== [RESISTER API] ======")
           print(json)
+          let currentUserCreatorID = json["id"].intValue
+          print("[currentUserCreatorID] \(currentUserCreatorID)")
+          Defaults.CurrentUserCreatorID.set(value: currentUserCreatorID as AnyObject)
           print("==============")
         }
         completionHandler()
