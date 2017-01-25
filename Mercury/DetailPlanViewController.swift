@@ -35,6 +35,7 @@ class DetailPlanViewController: UIViewController {
   
   @IBAction func tappedApplyButton(_ sender: Any) {
     self.applyButton?.isEnabled = false
+    self.applyButton?.setTitle("参加申請済み", for: .disabled)
     // 参加申請APIをコールする
     guard let planId = self.plan?.id else { return }
     print("===== プラン\(planId)に参加します =====")
