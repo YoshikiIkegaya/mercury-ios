@@ -412,7 +412,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="tappedJoinButton:" destination="w3C-b3-TRC" eventType="touchUpInside" id="Cs1-7P-bK4"/>
+                                    <action selector="tappedApplyPlanButton:" destination="w3C-b3-TRC" eventType="touchUpInside" id="exy-c0-nQk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ws2-Ie-UOJ">
@@ -446,8 +446,8 @@
                     <navigationItem key="navigationItem" id="zlD-MK-7a9"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="applyPlanButton" destination="K5W-0R-Rcf" id="cY1-ty-uDI"/>
                         <outlet property="giveLabel" destination="Bc0-tH-XRe" id="Ydr-IO-zB6"/>
-                        <outlet property="joinButton" destination="K5W-0R-Rcf" id="pFh-B7-STA"/>
                         <outlet property="planImageView" destination="5XK-kF-jjb" id="guG-LV-Bye"/>
                         <outlet property="planerIconImageButton" destination="ws2-Ie-UOJ" id="Byr-bb-JYh"/>
                         <outlet property="takeLabel" destination="uHJ-mT-0Ih" id="4bO-JA-XeY"/>
