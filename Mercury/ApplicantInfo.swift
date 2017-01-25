@@ -34,22 +34,3 @@ class ApplicantInfo: NSObject {
     self.plan_updated_at = pivot["updated_at"].stringValue
   }
 }
-
-/*
- 
- [{
- "id":132,
- "name":"Kenshiro Tokozakura",
- "email":"tokoken1001@gmail.com",
- "image_url":null,
- "created_at":"2017-01-24 04:10:29",
- "updated_at":"2017-01-24 04:10:29",
- 
- "pivot":{
- "plan_id":282,
- "user_id":132,
- "created_at":"2017-01-25 01:32:15",
- "updated_at":"2017-01-25 01:32:15"}
- }]
- 
- */

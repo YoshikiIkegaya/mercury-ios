@@ -50,6 +50,13 @@ class DetailPlanViewController: UIViewController {
   @IBAction func tappedPlanerIconButton(_ sender: Any) {
     print("===== Tapped Planer Icon Button =====")
     /// プラン作成者のプロフィール画面に遷移する
+    guard let creator_id = plan?.creator_id else { return }
+    MercuryAPI.sharedInstance.fetchUserInfo(user_id: creator_id, completionHandler: { (userInfo) -> Void in
+      if let vc = self.storyboard?.instantiateViewController(withIdentifier: "UserProfileVC") as? UserProfileViewController {
+        vc.userInfo = userInfo
+        self.navigationController?.pushViewController(vc, animated: true)
+      }
+    })
   }
   
   ///: Set Up UI

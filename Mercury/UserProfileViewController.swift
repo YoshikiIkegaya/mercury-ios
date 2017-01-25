@@ -14,12 +14,15 @@ class UserProfileViewController: UIViewController {
   @IBOutlet weak var profileImageView: UIImageView!
   @IBOutlet weak var nameLabel: UILabel!
   
-  var name: String?
-  var backgroundImage: UIImage?
-  var profileImage: UIImage?
+  var userInfo: UserInfo?
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupUI()
+  }
+  
+  func setupUI() {
+    self.nameLabel?.text = userInfo?.name
   }
   
   override func didReceiveMemoryWarning() {

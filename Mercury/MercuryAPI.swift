@@ -232,20 +232,21 @@ class MercuryAPI: NSObject {
   }
   
   /// Fetch User Info
-  func fetchUserInfo(user_id: Int) {
+  func fetchUserInfo(user_id: Int, completionHandler:@escaping (UserInfo) -> Void) {
     Alamofire.request(Path.User(user_id).path, method: .get, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
       .responseJSON(completionHandler: { response in
         defer { print("======= Fetch User Info deferred =======") }
         guard let object = response.result.value else { return }
         let json = JSON(object)
         json.forEach { (_, json) in
-          //          let ai = ApplicantInfo(json: json)
-          //          print("[applicant_id] \(ai.id)")
-          //          print("[applicant_name] \(ai.name)")
-          //          print("[plan_id] \(ai.plan_id)")
-          //          print("[creator_id] \(ai.creator_id)")
-          //          print("==============")
+          let userinfo = UserInfo(json: json)
+          print("====== [FETCH USER INFO API] =======")
+          print(userinfo.name)
+          print(userinfo.image_url)
+          print("==============")
+          completionHandler(userinfo)
         }
       })
+    
   }
 }

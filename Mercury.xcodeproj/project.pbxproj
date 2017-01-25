@@ -34,6 +34,7 @@
 		DD259DFF1E348254001F03AC /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DFE1E348254001F03AC /* UIImage+Extension.swift */; };
 		DD259E031E34BEF3001F03AC /* CreatePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259E021E34BEF3001F03AC /* CreatePlanViewController.swift */; };
 		DD330E0E1E38ACFB009DD2BE /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD330E0D1E38ACFB009DD2BE /* UserProfileViewController.swift */; };
+		DD330E111E38F5AF009DD2BE /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD330E101E38F5AF009DD2BE /* UserInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		DD259DFE1E348254001F03AC /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		DD259E021E34BEF3001F03AC /* CreatePlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePlanViewController.swift; sourceTree = "<group>"; };
 		DD330E0D1E38ACFB009DD2BE /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		DD330E101E38F5AF009DD2BE /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		E79BFCF3E772DC048BA353A8 /* Pods-Mercury.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mercury.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mercury/Pods-Mercury.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,6 +170,7 @@
 				DD259DFA1E3458FB001F03AC /* MercuryAPI.swift */,
 				DD259DF01E344B56001F03AC /* PlanInfo.swift */,
 				DD1CE8CB1E3848800031044C /* ApplicantInfo.swift */,
+				DD330E101E38F5AF009DD2BE /* UserInfo.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				DD259E031E34BEF3001F03AC /* CreatePlanViewController.swift in Sources */,
 				DD259DFF1E348254001F03AC /* UIImage+Extension.swift in Sources */,
 				DD0B29451E36230600BC8958 /* DetailPlanViewController.swift in Sources */,
+				DD330E111E38F5AF009DD2BE /* UserInfo.swift in Sources */,
 				DD0B29411E35FDE500BC8958 /* RoomTableViewCell.swift in Sources */,
 				DD259DF91E3454DE001F03AC /* Router.swift in Sources */,
 				DD0B294A1E364B6900BC8958 /* Date+Extension.swift in Sources */,

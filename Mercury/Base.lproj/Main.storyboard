@@ -424,7 +424,6 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="tappedPlanerIconButton:" destination="w3C-b3-TRC" eventType="touchUpInside" id="SWW-fM-RO7"/>
-                                    <segue destination="dcs-Mq-c3E" kind="push" id="U56-r7-CG8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liy-9r-Hen">
@@ -460,6 +459,7 @@
                         <outlet property="planImageView" destination="5XK-kF-jjb" id="guG-LV-Bye"/>
                         <outlet property="planerIconImageButton" destination="ws2-Ie-UOJ" id="Byr-bb-JYh"/>
                         <outlet property="takeLabel" destination="uHJ-mT-0Ih" id="4bO-JA-XeY"/>
+                        <segue destination="dcs-Mq-c3E" kind="push" id="wAm-C7-xrf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tp2-10-1jm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -469,7 +469,7 @@
         <!--User Profile View Controller-->
         <scene sceneID="Zau-Jp-3un">
             <objects>
-                <viewController id="dcs-Mq-c3E" customClass="UserProfileViewController" customModule="Mercury" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfileVC" id="dcs-Mq-c3E" customClass="UserProfileViewController" customModule="Mercury" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8NV-m5-8ww"/>
                         <viewControllerLayoutGuide type="bottom" id="KoW-Td-GMQ"/>
@@ -492,10 +492,10 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqg-rS-yyE">
-                                <rect key="frame" x="113" y="333" width="150" height="21"/>
+                                <rect key="frame" x="16" y="333" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="7uC-AR-zT6"/>
-                                    <constraint firstAttribute="width" constant="150" id="maV-hr-Ydq"/>
+                                    <constraint firstAttribute="width" constant="343" id="maV-hr-Ydq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
