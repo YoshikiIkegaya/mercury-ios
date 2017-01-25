@@ -24,6 +24,11 @@ class DetailPlanViewController: UIViewController {
     setupUI()
   }
   
+  @IBAction func tmpGetApplicants(_ sender: Any) {
+    guard let planId = plan?.id else {return}
+    MercuryAPI.sharedInstance.fetchApplicants(plan_id: planId)
+  }
+  
   @IBAction func tappedApplyPlanButton(_ sender: Any) {
     
     self.applyPlanButton?.isEnabled = false

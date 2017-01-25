@@ -426,6 +426,14 @@
                                     <action selector="tappedPlanerIconButton:" destination="w3C-b3-TRC" eventType="touchUpInside" id="SWW-fM-RO7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liy-9r-Hen">
+                                <rect key="frame" x="16" y="450" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="プラン申請者一覧を表示"/>
+                                <connections>
+                                    <action selector="tmpGetApplicants:" destination="w3C-b3-TRC" eventType="touchUpInside" id="kte-I8-GE2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

@@ -99,7 +99,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomeViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    print("Tapped cell!")
     /// 詳細画面へ遷移
     if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailPlanVC") as? DetailPlanViewController {
       vc.plan = MercuryAPI.sharedInstance.plans[indexPath.row]
