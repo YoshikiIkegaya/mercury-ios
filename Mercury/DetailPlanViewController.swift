@@ -17,7 +17,6 @@ class DetailPlanViewController: UIViewController {
   @IBOutlet weak var applyPlanButton: UIButton!
   
   var plan: PlanInfo?
-  
   let placeholderView = UIImage.imageWithColor(color: UIColor.white)
   
   override func viewDidLoad() {
@@ -33,7 +32,7 @@ class DetailPlanViewController: UIViewController {
     print("===== プラン\(planId)に参加します =====")
     print(planId)
     print("================")
-    MercuryAPI.sharedInstance.applyToParticipate(plan_id: planId, completionHandler: {
+    MercuryAPI.sharedInstance.applyForParticipate(plan_id: planId, completionHandler: {
       print("========== 参加申請の送信を完了しました ==========")
     })
   }

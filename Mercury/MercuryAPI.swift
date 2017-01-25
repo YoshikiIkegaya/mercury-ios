@@ -136,7 +136,7 @@ class MercuryAPI: NSObject {
   }
   
   /// Post new plan
-  func postNewPlan(give: String!, take: String!, place: String, image_url: String? = nil, completionHandler: @escaping () -> Void) {
+  func postNewPlan(give: String, take: String, place: String, image_url: String? = nil, completionHandler: @escaping () -> Void) {
     let params = [
       "give"      : give,
       "take"      : take,
@@ -144,7 +144,7 @@ class MercuryAPI: NSObject {
       "image_url" : image_url
     ]
     
-    Alamofire.request(Path.Plans.path, method: .post, parameters: params, encoding: JSONEncoding.default, headers: buildHeaders())
+    Alamofire.request(Path.PostPlan.path, method: .post, parameters: params, encoding: JSONEncoding.default, headers: buildHeaders())
       .responseJSON { response in
         defer { print("=======  Post new plan deferred =======") }
         guard let object = response.result.value else { return }
@@ -159,7 +159,7 @@ class MercuryAPI: NSObject {
     }
   }
   
-  func applyToParticipate(plan_id: Int, completionHandler: @escaping () -> Void) {
+  func applyForParticipate(plan_id: Int, completionHandler: @escaping () -> Void) {
     print("====== 参加申請を送信します ======")
     Alamofire.request(Path.Apply(plan_id).path, method: .put, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
       .responseJSON { response in
@@ -174,6 +174,5 @@ class MercuryAPI: NSObject {
         }
         completionHandler()
     }
-    
   }
 }
