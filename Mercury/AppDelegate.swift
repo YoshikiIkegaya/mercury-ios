@@ -35,10 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }
     } else {
       MercuryAPI.sharedInstance.resisterUserInfo(completionHandler:{
-        MercuryAPI.sharedInstance.userLogin()
+        MercuryAPI.sharedInstance.userLogin(completionHandler:{
+          print("Facebookログイン認証をスキップします")
+        })
       })
     }
-    
   }
   
   func setupThirdPartyLibraries(_ application: UIApplication,  launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {

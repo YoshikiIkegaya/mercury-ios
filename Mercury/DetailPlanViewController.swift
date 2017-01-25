@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class DetailPlanViewController: UIViewController {
   
@@ -16,39 +17,82 @@ class DetailPlanViewController: UIViewController {
   @IBOutlet weak var takeLabel: UILabel!
   @IBOutlet weak var applyButton: UIButton!
   
+  
+  @IBOutlet weak var applicantNameLabel: UILabel!
+  @IBOutlet weak var acceptButton: UIButton!
+  
   var plan: PlanInfo?
+  var applicant: ApplicantInfo?
   let placeholderView = UIImage.imageWithColor(color: UIColor.white)
+  var isApplyButtonEnabled: Bool?
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    let currentUserCreatorID = Defaults.CurrentUserCreatorID.getInt()
+    print("==========")
+    print("[currentUserCreatorID] \(currentUserCreatorID)")
+    print("==========")
+    if plan?.creator_id == currentUserCreatorID {
+      isApplyButtonEnabled = false
+    }
     setupUI()
   }
   
-  @IBAction func tmpGetApplicants(_ sender: Any) {
-    guard let planId = plan?.id else {return}
-    MercuryAPI.sharedInstance.fetchApplicants(plan_id: planId,completionHandler: {
-      self.dismiss(animated: true, completion: {
-        print("============ ここで申請完了のモーダルを表示する ============")
-      })
-    })
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    SVProgressHUD.dismiss()
   }
   
-  @IBAction func tappedApplyButton(_ sender: Any) {
-    self.applyButton?.isEnabled = false
-    // 参加申請APIをコールする
+  @IBAction func tappedAcceptBtn(_ sender: Any) {
+    //承認する
+    SVProgressHUD.show()
     guard let planId = self.plan?.id else { return }
-    print("===== プラン\(planId)に参加します =====")
-    print(planId)
-    print("================")
-    MercuryAPI.sharedInstance.applyForParticipate(plan_id: planId, completionHandler: {
-      print("========== 参加申請の送信を完了しました ==========")
-      /// ここに参加申請が完了したことを通知するアラートを表示する
+    guard let applicantId = self.applicant?.id else { return }
+    MercuryAPI.sharedInstance.acceptApplicant(plan_id: planId, applicant_id: applicantId, completionhandler: {
+      print("========== \(self.applicant?.name) さんの参加申請を承認しました ==========")
+      self.navigationController?.popViewController(animated: true)
+      SVProgressHUD.dismiss()
     })
   }
   
+  /// プランに参加申請をする or 自分が作成したプランを削除する
+  @IBAction func tappedApplyButton(_ sender: Any) {
+    if isApplyButtonEnabled == false {
+      print("========== このプランを削除します ==========")
+      /// TODO: 本当に削除をするか確認をするアラートを表示する
+      
+      guard let planId = self.plan?.id else { return }
+      MercuryAPI.sharedInstance.deletePlan(plan_id: planId, completionHandler: {
+        print("===== プラン\(planId)を削除しました =====")
+        /// TODO: 削除を完了したことを伝えるモーダルを表示する
+        
+        self.navigationController?.popViewController(animated: true)
+      })
+    } else {
+      self.applyButton?.isEnabled = false
+      self.applyButton?.setTitle("参加申請済み", for: .disabled)
+      // 参加申請APIをコールする
+      guard let planId = self.plan?.id else { return }
+      print("===== プラン\(planId)に参加します =====")
+      print(planId)
+      print("================")
+      MercuryAPI.sharedInstance.applyForParticipate(plan_id: planId, completionHandler: {
+        print("========== 参加申請の送信を完了しました ==========")
+        /// TODO: 参加申請が完了したことを通知するアラートを表示する
+      })
+    }
+  }
+  
+  /// プラン作成者のプロフィール画面に遷移する
   @IBAction func tappedPlanerIconButton(_ sender: Any) {
     print("===== Tapped Planer Icon Button =====")
-    /// プラン作成者のプロフィール画面に遷移する
+    guard let creator_id = plan?.creator_id else { return }
+    MercuryAPI.sharedInstance.fetchUserInfo(user_id: creator_id, completionHandler: { (userInfo) -> Void in
+      if let vc = self.storyboard?.instantiateViewController(withIdentifier: "UserProfileVC") as? UserProfileViewController {
+        vc.userInfo = userInfo
+        self.navigationController?.pushViewController(vc, animated: true)
+      }
+    })
   }
   
   ///: Set Up UI
@@ -57,6 +101,16 @@ class DetailPlanViewController: UIViewController {
     self.takeLabel?.text = plan?.take
     setupApplyButtonUI()
     setupPlanImageView()
+    
+    /// プランの作成者が自分でない時、承認アクションを表示しない
+    if isApplyButtonEnabled == true {
+      self.acceptButton?.isHidden = true
+      self.applicantNameLabel?.isHidden = true
+    } else {
+      if let applicantName = applicant?.name {
+        self.applicantNameLabel.text = applicantName
+      }
+    }
   }
   
   func setupPlanImageView() {
@@ -79,8 +133,13 @@ class DetailPlanViewController: UIViewController {
   }
   
   func setupApplyButtonUI() {
-    self.applyButton?.backgroundColor = Settings.Color.mercuryColor
-    self.applyButton?.setTitle("このプランに参加する", for: .normal)
+    if isApplyButtonEnabled == false {
+      self.applyButton?.setTitle("このプランを削除する", for: .normal)
+      self.applyButton?.backgroundColor = UIColor.lightGray
+    } else {
+      self.applyButton?.setTitle("このプランに参加する", for: .normal)
+      self.applyButton?.backgroundColor = Settings.Color.mercuryColor
+    }
     self.applyButton?.tintColor = UIColor.white
     self.applyButton?.titleLabel?.font = UIFont(name: "Helvetiva-Bold", size: 14)
   }

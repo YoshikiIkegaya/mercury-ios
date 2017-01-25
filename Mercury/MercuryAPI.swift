@@ -26,9 +26,11 @@ class MercuryAPI: NSObject {
     case Auth
     case Login
     case Plans
-    case PostPlan
+    case Plan(Int)
     case Apply(Int)
     case Applicants(Int)
+    case Accept(Int)
+    case User(Int)
     
     var relativePath: String {
       switch self {
@@ -38,12 +40,16 @@ class MercuryAPI: NSObject {
         return "oauth/token"
       case .Plans:
         return "plans"
-      case .PostPlan:
-        return "plans"
+      case .Plan(let id):
+        return "plans/\(id)"
       case .Apply(let id):
         return "plans/\(id)/apply"
       case .Applicants(let id):
         return "plans/\(id)/applicants"
+      case .Accept(let id):
+        return "plans/\(id)/accept"
+      case .User(let id):
+        return "user/\(id)"
       }
     }
     
@@ -70,7 +76,7 @@ class MercuryAPI: NSObject {
   }
   
   /// user login
-  func userLogin() {
+  func userLogin(completionHandler: @escaping () -> Void) {
     let env = ProcessInfo.processInfo.environment
     guard let client_id = env["client_id"] else { return }
     guard let client_secret = env["client_secret"] else { return }
@@ -99,10 +105,11 @@ class MercuryAPI: NSObject {
         print("==============")
         Defaults.AccessToken.set(value: acccess_token as AnyObject)
         json.forEach { (_, json) in
-//          print("==============")
-//          print(json)
-//          print("==============")
+          //          print("==============")
+          //          print(json)
+          //          print("==============")
         }
+        completionHandler()
     }
   }
   
@@ -113,12 +120,14 @@ class MercuryAPI: NSObject {
     guard let fbAccessToken = Defaults.FBSDKAccessToken.getString() else { return }
     guard let profileImage = Defaults.ProfileImage.getString() else { return }
     
-    print("======== [user info] ========")
-    print("[name] \(name)")
-    print("[facebookId] \(facebookId)")
-    print("[fbAccessToken] \(fbAccessToken)")
-        print("[profileImage] \(profileImage)")
-    print("================")
+    /*
+     print("======== [user info] ========")
+     print("[name] \(name)")
+     print("[facebookId] \(facebookId)")
+     print("[fbAccessToken] \(fbAccessToken)")
+     print("[profileImage] \(profileImage)")
+     print("================")
+     */
     
     let params: Parameters = [
       "name"     : name,
@@ -135,6 +144,10 @@ class MercuryAPI: NSObject {
         json.forEach { (_, json) in
           print("====== [RESISTER API] ======")
           print(json)
+          if let currentUserCreatorID: Int = json["id"].intValue {
+            print("[currentUserCreatorID] \(currentUserCreatorID)")
+            Defaults.CurrentUserCreatorID.set(value: currentUserCreatorID as AnyObject)
+          }
           print("==============")
         }
         completionHandler()
@@ -150,10 +163,26 @@ class MercuryAPI: NSObject {
         let json = JSON(object)
         json.forEach { (_, json) in
           let pi = PlanInfo(json: json)
-//          print("======= [GET PLANS] =======")
-//          print(json)
-//          print("==============")
+          //          print("======= [GET PLANS] =======")
+          //          print(json)
+          //          print("==============")
           self.plans.append(pi)
+        }
+        completionHandler()
+    }
+  }
+  
+  /// Get plan with an id
+  func getPlan(plan_id: Int, completionHandler: @escaping () -> Void) {
+    Alamofire.request(Path.Plan(plan_id).path, method: .get, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
+      .responseJSON { response in
+        defer { print("=======  Get plan with an id deferred =======") }
+        guard let object = response.result.value else { return }
+        let json = JSON(object)
+        json.forEach { (_, json) in
+          print("==============")
+          print(json)
+          print("==============")
         }
         completionHandler()
     }
@@ -174,14 +203,12 @@ class MercuryAPI: NSObject {
     print("[place] \(place)")
     print("[image_url] \(image_url)")
     print("============")
-    
-    Alamofire.request(Path.PostPlan.path, method: .post, parameters: params, encoding: JSONEncoding.default, headers: buildHeaders())
+    Alamofire.request(Path.Plans.path, method: .post, parameters: params, encoding: JSONEncoding.default, headers: buildHeaders())
       .responseJSON { response in
         defer { print("=======  Post new plan deferred =======") }
         guard let object = response.result.value else { return }
         let json = JSON(object)
         json.forEach { (_, json) in
-          print("====== 新しいプランを作成しました ======")
           print("==============")
           print(json)
           print("==============")
@@ -210,20 +237,78 @@ class MercuryAPI: NSObject {
   }
   
   /// Fetch plan applicants
-  func fetchApplicants(plan_id: Int, completionHandler: @escaping () -> Void) {
+  func fetchApplicants(plan_id: Int, completionHandler: @escaping (ApplicantInfo) -> Void) {
     Alamofire.request(Path.Applicants(plan_id).path, method: .get, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
       .responseJSON(completionHandler: { response in
         defer { print("=======  Fetch applicants deferred =======") }
         guard let object = response.result.value else { return }
         let json = JSON(object)
         json.forEach { (_, json) in
-          let ai = ApplicantInfo(json: json)
-          print("[applicant_id] \(ai.id)")
-          print("[applicant_name] \(ai.name)")
-          print("[plan_id] \(ai.plan_id)")
-          print("[creator_id] \(ai.creator_id)")
+          let applicantInfo = ApplicantInfo(json: json)
+          print("========== [FETCH PLAN APPLICANTS] ==========")
+          print("[applicantInfo_id] \(applicantInfo.id)")
+          print("[applicantInfo_name] \(applicantInfo.name)")
+          print("[applicantInfo_id] \(applicantInfo.plan_id)")
+          print("[applicantInfo_id] \(applicantInfo.creator_id)")
+          print("==============")
+          completionHandler(applicantInfo)
+        }
+      })
+  }
+  
+  /// Accept applicant with plan id & user id
+  func acceptApplicant(plan_id: Int, applicant_id: Int, completionhandler: @escaping () -> Void) {
+    let params = [
+      "participant_id" : applicant_id
+    ]
+    
+    Alamofire.request(Path.Accept(plan_id).path, method: .put, parameters: params, encoding: JSONEncoding.default, headers: buildHeaders())
+      .responseJSON(completionHandler: { response in
+        defer { print("=======  Accept applicants deferred =======") }
+        guard let object = response.result.value else { return }
+        let json = JSON(object)
+        json.forEach { (_, json) in
+          print("========== [ACCEPT APPLICANTS] ==========")
+          print(json)
           print("==============")
         }
       })
+    completionhandler()
+  }
+  
+  
+  
+  /// Fetch User Info
+  func fetchUserInfo(user_id: Int, completionHandler: @escaping (UserInfo) -> Void) {
+    Alamofire.request(Path.User(user_id).path, method: .get, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
+      .responseJSON(completionHandler: { response in
+        defer { print("======= Fetch User Info deferred =======") }
+        guard let object = response.result.value else { return }
+        let json = JSON(object)
+        json.forEach { (_, json) in
+          let userinfo = UserInfo(json: json)
+          print("====== [FETCH USER INFO API] =======")
+          print(userinfo.name)
+          print(userinfo.image_url)
+          print("==============")
+          completionHandler(userinfo)
+        }
+      })
+  }
+  
+  /// Destroy Plan with id
+  func deletePlan(plan_id: Int, completionHandler: () -> Void) {
+    Alamofire.request(Path.Plan(plan_id).path, method: .delete, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
+      .responseJSON(completionHandler: { response in
+        defer { print("======= Fetch User Info deferred =======") }
+        guard let object = response.result.value else { return }
+        let json = JSON(object)
+        json.forEach { (_, json) in
+          print("==========")
+          print(json)
+          print("==========")
+        }
+      })
+    completionHandler()
   }
 }
