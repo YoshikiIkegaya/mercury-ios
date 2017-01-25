@@ -120,15 +120,6 @@ class MercuryAPI: NSObject {
     guard let fbAccessToken = Defaults.FBSDKAccessToken.getString() else { return }
     guard let profileImage = Defaults.ProfileImage.getString() else { return }
     
-    /*
-     print("======== [user info] ========")
-     print("[name] \(name)")
-     print("[facebookId] \(facebookId)")
-     print("[fbAccessToken] \(fbAccessToken)")
-     print("[profileImage] \(profileImage)")
-     print("================")
-     */
-    
     let params: Parameters = [
       "name"     : name,
       "email"    : facebookId,
