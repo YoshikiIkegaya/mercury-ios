@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class DetailPlanViewController: UIViewController {
   
@@ -36,9 +37,22 @@ class DetailPlanViewController: UIViewController {
     }
     setupUI()
   }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    SVProgressHUD.dismiss()
+  }
+  
   @IBAction func tappedAcceptBtn(_ sender: Any) {
     //承認する
-    
+    SVProgressHUD.show()
+    guard let planId = self.plan?.id else { return }
+    guard let applicantId = self.applicant?.id else { return }
+    MercuryAPI.sharedInstance.acceptApplicant(plan_id: planId, applicant_id: applicantId, completionhandler: {
+      print("========== \(self.applicant?.name) さんの参加申請を承認しました ==========")
+      self.navigationController?.popViewController(animated: true)
+      SVProgressHUD.dismiss()
+    })
   }
   
   /// プランに参加申請をする or 自分が作成したプランを削除する

@@ -29,6 +29,7 @@ class MercuryAPI: NSObject {
     case Plan(Int)
     case Apply(Int)
     case Applicants(Int)
+    case Accept(Int)
     case User(Int)
     
     var relativePath: String {
@@ -45,6 +46,8 @@ class MercuryAPI: NSObject {
         return "plans/\(id)/apply"
       case .Applicants(let id):
         return "plans/\(id)/applicants"
+      case .Accept(let id):
+        return "plans/\(id)/accept"
       case .User(let id):
         return "user/\(id)"
       }
@@ -118,13 +121,13 @@ class MercuryAPI: NSObject {
     guard let profileImage = Defaults.ProfileImage.getString() else { return }
     
     /*
-    print("======== [user info] ========")
-    print("[name] \(name)")
-    print("[facebookId] \(facebookId)")
-    print("[fbAccessToken] \(fbAccessToken)")
-    print("[profileImage] \(profileImage)")
-    print("================")
-    */
+     print("======== [user info] ========")
+     print("[name] \(name)")
+     print("[facebookId] \(facebookId)")
+     print("[fbAccessToken] \(fbAccessToken)")
+     print("[profileImage] \(profileImage)")
+     print("================")
+     */
     
     let params: Parameters = [
       "name"     : name,
@@ -252,6 +255,28 @@ class MercuryAPI: NSObject {
         }
       })
   }
+  
+  /// Accept applicant with plan id & user id
+  func acceptApplicant(plan_id: Int, applicant_id: Int, completionhandler: @escaping () -> Void) {
+    let params = [
+      "participant_id" : applicant_id
+    ]
+    
+    Alamofire.request(Path.Accept(plan_id).path, method: .put, parameters: params, encoding: JSONEncoding.default, headers: buildHeaders())
+      .responseJSON(completionHandler: { response in
+        defer { print("=======  Accept applicants deferred =======") }
+        guard let object = response.result.value else { return }
+        let json = JSON(object)
+        json.forEach { (_, json) in
+          print("========== [ACCEPT APPLICANTS] ==========")
+          print(json)
+          print("==============")
+        }
+      })
+    completionhandler()
+  }
+  
+  
   
   /// Fetch User Info
   func fetchUserInfo(user_id: Int, completionHandler: @escaping (UserInfo) -> Void) {
