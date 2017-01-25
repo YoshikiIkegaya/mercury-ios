@@ -28,6 +28,7 @@ class MercuryAPI: NSObject {
     case Plans
     case PostPlan
     case Apply(Int)
+    case Applicants(Int)
     
     var relativePath: String {
       switch self {
@@ -41,6 +42,9 @@ class MercuryAPI: NSObject {
         return "plans"
       case .Apply(let id):
         return "plans/\(id)/apply"
+      case .Applicants(let id):
+        return "plans/\(id)/applicants"
+        
       }
     }
     
@@ -88,9 +92,9 @@ class MercuryAPI: NSObject {
         let access_token = json["access_token"].string
         Defaults.AccessToken.set(value: access_token as AnyObject)
         json.forEach { (_, json) in
-          print("==============")
-          print(json)
-          print("==============")
+//          print("==============")
+//          print(json)
+//          print("==============")
         }
     }
   }
@@ -181,5 +185,22 @@ class MercuryAPI: NSObject {
         }
         completionHandler()
     }
+  }
+  
+  func fetchApplicants(plan_id: Int) {
+    Alamofire.request(Path.Applicants(plan_id).path, method: .get, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
+      .responseJSON(completionHandler: { response in
+        defer { print("=======  Fetch applicants deferred =======") }
+        guard let object = response.result.value else { return }
+        let json = JSON(object)
+        json.forEach { (_, json) in
+          let ai = ApplicantInfo(json: json)
+          print("[applicant_id] \(ai.id)")
+          print("[applicant_name] \(ai.name)")
+          print("[plan_id] \(ai.plan_id)")
+          print("[creator_id] \(ai.creator_id)")
+          print("==============")
+        }
+      })
   }
 }

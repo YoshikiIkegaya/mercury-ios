@@ -18,6 +18,7 @@
 		DD0B43A91E34F3F5003787D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD0B43A81E34F3F5003787D7 /* GoogleService-Info.plist */; };
 		DD0B43AE1E35C0F0003787D7 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B43AD1E35C0F0003787D7 /* UIView+Extension.swift */; };
 		DD0B43B21E35D0C6003787D7 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B43B11E35D0C6003787D7 /* Defaults.swift */; };
+		DD1CE8CC1E3848800031044C /* ApplicantInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CE8CB1E3848800031044C /* ApplicantInfo.swift */; };
 		DD259DCE1E3430FE001F03AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DCD1E3430FE001F03AC /* AppDelegate.swift */; };
 		DD259DD01E3430FE001F03AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DCF1E3430FE001F03AC /* HomeViewController.swift */; };
 		DD259DD31E3430FE001F03AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD259DD11E3430FE001F03AC /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		DD0B43A81E34F3F5003787D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD0B43AD1E35C0F0003787D7 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		DD0B43B11E35D0C6003787D7 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		DD1CE8CB1E3848800031044C /* ApplicantInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicantInfo.swift; sourceTree = "<group>"; };
 		DD259DCA1E3430FE001F03AC /* Mercury.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mercury.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD259DCD1E3430FE001F03AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD259DCF1E3430FE001F03AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -160,8 +162,9 @@
 		DD259DE91E344287001F03AC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DD259DF01E344B56001F03AC /* PlanInfo.swift */,
 				DD259DFA1E3458FB001F03AC /* MercuryAPI.swift */,
+				DD259DF01E344B56001F03AC /* PlanInfo.swift */,
+				DD1CE8CB1E3848800031044C /* ApplicantInfo.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				DD259DCE1E3430FE001F03AC /* AppDelegate.swift in Sources */,
 				DD259DE61E343AA4001F03AC /* HomeCollectionViewCell.swift in Sources */,
 				DD259DEE1E344888001F03AC /* Settings.swift in Sources */,
+				DD1CE8CC1E3848800031044C /* ApplicantInfo.swift in Sources */,
 				DD0B43A71E34EA7D003787D7 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
