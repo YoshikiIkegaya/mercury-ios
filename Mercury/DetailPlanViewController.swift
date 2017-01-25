@@ -17,7 +17,7 @@ class DetailPlanViewController: UIViewController {
   @IBOutlet weak var takeLabel: UILabel!
   @IBOutlet weak var applyButton: UIButton!
   
-  
+  /// tmp IBOutlet
   @IBOutlet weak var applicantNameLabel: UILabel!
   @IBOutlet weak var acceptButton: UIButton!
   
@@ -49,9 +49,11 @@ class DetailPlanViewController: UIViewController {
     guard let planId = self.plan?.id else { return }
     guard let applicantId = self.applicant?.id else { return }
     MercuryAPI.sharedInstance.acceptApplicant(plan_id: planId, applicant_id: applicantId, completionhandler: {
-      print("========== \(self.applicant?.name) さんの参加申請を承認しました ==========")
-      self.navigationController?.popViewController(animated: true)
+      if let applicantName = self.applicant?.name {
+        print("========== \(applicantName) さんの参加申請を承認しました ==========")
+      }
       SVProgressHUD.dismiss()
+      self.navigationController?.popViewController(animated: true)
     })
   }
   

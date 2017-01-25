@@ -37,6 +37,8 @@ class HomeViewController: UIViewController {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+    SVProgressHUD.dismiss()
+    
   }
   
   @IBAction func tappedCreatePlanButton(_ sender: Any) {
@@ -140,10 +142,8 @@ extension HomeViewController: UICollectionViewDataSource {
           }
       })
     }
-    
     cell.planImageView?.contentMode = .scaleAspectFill
     cell.planImageView?.layer.masksToBounds = true
-    
     return cell
   }
   

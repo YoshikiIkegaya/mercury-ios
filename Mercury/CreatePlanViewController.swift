@@ -28,7 +28,6 @@ class CreatePlanViewController: UIViewController {
   
   let minLength = 3
   let maxLength = 140
-  
   let tmp_image_url = "https://i.ytimg.com/vi/Ls88xKQVIeA/maxresdefault.jpg"
   
   override func viewDidLoad() {
@@ -38,7 +37,7 @@ class CreatePlanViewController: UIViewController {
   }
   
   @IBAction func launchCamera(_ sender: Any) {
-    
+    print("カメラを起動します")
   }
   
   @IBAction func tappedCloseButton(_ sender: Any) {
@@ -46,7 +45,7 @@ class CreatePlanViewController: UIViewController {
   }
   
   func bindViewAndModel() {
-    
+    /// TODO: 文字数が最大を超えた時
     giveAlertLabel.text = "\(minLength)文字以上で入力して下さい。"
     takeAlertLabel.text = "\(minLength)文字以上で入力して下さい。"
     placeAlertLabel.text = "\(minLength)文字以上で入力して下さい。"
@@ -97,8 +96,8 @@ class CreatePlanViewController: UIViewController {
         guard let placeText = self?.placeTextField?.text else { return }
         MercuryAPI.sharedInstance.postNewPlan(give: giveText, take: takeText, place: placeText, image_url: self?.tmp_image_url, completionHandler: {
           print("====== 新しいプランを作成しました ======")
+          self?.dismiss(animated: true, completion: nil)
         })
-        self?.dismiss(animated: true, completion: nil)
       })
       .addDisposableTo(disposeBag)
   }
