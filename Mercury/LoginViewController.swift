@@ -72,11 +72,6 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
       FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id, name, email"]).start {
         (connection, result, error) in
         
-        
-        print("===========")
-        print(result)
-        print("===========")
-        
         guard let nameValue = (result as AnyObject).value(forKey: "name") as? String else { return }
         self.name = nameValue
         let id = (result as AnyObject).value(forKey: "id")

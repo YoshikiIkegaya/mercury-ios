@@ -17,14 +17,5 @@ class HomeCollectionViewCell: UICollectionViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
   }
-}
-
-extension HomeCollectionViewCell {
-//  func configureForSummary(plan: PlanInfo){
-//    if let imgeUrl = plan.image_url {
-//      self.imageView?.sd_setImage(with: NSURL(string: imgeUrl) as URL!, placeholderImage: placeholderView, options: .lowPriority)
-//    }
-//  }
 }

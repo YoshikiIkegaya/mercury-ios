@@ -14,12 +14,9 @@ class DetailPlanViewController: UIViewController {
   @IBOutlet weak var planerIconImageButton: UIButton!
   @IBOutlet weak var giveLabel: UILabel!
   @IBOutlet weak var takeLabel: UILabel!
-  @IBOutlet weak var joinButton: UIButton!
+  @IBOutlet weak var applyPlanButton: UIButton!
   
-  var planImageURL: String?
-  var giveStr: String?
-  var takeStr: String?
-  
+  var plan: PlanInfo?
   let placeholderView = UIImage.imageWithColor(color: UIColor.white)
   
   override func viewDidLoad() {
@@ -27,25 +24,35 @@ class DetailPlanViewController: UIViewController {
     setupUI()
   }
   
-  @IBAction func tappedJoinButton(_ sender: Any) {
-    print("===== Tapped Join Button =====")
+  @IBAction func tappedApplyPlanButton(_ sender: Any) {
+    
+    self.applyPlanButton?.isEnabled = false
+    // 参加申請APIをコールする
+    guard let planId = self.plan?.id else { return }
+    print("===== プラン\(planId)に参加します =====")
+    print(planId)
+    print("================")
+    MercuryAPI.sharedInstance.applyForParticipate(plan_id: planId, completionHandler: {
+      print("========== 参加申請の送信を完了しました ==========")
+    })
   }
   
   @IBAction func tappedPlanerIconButton(_ sender: Any) {
     print("===== Tapped Planer Icon Button =====")
+    
     /// プラン作成者のプロフィール画面に遷移する
   }
   
   ///: Set Up UI
   func setupUI() {
-    self.giveLabel?.text = giveStr
-    self.takeLabel?.text = takeStr
-    setupParticipateButtonUI()
+    self.giveLabel?.text = plan?.give
+    self.takeLabel?.text = plan?.take
+    setupApplyButtonUI()
     setupPlanImageView()
   }
   
   func setupPlanImageView() {
-    if let image_url_string = planImageURL {
+    if let image_url_string = plan?.image_url {
       if let image_url: NSURL = NSURL(string: image_url_string) {
         self.planImageView?.sd_setImage(with: image_url as URL, placeholderImage: placeholderView, options: .lowPriority
           , completed: {
@@ -63,11 +70,11 @@ class DetailPlanViewController: UIViewController {
     }
   }
   
-  func setupParticipateButtonUI() {
-    self.joinButton?.backgroundColor = Settings.Color.mercuryColor
-    self.joinButton?.setTitle("このプランに参加する", for: .normal)
-    self.joinButton?.tintColor = UIColor.white
-    self.joinButton?.titleLabel?.font = UIFont(name: "Helvetiva-Bold", size: 14)
+  func setupApplyButtonUI() {
+    self.applyPlanButton?.backgroundColor = Settings.Color.mercuryColor
+    self.applyPlanButton?.setTitle("このプランに参加する", for: .normal)
+    self.applyPlanButton?.tintColor = UIColor.white
+    self.applyPlanButton?.titleLabel?.font = UIFont(name: "Helvetiva-Bold", size: 14)
   }
   
   override func didReceiveMemoryWarning() {

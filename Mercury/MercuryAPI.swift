@@ -27,6 +27,7 @@ class MercuryAPI: NSObject {
     case Login
     case Plans
     case PostPlan
+    case Apply(Int)
     
     var relativePath: String {
       switch self {
@@ -38,6 +39,8 @@ class MercuryAPI: NSObject {
         return "plans"
       case .PostPlan:
         return "plans"
+      case .Apply(let id):
+        return "plans/\(id)/apply"
       }
     }
     
@@ -133,7 +136,7 @@ class MercuryAPI: NSObject {
   }
   
   /// Post new plan
-  func postNewPlan(give: String!, take: String!, place: String, image_url: String? = nil, completionHandler: @escaping () -> Void) {
+  func postNewPlan(give: String, take: String, place: String, image_url: String? = nil, completionHandler: @escaping () -> Void) {
     let params = [
       "give"      : give,
       "take"      : take,
@@ -141,14 +144,30 @@ class MercuryAPI: NSObject {
       "image_url" : image_url
     ]
     
-    Alamofire.request(Path.Plans.path, method: .post, parameters: params, encoding: JSONEncoding.default, headers: buildHeaders())
+    Alamofire.request(Path.PostPlan.path, method: .post, parameters: params, encoding: JSONEncoding.default, headers: buildHeaders())
       .responseJSON { response in
         defer { print("=======  Post new plan deferred =======") }
         guard let object = response.result.value else { return }
-        
         let json = JSON(object)
         json.forEach { (_, json) in
           print("====== 新しいプランを作成しました ======")
+          print("==============")
+          print(json)
+          print("==============")
+        }
+        completionHandler()
+    }
+  }
+  
+  func applyForParticipate(plan_id: Int, completionHandler: @escaping () -> Void) {
+    print("====== 参加申請を送信します ======")
+    Alamofire.request(Path.Apply(plan_id).path, method: .put, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
+      .responseJSON { response in
+        defer { print("=======  Apply to participate deferred =======") }
+        guard let object = response.result.value else { return }
+        let json = JSON(object)
+        json.forEach { (_, json) in
+          print("====== 参加申請を送信中です... ======")
           print("==============")
           print(json)
           print("==============")

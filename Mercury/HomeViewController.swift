@@ -22,7 +22,6 @@ class HomeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     print("----- viewDidLoad -----")
-    SVProgressHUD.dismiss()
     refreshControl.addTarget(self, action: #selector(reload(_:)), for: .valueChanged)
     self.title = "Home"
     setupCollectionView()
@@ -33,6 +32,11 @@ class HomeViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.reload(nil)
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    SVProgressHUD.dismiss()
   }
   
   @IBAction func tappedCreatePlanButton(_ sender: Any) {
@@ -98,9 +102,7 @@ extension HomeViewController: UICollectionViewDelegate {
     print("Tapped cell!")
     /// 詳細画面へ遷移
     if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailPlanVC") as? DetailPlanViewController {
-      vc.giveStr = MercuryAPI.sharedInstance.plans[indexPath.row].give
-      vc.takeStr = MercuryAPI.sharedInstance.plans[indexPath.row].take
-      vc.planImageURL = MercuryAPI.sharedInstance.plans[indexPath.row].image_url
+      vc.plan = MercuryAPI.sharedInstance.plans[indexPath.row]
       self.navigationController?.pushViewController(vc, animated: true)
     }
   }
