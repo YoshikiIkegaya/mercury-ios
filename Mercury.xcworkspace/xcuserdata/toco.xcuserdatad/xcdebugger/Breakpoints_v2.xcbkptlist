@@ -186,7 +186,7 @@
                   moduleName = "Mercury"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "507000611.044013"
+                  timestampString = "507001166.835056"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "119"
@@ -201,7 +201,7 @@
                   moduleName = "Mercury"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "507000611.046573"
+                  timestampString = "507001166.837528"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "119"
@@ -266,7 +266,7 @@
                   moduleName = "Mercury"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "507000611.06344"
+                  timestampString = "507001166.850777"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "112"
@@ -281,7 +281,7 @@
                   moduleName = "Mercury"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "507000611.065198"
+                  timestampString = "507001166.852752"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "112"
@@ -342,26 +342,26 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Mercury.MercuryAPI.postNewPlan (give : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, take : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, place : Swift.String, image_url : Swift.Optional&lt;Swift.String&gt;, completionHandler : () -&gt; ()) -&gt; ()"
+                  symbolName = "Mercury.MercuryAPI.postNewPlan (give : Swift.String, take : Swift.String, place : Swift.String, image_url : Swift.Optional&lt;Swift.String&gt;, completionHandler : () -&gt; ()) -&gt; ()"
                   moduleName = "Mercury"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "507000611.087015"
+                  timestampString = "507001166.864468"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "140"
                   endingLineNumber = "140"
-                  offsetFromSymbolStart = "252">
+                  offsetFromSymbolStart = "186">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Mercury.MercuryAPI.(postNewPlan (give : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, take : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, place : Swift.String, image_url : Swift.Optional&lt;Swift.String&gt;, completionHandler : () -&gt; ()) -&gt; ()).(default argument 3)"
+                  symbolName = "Mercury.MercuryAPI.(postNewPlan (give : Swift.String, take : Swift.String, place : Swift.String, image_url : Swift.Optional&lt;Swift.String&gt;, completionHandler : () -&gt; ()) -&gt; ()).(default argument 3)"
                   moduleName = "Mercury"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "507000611.089173"
+                  timestampString = "507001166.866505"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "139"
@@ -390,26 +390,26 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Mercury.MercuryAPI.postNewPlan (give : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, take : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, place : Swift.String, image_url : Swift.Optional&lt;Swift.String&gt;, completionHandler : () -&gt; ()) -&gt; ()"
+                  symbolName = "Mercury.MercuryAPI.postNewPlan (give : Swift.String, take : Swift.String, place : Swift.String, image_url : Swift.Optional&lt;Swift.String&gt;, completionHandler : () -&gt; ()) -&gt; ()"
                   moduleName = "Mercury"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "507000611.095482"
+                  timestampString = "507001166.87073"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "140"
                   endingLineNumber = "140"
-                  offsetFromSymbolStart = "252">
+                  offsetFromSymbolStart = "186">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Mercury.MercuryAPI.(postNewPlan (give : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, take : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, place : Swift.String, image_url : Swift.Optional&lt;Swift.String&gt;, completionHandler : () -&gt; ()) -&gt; ()).(default argument 3)"
+                  symbolName = "Mercury.MercuryAPI.(postNewPlan (give : Swift.String, take : Swift.String, place : Swift.String, image_url : Swift.Optional&lt;Swift.String&gt;, completionHandler : () -&gt; ()) -&gt; ()).(default argument 3)"
                   moduleName = "Mercury"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "507000611.097813"
+                  timestampString = "507001166.873173"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "139"
@@ -447,40 +447,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "170"
             endingLineNumber = "170"
-            landmarkName = "applyToParticipate(plan_id:completionHandler:)"
+            landmarkName = "applyForParticipate(plan_id:completionHandler:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Mercury.MercuryAPI.(applyToParticipate (plan_id : Swift.Int, completionHandler : () -&gt; ()) -&gt; ()).(closure #1)"
-                  moduleName = "Mercury"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "507000611.106028"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "170"
-                  endingLineNumber = "170"
-                  offsetFromSymbolStart = "733">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Mercury.MercuryAPI.(applyToParticipate (plan_id : Swift.Int, completionHandler : () -&gt; ()) -&gt; ()).(closure #1).(closure #1)"
-                  moduleName = "Mercury"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "507000611.108311"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "171"
-                  endingLineNumber = "171"
-                  offsetFromSymbolStart = "266">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -495,38 +463,38 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "166"
             endingLineNumber = "166"
-            landmarkName = "applyToParticipate(plan_id:completionHandler:)"
+            landmarkName = "applyForParticipate(plan_id:completionHandler:)"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Mercury.MercuryAPI.applyToParticipate (plan_id : Swift.Int, completionHandler : () -&gt; ()) -&gt; ()"
+                  symbolName = "Mercury.MercuryAPI.(applyForParticipate (plan_id : Swift.Int, completionHandler : () -&gt; ()) -&gt; ()).(closure #1)"
                   moduleName = "Mercury"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "507000611.112164"
+                  timestampString = "507001166.88524"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "166"
                   endingLineNumber = "166"
-                  offsetFromSymbolStart = "543">
+                  offsetFromSymbolStart = "1170">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Mercury.MercuryAPI.(applyToParticipate (plan_id : Swift.Int, completionHandler : () -&gt; ()) -&gt; ()).(closure #1)"
+                  symbolName = "Mercury.MercuryAPI.(applyForParticipate (plan_id : Swift.Int, completionHandler : () -&gt; ()) -&gt; ()).(closure #1).($defer #1) () -&gt; ()"
                   moduleName = "Mercury"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "507000611.11381"
+                  timestampString = "507001166.887633"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "168"
-                  endingLineNumber = "168"
-                  offsetFromSymbolStart = "39">
+                  startingLineNumber = "166"
+                  endingLineNumber = "166"
+                  offsetFromSymbolStart = "15">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -543,40 +511,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "167"
             endingLineNumber = "167"
-            landmarkName = "applyToParticipate(plan_id:completionHandler:)"
+            landmarkName = "applyForParticipate(plan_id:completionHandler:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Mercury.MercuryAPI.(applyToParticipate (plan_id : Swift.Int, completionHandler : () -&gt; ()) -&gt; ()).(closure #1)"
-                  moduleName = "Mercury"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "507000611.117392"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "167"
-                  endingLineNumber = "167"
-                  offsetFromSymbolStart = "1170">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Mercury.MercuryAPI.(applyToParticipate (plan_id : Swift.Int, completionHandler : () -&gt; ()) -&gt; ()).(closure #1).($defer #1) () -&gt; ()"
-                  moduleName = "Mercury"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
-                  timestampString = "507000611.11901"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "167"
-                  endingLineNumber = "167"
-                  offsetFromSymbolStart = "15">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -591,7 +527,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "163"
             endingLineNumber = "163"
-            landmarkName = "applyToParticipate(plan_id:completionHandler:)"
+            landmarkName = "applyForParticipate(plan_id:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -607,7 +543,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "164"
             endingLineNumber = "164"
-            landmarkName = "applyToParticipate(plan_id:completionHandler:)"
+            landmarkName = "applyForParticipate(plan_id:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -623,8 +559,40 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "165"
             endingLineNumber = "165"
-            landmarkName = "applyToParticipate(plan_id:completionHandler:)"
+            landmarkName = "applyForParticipate(plan_id:completionHandler:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mercury.MercuryAPI.applyForParticipate (plan_id : Swift.Int, completionHandler : () -&gt; ()) -&gt; ()"
+                  moduleName = "Mercury"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
+                  timestampString = "507001166.901336"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "165"
+                  endingLineNumber = "165"
+                  offsetFromSymbolStart = "543">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mercury.MercuryAPI.(applyForParticipate (plan_id : Swift.Int, completionHandler : () -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "Mercury"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/toco/Desktop/Mercury/Mercury/MercuryAPI.swift"
+                  timestampString = "507001166.903123"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "167"
+                  endingLineNumber = "167"
+                  offsetFromSymbolStart = "39">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

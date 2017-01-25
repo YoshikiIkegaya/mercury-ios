@@ -159,6 +159,7 @@ class MercuryAPI: NSObject {
     }
   }
   
+  /// Apply for plan
   func applyForParticipate(plan_id: Int, completionHandler: @escaping () -> Void) {
     print("====== 参加申請を送信します ======")
     Alamofire.request(Path.Apply(plan_id).path, method: .put, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
