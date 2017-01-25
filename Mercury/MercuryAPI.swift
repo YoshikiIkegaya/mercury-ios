@@ -27,7 +27,6 @@ class MercuryAPI: NSObject {
     case Login
     case Plans
     case Plan(Int)
-    case PostPlan
     case Apply(Int)
     case Applicants(Int)
     case User(Int)
@@ -42,8 +41,6 @@ class MercuryAPI: NSObject {
         return "plans"
       case .Plan(let id):
         return "plans/\(id)"
-      case .PostPlan:
-        return "plans"
       case .Apply(let id):
         return "plans/\(id)/apply"
       case .Applicants(let id):
@@ -203,8 +200,7 @@ class MercuryAPI: NSObject {
     print("[place] \(place)")
     print("[image_url] \(image_url)")
     print("============")
-    
-    Alamofire.request(Path.PostPlan.path, method: .post, parameters: params, encoding: JSONEncoding.default, headers: buildHeaders())
+    Alamofire.request(Path.Plans.path, method: .post, parameters: params, encoding: JSONEncoding.default, headers: buildHeaders())
       .responseJSON { response in
         defer { print("=======  Post new plan deferred =======") }
         guard let object = response.result.value else { return }
@@ -238,25 +234,27 @@ class MercuryAPI: NSObject {
   }
   
   /// Fetch plan applicants
-  func fetchApplicants(plan_id: Int, completionHandler: @escaping () -> Void) {
+  func fetchApplicants(plan_id: Int, completionHandler: @escaping (ApplicantInfo) -> Void) {
     Alamofire.request(Path.Applicants(plan_id).path, method: .get, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
       .responseJSON(completionHandler: { response in
         defer { print("=======  Fetch applicants deferred =======") }
         guard let object = response.result.value else { return }
         let json = JSON(object)
         json.forEach { (_, json) in
-          let ai = ApplicantInfo(json: json)
-          print("[applicant_id] \(ai.id)")
-          print("[applicant_name] \(ai.name)")
-          print("[plan_id] \(ai.plan_id)")
-          print("[creator_id] \(ai.creator_id)")
+          let applicantInfo = ApplicantInfo(json: json)
+          print("========== [FETCH PLAN APPLICANTS] ==========")
+          print("[applicantInfo_id] \(applicantInfo.id)")
+          print("[applicantInfo_name] \(applicantInfo.name)")
+          print("[applicantInfo_id] \(applicantInfo.plan_id)")
+          print("[applicantInfo_id] \(applicantInfo.creator_id)")
           print("==============")
+          completionHandler(applicantInfo)
         }
       })
   }
   
   /// Fetch User Info
-  func fetchUserInfo(user_id: Int, completionHandler:@escaping (UserInfo) -> Void) {
+  func fetchUserInfo(user_id: Int, completionHandler: @escaping (UserInfo) -> Void) {
     Alamofire.request(Path.User(user_id).path, method: .get, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
       .responseJSON(completionHandler: { response in
         defer { print("======= Fetch User Info deferred =======") }

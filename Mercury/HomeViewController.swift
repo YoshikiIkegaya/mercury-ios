@@ -100,22 +100,18 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomeViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    SVProgressHUD.show()
     /// 詳細画面へ遷移
     /// このプランに対する申請者の一覧を取得する
-//    guard let planId = MercuryAPI.sharedInstance.plans[indexPath.row].id else { return }
-//    
-//    MercuryAPI.sharedInstance.getPlan(plan_id: planId, completionHandler: {
-//      MercuryAPI.sharedInstance.fetchApplicants(plan_id: planId, completionHandler: {
-//        self.dismiss(animated: true, completion: {
-//          print("============ ここで申請完了のモーダルを表示する ============")
-//        })
-//      })
-//    })
-    
-    if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailPlanVC") as? DetailPlanViewController {
-      vc.plan = MercuryAPI.sharedInstance.plans[indexPath.row]
-      self.navigationController?.pushViewController(vc, animated: true)
-    }
+    guard let planId = MercuryAPI.sharedInstance.plans[indexPath.row].id else { return }
+    MercuryAPI.sharedInstance.fetchApplicants(plan_id: planId, completionHandler: { (applicantInfo) -> Void in
+      print("============ 申請者リスト取得APIのコール完了 ============")
+      if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailPlanVC") as? DetailPlanViewController {
+        vc.applicant = applicantInfo
+        vc.plan = MercuryAPI.sharedInstance.plans[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
+      }
+    })
   }
 }
 

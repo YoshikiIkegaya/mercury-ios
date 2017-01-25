@@ -441,25 +441,44 @@
                                     <action selector="tappedPlanerIconButton:" destination="w3C-b3-TRC" eventType="touchUpInside" id="SWW-fM-RO7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liy-9r-Hen">
-                                <rect key="frame" x="16" y="450" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="プラン申請者一覧を表示"/>
-                                <connections>
-                                    <action selector="tmpGetApplicants:" destination="w3C-b3-TRC" eventType="touchUpInside" id="kte-I8-GE2"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0y-Gp-Zb4">
+                                <rect key="frame" x="16" y="432" width="343" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nu7-ex-AJi">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Xd-el-Z73">
+                                        <rect key="frame" x="180" y="0.0" width="160" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="承認"/>
+                                        <connections>
+                                            <action selector="tappedAcceptBtn:" destination="w3C-b3-TRC" eventType="touchUpInside" id="aTQ-Cj-Q6f"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="4pP-H5-Y3Y"/>
+                                    <constraint firstAttribute="height" constant="30" id="kMh-iR-1YH"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uHJ-mT-0Ih" firstAttribute="centerX" secondItem="zyQ-5A-Gk0" secondAttribute="centerX" id="OtR-wT-Ejn"/>
                             <constraint firstAttribute="trailing" secondItem="5XK-kF-jjb" secondAttribute="trailing" id="RSi-mY-yxl"/>
                             <constraint firstAttribute="trailing" secondItem="ws2-Ie-UOJ" secondAttribute="trailing" id="Tqz-cr-UVz"/>
+                            <constraint firstItem="h0y-Gp-Zb4" firstAttribute="centerX" secondItem="zyQ-5A-Gk0" secondAttribute="centerX" id="UQt-o7-2lj"/>
                             <constraint firstItem="Bc0-tH-XRe" firstAttribute="top" secondItem="ws2-Ie-UOJ" secondAttribute="bottom" constant="60" id="Wvb-mR-3tc"/>
                             <constraint firstItem="Bc0-tH-XRe" firstAttribute="centerX" secondItem="zyQ-5A-Gk0" secondAttribute="centerX" id="azq-pU-uNk"/>
                             <constraint firstItem="Bc0-tH-XRe" firstAttribute="top" secondItem="5XK-kF-jjb" secondAttribute="bottom" constant="60" id="bGS-dn-K4V"/>
                             <constraint firstItem="K5W-0R-Rcf" firstAttribute="centerX" secondItem="zyQ-5A-Gk0" secondAttribute="centerX" id="fhP-7Z-w7D"/>
                             <constraint firstItem="YyO-rr-ZNV" firstAttribute="top" secondItem="K5W-0R-Rcf" secondAttribute="bottom" constant="20" id="kGj-6D-rKT"/>
+                            <constraint firstItem="h0y-Gp-Zb4" firstAttribute="top" secondItem="uHJ-mT-0Ih" secondAttribute="bottom" constant="40" id="p9G-vW-7By"/>
                             <constraint firstItem="5XK-kF-jjb" firstAttribute="top" secondItem="zyQ-5A-Gk0" secondAttribute="top" id="wFB-e6-jie"/>
                             <constraint firstItem="uHJ-mT-0Ih" firstAttribute="top" secondItem="Bc0-tH-XRe" secondAttribute="bottom" constant="50" id="wij-Ye-wE3"/>
                             <constraint firstItem="5XK-kF-jjb" firstAttribute="leading" secondItem="zyQ-5A-Gk0" secondAttribute="leading" id="zUM-BM-7ig"/>
@@ -469,6 +488,8 @@
                     <navigationItem key="navigationItem" id="zlD-MK-7a9"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="acceptButton" destination="1Xd-el-Z73" id="yM2-Q1-T00"/>
+                        <outlet property="applicantNameLabel" destination="nu7-ex-AJi" id="Bxl-gJ-V5H"/>
                         <outlet property="applyButton" destination="K5W-0R-Rcf" id="u1A-l4-p8f"/>
                         <outlet property="giveLabel" destination="Bc0-tH-XRe" id="Ydr-IO-zB6"/>
                         <outlet property="planImageView" destination="5XK-kF-jjb" id="guG-LV-Bye"/>

@@ -16,7 +16,12 @@ class DetailPlanViewController: UIViewController {
   @IBOutlet weak var takeLabel: UILabel!
   @IBOutlet weak var applyButton: UIButton!
   
+  
+  @IBOutlet weak var applicantNameLabel: UILabel!
+  @IBOutlet weak var acceptButton: UIButton!
+  
   var plan: PlanInfo?
+  var applicant: ApplicantInfo?
   let placeholderView = UIImage.imageWithColor(color: UIColor.white)
   var isApplyButtonEnabled: Bool?
   
@@ -31,16 +36,9 @@ class DetailPlanViewController: UIViewController {
     }
     setupUI()
   }
-  
-  /// これはテスト用のボタンです
-  @IBAction func tmpGetApplicants(_ sender: Any) {
-    /// このプランに対する申請者の一覧を取得する
-    guard let planId = plan?.id else { return }
-    MercuryAPI.sharedInstance.fetchApplicants(plan_id: planId, completionHandler: {
-      self.dismiss(animated: true, completion: {
-        print("============ ここで申請完了のモーダルを表示する ============")
-      })
-    })
+  @IBAction func tappedAcceptBtn(_ sender: Any) {
+    //承認する
+    
   }
   
   /// プランに参加申請をする or 自分が作成したプランを削除する
@@ -71,9 +69,9 @@ class DetailPlanViewController: UIViewController {
     }
   }
   
+  /// プラン作成者のプロフィール画面に遷移する
   @IBAction func tappedPlanerIconButton(_ sender: Any) {
     print("===== Tapped Planer Icon Button =====")
-    /// プラン作成者のプロフィール画面に遷移する
     guard let creator_id = plan?.creator_id else { return }
     MercuryAPI.sharedInstance.fetchUserInfo(user_id: creator_id, completionHandler: { (userInfo) -> Void in
       if let vc = self.storyboard?.instantiateViewController(withIdentifier: "UserProfileVC") as? UserProfileViewController {
@@ -89,6 +87,16 @@ class DetailPlanViewController: UIViewController {
     self.takeLabel?.text = plan?.take
     setupApplyButtonUI()
     setupPlanImageView()
+    
+    /// プランの作成者が自分でない時、承認アクションを表示しない
+    if isApplyButtonEnabled == true {
+      self.acceptButton?.isHidden = true
+      self.applicantNameLabel?.isHidden = true
+    } else {
+      if let applicantName = applicant?.name {
+        self.applicantNameLabel.text = applicantName
+      }
+    }
   }
   
   func setupPlanImageView() {
