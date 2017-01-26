@@ -21,6 +21,9 @@ class MercuryAPI: NSObject {
   }
   var plans = [PlanInfo]()
   
+  /// Whether call API
+  dynamic var fetchingPlanInfoList = false
+  
   private enum Path {
     case Auth
     case Login
@@ -146,19 +149,38 @@ class MercuryAPI: NSObject {
     }
   }
   
-  /// Fetch plans data
-  func fetchPlanInfoList(completionHandler: @escaping () -> Void) {
+  /// Fetch Plans List
+  func fetchPlanInfoList(refresh: Bool = false, completionHandler: @escaping () -> Void) {
+    if fetchingPlanInfoList { return }
+    fetchingPlanInfoList = true
     Alamofire.request(Path.Plans.path, method: .get, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
       .responseJSON { response in
-        defer { print("======= Fetch plans data deferred =======") }
+        defer {
+          print("======= Fetch plans data deferred =======")
+          self.fetchingPlanInfoList = false
+        }
         guard let object = response.result.value else { return }
         let json = JSON(object)
+        var tmpPlanArray = [PlanInfo]()
         json.forEach { (_, json) in
           let pi = PlanInfo(json: json)
           //          print("======= [GET PLANS] =======")
           //          print(json)
           //          print("==============")
-          self.plans.append(pi)
+          
+          /// for test
+          tmpPlanArray.append(pi)
+          if refresh {
+            print("======= Before =======")
+            print("[self.plans.count] \(self.plans.count)")
+            print("==============")
+            self.plans = tmpPlanArray
+            print("======= After =======")
+            print("[self.plans.count] \(self.plans.count)")
+            print("==============")
+          } else {
+            self.plans.append(pi)
+          }
         }
         completionHandler()
     }

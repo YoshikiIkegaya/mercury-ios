@@ -55,8 +55,10 @@ class HomeViewController: UIViewController {
   
   func reload(_ sender: Any?) {
     DispatchQueue.main.async {
-      self.collectionView?.reloadData()
-      self.refreshControl.endRefreshing()
+      MercuryAPI.sharedInstance.fetchPlanInfoList(refresh: true, completionHandler: {
+        self.collectionView?.reloadData()
+        self.refreshControl.endRefreshing()
+      })
     }
   }
   
