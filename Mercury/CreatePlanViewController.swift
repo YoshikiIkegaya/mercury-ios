@@ -95,7 +95,6 @@ class CreatePlanViewController: UIViewController {
         guard let takeText = self?.takeTextField?.text else { return }
         guard let placeText = self?.placeTextField?.text else { return }
         MercuryAPI.sharedInstance.postNewPlan(give: giveText, take: takeText, place: placeText, image_url: self?.tmp_image_url, completionHandler: {
-          print("====== 新しいプランを作成しました ======")
           self?.dismiss(animated: true, completion: nil)
         })
       })

@@ -205,7 +205,7 @@ class MercuryAPI: NSObject {
           print(json)
           print("==============")
         }
-        print("=============== ここから completionHandler をコールします")
+        print("=============== 新しいプランを作成しました ===============")
         completionHandler()
     }
   }
