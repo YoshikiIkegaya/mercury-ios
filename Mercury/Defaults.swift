@@ -9,14 +9,15 @@
 import Foundation
 
 enum Defaults: String {
-  case FBSDKAccessToken = "FBSDKAccessToken"
-  case AccessToken      = "AccessToken"
-  case UserName         = "UserName"
-  case ProfileImage     = "ProfileImage"
-  case IsConnectedToDB  = "IsConnectedToDB"
-  case ExpirationDate   = "ExpirationDate"
-  case CurrentUserEmail = "CurrentUserEmail"
-  case FacebookID       = "FacebookID"
+  case FBSDKAccessToken     = "FBSDKAccessToken"
+  case AccessToken          = "AccessToken"
+  case UserName             = "UserName"
+  case ProfileImage         = "ProfileImage"
+  case IsConnectedToDB      = "IsConnectedToDB"
+  case ExpirationDate       = "ExpirationDate"
+  case CurrentUserEmail     = "CurrentUserEmail"
+  case FacebookID           = "FacebookID"
+  case CurrentUserCreatorID = "CurrentUserCreatorID"
   
   func set(value: AnyObject?) {
     UserDefaults.standard.set(value, forKey: self.rawValue)
@@ -25,6 +26,10 @@ enum Defaults: String {
   
   func getString() -> String? {
     return UserDefaults.standard.string(forKey: self.rawValue)
+  }
+  
+  func getInt() -> Int? {
+    return UserDefaults.standard.integer(forKey: self.rawValue)
   }
   
   func getBool() -> Bool? {

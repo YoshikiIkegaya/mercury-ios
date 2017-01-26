@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     print("----- viewDidLoad -----")
-    SVProgressHUD.dismiss()
+    SVProgressHUD.show()
     refreshControl.addTarget(self, action: #selector(reload(_:)), for: .valueChanged)
     self.title = "Home"
     setupCollectionView()
@@ -32,7 +32,13 @@ class HomeViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    print("----- viewWillAppear -----")
     self.reload(nil)
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    SVProgressHUD.dismiss()
   }
   
   @IBAction func tappedCreatePlanButton(_ sender: Any) {
@@ -49,13 +55,16 @@ class HomeViewController: UIViewController {
   
   func reload(_ sender: Any?) {
     DispatchQueue.main.async {
-      self.collectionView?.reloadData()
-      self.refreshControl.endRefreshing()
+      MercuryAPI.sharedInstance.fetchPlanInfoList(refresh: true, completionHandler: {
+        self.collectionView?.reloadData()
+        self.refreshControl.endRefreshing()
+      })
     }
   }
   
   func fetchAPI() {
     MercuryAPI.sharedInstance.fetchPlanInfoList(completionHandler: {
+      SVProgressHUD.dismiss()
       self.collectionView?.reloadData()
       self.refreshControl.endRefreshing()
     })
@@ -95,14 +104,28 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomeViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    print("Tapped cell!")
+    SVProgressHUD.show()
     /// 詳細画面へ遷移
-    if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailPlanVC") as? DetailPlanViewController {
-      vc.giveStr = MercuryAPI.sharedInstance.plans[indexPath.row].give
-      vc.takeStr = MercuryAPI.sharedInstance.plans[indexPath.row].take
-      vc.planImageURL = MercuryAPI.sharedInstance.plans[indexPath.row].image_url
-      self.navigationController?.pushViewController(vc, animated: true)
+    /// このプランに対する申請者の一覧を取得する
+    guard let planId = MercuryAPI.sharedInstance.plans[indexPath.row].id else {
+      return
     }
+    MercuryAPI.sharedInstance.fetchApplicants(plan_id: planId, completionHandler: { (applicants) -> Void in
+      print("============ 申請者リスト取得APIのコール完了 ============")
+      if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailPlanVC") as? DetailPlanViewController {
+        vc.hasApplicant = true
+        vc.applicants = applicants
+        vc.plan = MercuryAPI.sharedInstance.plans[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
+      }
+    }, defaultHandler: { () -> Void in
+      print("============ このプランに申請者はいませんでした ============")
+      if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailPlanVC") as? DetailPlanViewController {
+        vc.plan = MercuryAPI.sharedInstance.plans[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
+      }
+    })
+    collectionView.deselectItem(at: indexPath, animated: true)
   }
 }
 
@@ -131,10 +154,8 @@ extension HomeViewController: UICollectionViewDataSource {
           }
       })
     }
-    
     cell.planImageView?.contentMode = .scaleAspectFill
     cell.planImageView?.layer.masksToBounds = true
-    
     return cell
   }
   

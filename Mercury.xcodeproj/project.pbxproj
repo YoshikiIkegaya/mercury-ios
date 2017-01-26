@@ -18,6 +18,7 @@
 		DD0B43A91E34F3F5003787D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD0B43A81E34F3F5003787D7 /* GoogleService-Info.plist */; };
 		DD0B43AE1E35C0F0003787D7 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B43AD1E35C0F0003787D7 /* UIView+Extension.swift */; };
 		DD0B43B21E35D0C6003787D7 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B43B11E35D0C6003787D7 /* Defaults.swift */; };
+		DD1CE8CC1E3848800031044C /* ApplicantInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CE8CB1E3848800031044C /* ApplicantInfo.swift */; };
 		DD259DCE1E3430FE001F03AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DCD1E3430FE001F03AC /* AppDelegate.swift */; };
 		DD259DD01E3430FE001F03AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DCF1E3430FE001F03AC /* HomeViewController.swift */; };
 		DD259DD31E3430FE001F03AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD259DD11E3430FE001F03AC /* Main.storyboard */; };
@@ -32,6 +33,8 @@
 		DD259DFB1E3458FB001F03AC /* MercuryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DFA1E3458FB001F03AC /* MercuryAPI.swift */; };
 		DD259DFF1E348254001F03AC /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259DFE1E348254001F03AC /* UIImage+Extension.swift */; };
 		DD259E031E34BEF3001F03AC /* CreatePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD259E021E34BEF3001F03AC /* CreatePlanViewController.swift */; };
+		DD330E0E1E38ACFB009DD2BE /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD330E0D1E38ACFB009DD2BE /* UserProfileViewController.swift */; };
+		DD330E111E38F5AF009DD2BE /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD330E101E38F5AF009DD2BE /* UserInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +50,7 @@
 		DD0B43A81E34F3F5003787D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD0B43AD1E35C0F0003787D7 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		DD0B43B11E35D0C6003787D7 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		DD1CE8CB1E3848800031044C /* ApplicantInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicantInfo.swift; sourceTree = "<group>"; };
 		DD259DCA1E3430FE001F03AC /* Mercury.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mercury.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD259DCD1E3430FE001F03AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD259DCF1E3430FE001F03AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 		DD259DFA1E3458FB001F03AC /* MercuryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercuryAPI.swift; sourceTree = "<group>"; };
 		DD259DFE1E348254001F03AC /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		DD259E021E34BEF3001F03AC /* CreatePlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePlanViewController.swift; sourceTree = "<group>"; };
+		DD330E0D1E38ACFB009DD2BE /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		DD330E101E38F5AF009DD2BE /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		E79BFCF3E772DC048BA353A8 /* Pods-Mercury.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mercury.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mercury/Pods-Mercury.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,12 +123,12 @@
 		DD259DCC1E3430FE001F03AC /* Mercury */ = {
 			isa = PBXGroup;
 			children = (
-				DD259DCD1E3430FE001F03AC /* AppDelegate.swift */,
 				DD259DF41E344D3D001F03AC /* Extensions */,
 				DD259DEB1E34486B001F03AC /* Helper */,
 				DD259DE91E344287001F03AC /* Models */,
 				DD259DE01E34387D001F03AC /* Controllers */,
 				DD259DE31E343920001F03AC /* Views */,
+				DD259DCD1E3430FE001F03AC /* AppDelegate.swift */,
 				DD259DD11E3430FE001F03AC /* Main.storyboard */,
 				DD259DD41E3430FE001F03AC /* Assets.xcassets */,
 				DD0B295B1E3702A500BC8958 /* Images.xcassets */,
@@ -142,6 +148,7 @@
 				DD0B43A61E34EA7D003787D7 /* LoginViewController.swift */,
 				DD259DCF1E3430FE001F03AC /* HomeViewController.swift */,
 				DD259E021E34BEF3001F03AC /* CreatePlanViewController.swift */,
+				DD330E0D1E38ACFB009DD2BE /* UserProfileViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -160,8 +167,10 @@
 		DD259DE91E344287001F03AC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DD259DF01E344B56001F03AC /* PlanInfo.swift */,
 				DD259DFA1E3458FB001F03AC /* MercuryAPI.swift */,
+				DD259DF01E344B56001F03AC /* PlanInfo.swift */,
+				DD1CE8CB1E3848800031044C /* ApplicantInfo.swift */,
+				DD330E101E38F5AF009DD2BE /* UserInfo.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -324,11 +333,13 @@
 			files = (
 				DD259DF11E344B56001F03AC /* PlanInfo.swift in Sources */,
 				DD0B43B21E35D0C6003787D7 /* Defaults.swift in Sources */,
+				DD330E0E1E38ACFB009DD2BE /* UserProfileViewController.swift in Sources */,
 				DD259DD01E3430FE001F03AC /* HomeViewController.swift in Sources */,
 				DD259DE21E343895001F03AC /* SideMenuViewController.swift in Sources */,
 				DD259E031E34BEF3001F03AC /* CreatePlanViewController.swift in Sources */,
 				DD259DFF1E348254001F03AC /* UIImage+Extension.swift in Sources */,
 				DD0B29451E36230600BC8958 /* DetailPlanViewController.swift in Sources */,
+				DD330E111E38F5AF009DD2BE /* UserInfo.swift in Sources */,
 				DD0B29411E35FDE500BC8958 /* RoomTableViewCell.swift in Sources */,
 				DD259DF91E3454DE001F03AC /* Router.swift in Sources */,
 				DD0B294A1E364B6900BC8958 /* Date+Extension.swift in Sources */,
@@ -338,6 +349,7 @@
 				DD259DCE1E3430FE001F03AC /* AppDelegate.swift in Sources */,
 				DD259DE61E343AA4001F03AC /* HomeCollectionViewCell.swift in Sources */,
 				DD259DEE1E344888001F03AC /* Settings.swift in Sources */,
+				DD1CE8CC1E3848800031044C /* ApplicantInfo.swift in Sources */,
 				DD0B43A71E34EA7D003787D7 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +476,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K7HURQ6RSZ;
 				INFOPLIST_FILE = Mercury/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toco.Mercury;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -478,6 +491,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K7HURQ6RSZ;
 				INFOPLIST_FILE = Mercury/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toco.Mercury;
 				PRODUCT_NAME = "$(TARGET_NAME)";
