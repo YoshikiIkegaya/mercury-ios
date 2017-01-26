@@ -125,6 +125,7 @@ extension HomeViewController: UICollectionViewDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
       }
     })
+    collectionView.deselectItem(at: indexPath, animated: true)
   }
 }
 
