@@ -32,13 +32,13 @@ class HomeViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    print("----- viewWillAppear -----")
     self.reload(nil)
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     SVProgressHUD.dismiss()
-    
   }
   
   @IBAction func tappedCreatePlanButton(_ sender: Any) {
@@ -55,8 +55,10 @@ class HomeViewController: UIViewController {
   
   func reload(_ sender: Any?) {
     DispatchQueue.main.async {
-      self.collectionView?.reloadData()
-      self.refreshControl.endRefreshing()
+      MercuryAPI.sharedInstance.fetchPlanInfoList(refresh: true, completionHandler: {
+        self.collectionView?.reloadData()
+        self.refreshControl.endRefreshing()
+      })
     }
   }
   
@@ -108,11 +110,11 @@ extension HomeViewController: UICollectionViewDelegate {
     guard let planId = MercuryAPI.sharedInstance.plans[indexPath.row].id else {
       return
     }
-    MercuryAPI.sharedInstance.fetchApplicants(plan_id: planId, completionHandler: { (applicantInfo) -> Void in
+    MercuryAPI.sharedInstance.fetchApplicants(plan_id: planId, completionHandler: { (applicants) -> Void in
       print("============ 申請者リスト取得APIのコール完了 ============")
       if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailPlanVC") as? DetailPlanViewController {
         vc.hasApplicant = true
-        vc.applicant = applicantInfo
+        vc.applicants = applicants
         vc.plan = MercuryAPI.sharedInstance.plans[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
       }
@@ -123,6 +125,7 @@ extension HomeViewController: UICollectionViewDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
       }
     })
+    collectionView.deselectItem(at: indexPath, animated: true)
   }
 }
 

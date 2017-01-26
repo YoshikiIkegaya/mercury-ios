@@ -22,7 +22,7 @@ class DetailPlanViewController: UIViewController {
   @IBOutlet weak var acceptButton: UIButton!
   
   var plan: PlanInfo?
-  var applicant: ApplicantInfo?
+  var applicants: [ApplicantInfo] = []
   let placeholderView = UIImage.imageWithColor(color: UIColor.white)
   var isApplicantAction: Bool = true
   var hasApplicant: Bool = false
@@ -38,7 +38,6 @@ class DetailPlanViewController: UIViewController {
     if plan?.creator_id == currentUserCreatorID {
       isApplicantAction = false
     }
-    
     setupUI()
   }
   
@@ -51,9 +50,9 @@ class DetailPlanViewController: UIViewController {
     //承認する
     SVProgressHUD.show()
     guard let planId = self.plan?.id else { return }
-    guard let applicantId = self.applicant?.id else { return }
+    guard let applicantId = self.applicants[0].id else { return }
     MercuryAPI.sharedInstance.acceptApplicant(plan_id: planId, applicant_id: applicantId, completionhandler: {
-      if let applicantName = self.applicant?.name {
+      if let applicantName = self.applicants[0].name {
         print("========== \(applicantName) さんの参加申請を承認しました ==========")
       }
       SVProgressHUD.dismiss()
@@ -109,7 +108,7 @@ class DetailPlanViewController: UIViewController {
     setupPlanImageView()
     
     if isApplicantAction {
-      if let applicantName = applicant?.name {
+      if let applicantName = applicants[0].name {
         self.applicantNameLabel.text = applicantName
       }
       // このプランの作成者が自分である時
