@@ -359,6 +359,13 @@ class MercuryAPI: NSObject {
         }
         guard let object = response.result.value else { return }
         let json = JSON(object)
+        print("===== [Fetch User Info API] ======")
+        print(json)
+        print(json.count)
+        for e in json {
+          print(e)
+        }
+        print("===========")
         json.forEach { (_, json) in
           let userinfo = UserInfo(json: json)
           print("====== [FETCH USER INFO API] =======")

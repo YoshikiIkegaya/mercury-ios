@@ -29,7 +29,7 @@ class DetailPlanViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    let currentUserCreatorID = Defaults.CurrentUserCreatorID.getInt()
+    guard let currentUserCreatorID = Defaults.CurrentUserCreatorID.getInt() else { return }
     print("==========")
     print("[currentUserCreatorID] \(currentUserCreatorID)")
     print("==========")
@@ -84,6 +84,7 @@ class DetailPlanViewController: UIViewController {
       MercuryAPI.sharedInstance.applyForParticipate(plan_id: planId, completionHandler: {
         print("========== 参加申請の送信を完了しました ==========")
         /// TODO: 参加申請が完了したことを通知するアラートを表示する
+        SVProgressHUD.showSuccess(withStatus: "参加申請しました")
       })
     }
   }
@@ -108,7 +109,8 @@ class DetailPlanViewController: UIViewController {
     setupPlanImageView()
     
     if isApplicantAction {
-      
+      self.applicantNameLabel?.isHidden = true
+      self.acceptButton?.isHidden = true
     } else {
       // このプランの作成者が自分の時のアクション
       // 候補者がいない時、承認アクションを非表示にする
