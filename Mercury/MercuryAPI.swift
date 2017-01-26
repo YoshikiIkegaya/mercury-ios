@@ -15,12 +15,11 @@ typealias APICompletionHandler = (_ json: JSON?, _ error: NSError?) -> Void
 class MercuryAPI: NSObject {
   
   static var sharedInstance = MercuryAPI()
-  var plans = [PlanInfo]()
-  
   private struct Constants {
     static let BaseURL = "https://mercury-app.herokuapp.com/"
     static let MercuryAPIURL = "https://mercury-app.herokuapp.com/api/"
   }
+  var plans = [PlanInfo]()
   
   private enum Path {
     case Auth
@@ -95,13 +94,13 @@ class MercuryAPI: NSObject {
     Alamofire.request(Path.Login.path, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil)
       .responseJSON { response in
         defer { print("======= Path.Login.path deferred =======") }
-        guard let object = response.result.value else { return }
+        guard let object = response.result.value else {
+          return
+        }
         let json = JSON(object)
         print("======== [USER LOGIN API] ========")
-        print(json)
-        print("==============================")
-        print("======= [access_token] =======")
         guard let acccess_token = json["access_token"].string else { return }
+        print("[access_token] \(acccess_token)")
         print("==============")
         Defaults.AccessToken.set(value: acccess_token as AnyObject)
         json.forEach { (_, json) in
@@ -130,7 +129,9 @@ class MercuryAPI: NSObject {
     Alamofire.request(Path.Auth.path, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil)
       .responseJSON { response in
         defer { print("======= Resister user data deferred =======") }
-        guard let object = response.result.value else { return }
+        guard let object = response.result.value else {
+          return
+        }
         let json = JSON(object)
         json.forEach { (_, json) in
           print("====== [RESISTER API] ======")
@@ -204,7 +205,7 @@ class MercuryAPI: NSObject {
           print(json)
           print("==============")
         }
-        print("=============== ここから completionHandler をコールします")
+        print("=============== 新しいプランを作成しました ===============")
         completionHandler()
     }
   }
@@ -228,15 +229,22 @@ class MercuryAPI: NSObject {
   }
   
   /// Fetch plan applicants
-  func fetchApplicants(plan_id: Int, completionHandler: @escaping (ApplicantInfo) -> Void) {
+  func fetchApplicants(plan_id: Int, completionHandler: @escaping (ApplicantInfo) -> Void, defaultHandler: @escaping () -> Void) {
     Alamofire.request(Path.Applicants(plan_id).path, method: .get, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
       .responseJSON(completionHandler: { response in
         defer { print("=======  Fetch applicants deferred =======") }
-        guard let object = response.result.value else { return }
+        guard let object = response.result.value else {
+          return
+        }
         let json = JSON(object)
+        print("========== [FETCH PLAN APPLICANTS : PLAN ID \(plan_id)] ==========")
+        print(json)
+        print("==========")
+        if json.count == 0 {
+          defaultHandler()
+        }
         json.forEach { (_, json) in
           let applicantInfo = ApplicantInfo(json: json)
-          print("========== [FETCH PLAN APPLICANTS] ==========")
           print("[applicantInfo_id] \(applicantInfo.id)")
           print("[applicantInfo_name] \(applicantInfo.name)")
           print("[applicantInfo_id] \(applicantInfo.plan_id)")

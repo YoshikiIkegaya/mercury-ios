@@ -24,7 +24,8 @@ class DetailPlanViewController: UIViewController {
   var plan: PlanInfo?
   var applicant: ApplicantInfo?
   let placeholderView = UIImage.imageWithColor(color: UIColor.white)
-  var isApplyButtonEnabled: Bool?
+  var isApplicantAction: Bool = true
+  var hasApplicant: Bool = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -32,9 +33,12 @@ class DetailPlanViewController: UIViewController {
     print("==========")
     print("[currentUserCreatorID] \(currentUserCreatorID)")
     print("==========")
+    
+    /// このプランの作成者が自分自身である時
     if plan?.creator_id == currentUserCreatorID {
-      isApplyButtonEnabled = false
+      isApplicantAction = false
     }
+    
     setupUI()
   }
   
@@ -59,7 +63,7 @@ class DetailPlanViewController: UIViewController {
   
   /// プランに参加申請をする or 自分が作成したプランを削除する
   @IBAction func tappedApplyButton(_ sender: Any) {
-    if isApplyButtonEnabled == false {
+    if isApplicantAction == false {
       print("========== このプランを削除します ==========")
       /// TODO: 本当に削除をするか確認をするアラートを表示する
       
@@ -104,13 +108,18 @@ class DetailPlanViewController: UIViewController {
     setupApplyButtonUI()
     setupPlanImageView()
     
-    /// プランの作成者が自分でない時、承認アクションを表示しない
-    if isApplyButtonEnabled == true {
+    if isApplicantAction {
+      if let applicantName = applicant?.name {
+        self.applicantNameLabel.text = applicantName
+      }
+      // このプランの作成者が自分である時
       self.acceptButton?.isHidden = true
       self.applicantNameLabel?.isHidden = true
     } else {
-      if let applicantName = applicant?.name {
-        self.applicantNameLabel.text = applicantName
+      // 候補者がいない時、承認アクションを非表示にする
+      if hasApplicant == false {
+        self.acceptButton?.isHidden = true
+        self.applicantNameLabel?.isHidden = true
       }
     }
   }
@@ -135,12 +144,12 @@ class DetailPlanViewController: UIViewController {
   }
   
   func setupApplyButtonUI() {
-    if isApplyButtonEnabled == false {
-      self.applyButton?.setTitle("このプランを削除する", for: .normal)
-      self.applyButton?.backgroundColor = UIColor.lightGray
-    } else {
+    if isApplicantAction {
       self.applyButton?.setTitle("このプランに参加する", for: .normal)
       self.applyButton?.backgroundColor = Settings.Color.mercuryColor
+    } else {
+      self.applyButton?.setTitle("このプランを削除する", for: .normal)
+      self.applyButton?.backgroundColor = UIColor.lightGray
     }
     self.applyButton?.tintColor = UIColor.white
     self.applyButton?.titleLabel?.font = UIFont(name: "Helvetiva-Bold", size: 14)
