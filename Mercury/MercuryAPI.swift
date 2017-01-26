@@ -182,6 +182,11 @@ class MercuryAPI: NSObject {
         guard let object = response.result.value else { return }
         let json = JSON(object)
         var tmpPlanArray = [PlanInfo]()
+        
+        print("======= Before =======")
+        print("[self.plans.count] \(self.plans.count)")
+        print("==============")
+        
         json.forEach { (_, json) in
           let pi = PlanInfo(json: json)
           //          print("======= [GET PLANS] =======")
@@ -191,17 +196,15 @@ class MercuryAPI: NSObject {
           /// for test
           tmpPlanArray.append(pi)
           if refresh {
-            print("======= Before =======")
-            print("[self.plans.count] \(self.plans.count)")
-            print("==============")
             self.plans = tmpPlanArray
-            print("======= After =======")
-            print("[self.plans.count] \(self.plans.count)")
-            print("==============")
           } else {
             self.plans.append(pi)
           }
         }
+        print("======= After =======")
+        print("[self.plans.count] \(self.plans.count)")
+        print("==============")
+        
         completionHandler()
     }
   }
@@ -286,7 +289,7 @@ class MercuryAPI: NSObject {
   }
   
   /// Fetch plan applicants
-  func fetchApplicants(plan_id: Int, completionHandler: @escaping (ApplicantInfo) -> Void, defaultHandler: @escaping () -> Void) {
+  func fetchApplicants(plan_id: Int, completionHandler: @escaping ([ApplicantInfo]) -> Void, defaultHandler: @escaping () -> Void) {
     if fetchingApplicants { return }
     fetchingApplicants = true
     Alamofire.request(Path.Applicants(plan_id).path, method: .get, parameters: nil, encoding: URLEncoding.default, headers: buildHeaders())
@@ -304,7 +307,9 @@ class MercuryAPI: NSObject {
         print("==========")
         if json.count == 0 {
           defaultHandler()
+          return
         }
+        var applicants = [ApplicantInfo]()
         json.forEach { (_, json) in
           let applicantInfo = ApplicantInfo(json: json)
           print("[applicantInfo_id] \(applicantInfo.id)")
@@ -312,8 +317,9 @@ class MercuryAPI: NSObject {
           print("[applicantInfo_id] \(applicantInfo.plan_id)")
           print("[applicantInfo_id] \(applicantInfo.creator_id)")
           print("==============")
-          completionHandler(applicantInfo)
+          applicants.append(applicantInfo)
         }
+        completionHandler(applicants)
       })
   }
   

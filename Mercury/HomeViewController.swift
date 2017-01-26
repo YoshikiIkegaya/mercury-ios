@@ -110,11 +110,11 @@ extension HomeViewController: UICollectionViewDelegate {
     guard let planId = MercuryAPI.sharedInstance.plans[indexPath.row].id else {
       return
     }
-    MercuryAPI.sharedInstance.fetchApplicants(plan_id: planId, completionHandler: { (applicantInfo) -> Void in
+    MercuryAPI.sharedInstance.fetchApplicants(plan_id: planId, completionHandler: { (applicants) -> Void in
       print("============ 申請者リスト取得APIのコール完了 ============")
       if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailPlanVC") as? DetailPlanViewController {
         vc.hasApplicant = true
-        vc.applicant = applicantInfo
+        vc.applicants = applicants
         vc.plan = MercuryAPI.sharedInstance.plans[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
       }
