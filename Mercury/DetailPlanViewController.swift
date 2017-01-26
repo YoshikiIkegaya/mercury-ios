@@ -25,6 +25,7 @@ class DetailPlanViewController: UIViewController {
   var applicant: ApplicantInfo?
   let placeholderView = UIImage.imageWithColor(color: UIColor.white)
   var isApplyButtonEnabled: Bool?
+  var hasApplicant: Bool = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -112,6 +113,12 @@ class DetailPlanViewController: UIViewController {
       if let applicantName = applicant?.name {
         self.applicantNameLabel.text = applicantName
       }
+    }
+    
+    // 候補者がいない時、承認アクションを非表示にする
+    if hasApplicant == false {
+      self.acceptButton?.isHidden = true
+      self.applicantNameLabel?.isHidden = true
     }
   }
   

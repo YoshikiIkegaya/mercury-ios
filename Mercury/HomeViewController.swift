@@ -105,11 +105,20 @@ extension HomeViewController: UICollectionViewDelegate {
     SVProgressHUD.show()
     /// 詳細画面へ遷移
     /// このプランに対する申請者の一覧を取得する
-    guard let planId = MercuryAPI.sharedInstance.plans[indexPath.row].id else { return }
+    guard let planId = MercuryAPI.sharedInstance.plans[indexPath.row].id else {
+      return
+    }
     MercuryAPI.sharedInstance.fetchApplicants(plan_id: planId, completionHandler: { (applicantInfo) -> Void in
       print("============ 申請者リスト取得APIのコール完了 ============")
       if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailPlanVC") as? DetailPlanViewController {
+        vc.hasApplicant = true
         vc.applicant = applicantInfo
+        vc.plan = MercuryAPI.sharedInstance.plans[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
+      }
+    }, defaultHandler: { () -> Void in
+      print("============ このプランに申請者はいませんでした ============")
+      if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailPlanVC") as? DetailPlanViewController {
         vc.plan = MercuryAPI.sharedInstance.plans[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
       }
