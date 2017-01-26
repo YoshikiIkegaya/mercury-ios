@@ -32,13 +32,13 @@ class HomeViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    print("----- viewWillAppear -----")
     self.reload(nil)
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     SVProgressHUD.dismiss()
-    
   }
   
   @IBAction func tappedCreatePlanButton(_ sender: Any) {
